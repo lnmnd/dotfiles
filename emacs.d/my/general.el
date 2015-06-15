@@ -1,0 +1,49 @@
+(defun my/byte-recompile ()
+  (interactive)
+  (byte-recompile-directory "~/.emacs.d" 0))
+
+;; backups
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
+(setq backup-by-copying t)
+(setq delete-old-versions t
+      kept-new-versions 6
+      kept-old-versions 2
+      version-control t)
+
+;; no welcome screen
+(setq inhibit-splash-screen t)
+
+;; Don't remove the top menu
+(menu-bar-mode 1)
+;;; Remove the tool bar
+(tool-bar-mode -1)
+
+;; clock
+(setq display-time-format "%H:%M")
+(display-time)
+
+(set-frame-font "Source Code Pro-12")
+
+(custom-set-variables
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(custom-enabled-themes (quote (wombat))))
+
+;; Set the return key to globally act as a new-line-and-intent 
+(global-set-key "\C-m" 'newline-and-indent)
+
+;; use aspell, basque, ultra fast mode
+(setq ispell-program-name "aspell")
+(setq ispell-dictionary "euskera")
+(setq ispell-extra-args '("--sug-mode=ultra"))
+
+;; insert date
+(defun date (arg)
+  (interactive "P")
+  (insert (if arg
+	      (format-time-string "%d.%m.%Y")
+	    (format-time-string "%Y-%m-%d"))))
+
+;; no rebase-mode
+(setq auto-mode-alist (delete '("git-rebase-todo" . rebase-mode)
+			      auto-mode-alist))
