@@ -6,6 +6,8 @@ org
 magit
 auto-complete
 gnuplot
+projectile
+helm-projectile
 
 paredit
 highlight-parentheses
