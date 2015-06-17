@@ -9,6 +9,7 @@ gnuplot
 projectile
 helm-projectile
 company
+flycheck
 
 paredit
 highlight-parentheses

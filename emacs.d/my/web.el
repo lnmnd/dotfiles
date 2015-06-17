@@ -23,3 +23,6 @@
 (setq php-template-compatibility nil)
 ;; Enable Symfony coding style
 (add-hook 'php-mode-hook 'php-enable-symfony2-coding-style)
+;; Enable flycheck
+(add-hook 'php-mode-hook 'flycheck-mode)
+
