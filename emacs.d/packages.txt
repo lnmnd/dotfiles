@@ -8,6 +8,7 @@ auto-complete
 gnuplot
 projectile
 helm-projectile
+company
 
 paredit
 highlight-parentheses
@@ -27,9 +28,6 @@ js-comint
 sass-mode
 htmlize
 
-company-jedi
-jedi-core
-jedi
 elpy
 
 haskell-mode
