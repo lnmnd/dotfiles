@@ -10,18 +10,16 @@
 ;; web-mode
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.twig\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.php?\\'" . web-mode))
-(setq web-mode-code-indent-offset 4)
-(add-hook 'web-mode-hook (lambda () (flymake-mode-on)))
 (setq web-mode-ac-sources-alist
       '(("css" . (ac-source-words-in-buffer ac-source-css-property))
-        ("html" . (ac-source-words-in-buffer ac-source-abbrev))
-        ("php" . (ac-source-words-in-buffer
-                  ac-source-words-in-same-mode-buffers
-                  ac-source-dictionary))))
+        ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
 
 ;; mustatche
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . mustache-mode))
 
-;; 4 space indent, no tabs
-(setq php-mode-force-pear t)
+;; PHP
+(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
+;; Use web-mode with templates
+(setq php-template-compatibility nil)
+;; Enable Symfony coding style
+(add-hook 'php-mode-hook 'php-enable-symfony2-coding-style)

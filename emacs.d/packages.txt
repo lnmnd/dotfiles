@@ -30,6 +30,8 @@ htmlize
 
 elpy
 
+php-mode
+
 haskell-mode
 ghc
 ruby-mode
