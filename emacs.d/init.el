@@ -23,6 +23,7 @@
 (load-my 'org)
 (load-my 'lisp)
 (load-my 'python)
+(load-my 'php)
 (load-my 'web)
 (load-my 'factor)
 
