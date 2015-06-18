@@ -29,7 +29,13 @@ The output will appear in the buffer *PHP*."
   "Send the buffer to PHP REPL for execution.
 The output will appear in the buffer *PHP*."
   (interactive)
-  (php-eval-region (point-min) (point-max)))
+  ;; Ignore '<?php' at the beginning of the buffer.
+  (let* ((code (buffer-substring (point-min) (point-max)))
+	 (cleaned-code (if (string-prefix-p "<?php" code t)
+			   (substring code 5)
+			 code)))
+    (comint-send-string php-buffer cleaned-code)
+    (comint-send-string php-buffer "\n")))
 
 (defvar php-mode-map
   (let ((m (make-sparse-keymap)))
