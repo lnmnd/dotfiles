@@ -32,6 +32,8 @@ htmlize
 elpy
 
 php-mode
+# install php, phpmd and phpcs in $PATH
+# verify with M-x flycheck-verify-setup
 
 haskell-mode
 ghc
