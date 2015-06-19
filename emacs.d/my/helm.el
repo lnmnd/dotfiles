@@ -11,7 +11,7 @@
 
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x b") 'helm-projectile)
+(global-set-key (kbd "C-x b") 'helm-mini)
 
 ;; From within a helm-find-files search a file/directory with C-s
 (when (executable-find "ack-grep")
