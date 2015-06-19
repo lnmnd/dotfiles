@@ -11,12 +11,14 @@
 
 ;; Use psysh as REPL
 
-(setq inferior-php-program "psysh")
+(setq inferior-php-command "psysh")
 (setq php-buffer nil)
 
 (defun run-php ()
   (interactive)
-  (setq php-buffer (make-comint "PHP" inferior-php-program))
+  (let ((cmds (split-string inferior-php-command)))
+    (setq php-buffer (apply 'make-comint "PHP" (car cmds)
+			    nil (cdr cmds))))
   (pop-to-buffer php-buffer))
 
 (defun php-eval-region (start end)
