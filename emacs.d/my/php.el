@@ -55,6 +55,7 @@ The output will appear in the buffer *PHP*."
 
 (defvar php-mode-map
   (let ((m (make-sparse-keymap)))
+    (define-key m "\C-c\C-z" 'run-php)
     (define-key m "\C-c\C-r" 'php-eval-region)
     (define-key m "\C-c\C-k" 'php-eval-buffer)
     (define-key m "\C-c\C-d" 'php-display-doc)
