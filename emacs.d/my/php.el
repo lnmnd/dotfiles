@@ -46,11 +46,18 @@ The output will appear in the buffer *PHP*."
     (comint-send-string php-buffer cmd)
     (comint-send-string php-buffer "\n")))
 
+(defun php-show-source ()
+  (interactive)
+  (let ((cmd (concat "show " (thing-at-point 'symbol))))
+    (comint-send-string php-buffer cmd)
+    (comint-send-string php-buffer "\n")))
+
 (defvar php-mode-map
   (let ((m (make-sparse-keymap)))
     (define-key m "\C-c\C-r" 'php-eval-region)
     (define-key m "\C-c\C-k" 'php-eval-buffer)
     (define-key m "\C-c\C-d" 'php-display-doc)
+    (define-key m "\C-c\C-s" 'php-show-source)
     m))
 
 (use-local-map php-mode-map)
