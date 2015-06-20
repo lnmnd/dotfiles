@@ -28,6 +28,10 @@ The output will appear in the buffer *PHP*."
   (comint-send-region php-buffer start end)
   (comint-send-string php-buffer "\n"))
 
+(defun php-send-to-buffer (content)
+  (comint-send-string php-buffer content)
+  (comint-send-string php-buffer "\n"))
+
 (defun php-eval-buffer ()
   "Send the buffer to PHP REPL for execution.
 The output will appear in the buffer *PHP*."
@@ -37,20 +41,17 @@ The output will appear in the buffer *PHP*."
 	 (cleaned-code (if (string-prefix-p "<?php" code t)
 			   (substring code 5)
 			 code)))
-    (comint-send-string php-buffer cleaned-code)
-    (comint-send-string php-buffer "\n")))
+    (php-send-to-buffer cleaned-code)))
 
 (defun php-display-doc ()
   (interactive)
   (let ((cmd (concat "doc " (thing-at-point 'symbol))))
-    (comint-send-string php-buffer cmd)
-    (comint-send-string php-buffer "\n")))
+    (php-send-to-buffer cmd)))
 
 (defun php-show-source ()
   (interactive)
   (let ((cmd (concat "show " (thing-at-point 'symbol))))
-    (comint-send-string php-buffer cmd)
-    (comint-send-string php-buffer "\n")))
+    (php-send-to-buffer cmd)))
 
 (defvar php-mode-map
   (let ((m (make-sparse-keymap)))
