@@ -8,6 +8,7 @@
 (add-hook 'php-mode-hook 'php-enable-symfony2-coding-style)
 ;; Enable flycheck
 (add-hook 'php-mode-hook 'flycheck-mode)
+(setq flycheck-phpmd-rulesets '("cleancode" "codesize" "controversial" "design" "unusedcode"))
 (setq flycheck-phpcs-standard "PSR2")
 
 ;; Use psysh as REPL
