@@ -3,8 +3,6 @@
 (require 'helm-config)
 
 (helm-mode 1)
-;; open helm buffer inside current window, not occupy whole other window
-(setq helm-split-window-in-side-p t)
 
 (setq helm-buffers-fuzzy-matching t
       helm-recentf-fuzzy-match    t)
