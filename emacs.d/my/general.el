@@ -47,3 +47,6 @@
 ;; no rebase-mode
 (setq auto-mode-alist (delete '("git-rebase-todo" . rebase-mode)
 			      auto-mode-alist))
+
+;; global company mode
+(add-hook 'after-init-hook 'global-company-mode)
