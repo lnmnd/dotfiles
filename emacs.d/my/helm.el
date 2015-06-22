@@ -3,16 +3,16 @@
 (use-package
   helm
   :ensure t
+  :bind
+  ("C-x C-f" . helm-find-files)
+  ("M-x" . helm-M-x)
+  ("C-x b" . helm-mini)
   :config
   (use-package helm-config)
   (helm-mode 1)
   
   (setq helm-buffers-fuzzy-matching t
 	helm-recentf-fuzzy-match    t)
-  
-  (global-set-key (kbd "C-x C-f") 'helm-find-files)
-  (global-set-key (kbd "M-x") 'helm-M-x)
-  (global-set-key (kbd "C-x b") 'helm-mini)
 
   ;; From within a helm-find-files search a file/directory with C-s
   (when (executable-find "ack-grep")
