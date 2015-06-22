@@ -13,6 +13,9 @@
 (add-to-list 'load-path "~/.emacs/lib")
 (package-initialize)
 
+(eval-when-compile
+  (require 'use-package))
+
 (load (expand-file-name "~/.emacs.d/lib/epresent.el"))
 
 (defun load-my (file)
