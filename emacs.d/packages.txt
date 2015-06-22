@@ -1,6 +1,7 @@
 installed packages
 ------------------
 
+use-package
 helm
 org
 magit
