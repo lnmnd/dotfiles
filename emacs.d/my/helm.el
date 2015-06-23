@@ -18,19 +18,17 @@
   (use-package helm-config)
   (helm-mode 1)
 
-;; projectile + helm-projectile
 (use-package
   projectile
   :ensure t
   :config
-  (projectile-global-mode)
-  (use-package
-    helm-projectile
-    :ensure t
-    :init
-    (setq projectile-enable-caching t)
-    (setq projectile-completion-system 'helm)
-    :config
-    (helm-projectile-on)))
+  (projectile-global-mode))
 
-
+(use-package
+  helm-projectile
+  :ensure t
+  :init
+  (setq projectile-enable-caching t)
+  (setq projectile-completion-system 'helm)
+  :config
+  (helm-projectile-on))
