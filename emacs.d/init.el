@@ -15,6 +15,9 @@
 (add-to-list 'load-path "~/.emacs/lib")
 (package-initialize)
 
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
 (eval-when-compile
   (require 'use-package))
 
