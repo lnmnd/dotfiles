@@ -15,7 +15,7 @@
 
 (setq my-scheme-hooks '(scheme-mode-hook emacs-lisp-mode-hook))
 (dolist (x my-scheme-hooks)
-  (add-hook 'emacs-lisp-mode-hook
+  (add-hook x
 	    (lambda ()
 	      (highlight-parentheses-mode t))))
 
