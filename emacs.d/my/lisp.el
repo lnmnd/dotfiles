@@ -9,15 +9,16 @@
 ;; highlight matching brackets when your cursor is on one of the bracket
 (show-paren-mode 1)
 
-(setq
- hl-paren-colors '()
- hl-paren-background-colors (list "#4f4f4f" "#4f4f4f" "#4f4f4f" "#4f4f4f" "#4f4f4f" "#4f4f4f" "#4f4f4f"))
-
-(setq my-scheme-hooks '(scheme-mode-hook emacs-lisp-mode-hook))
-(dolist (x my-scheme-hooks)
-  (add-hook x
-	    (lambda ()
-	      (highlight-parentheses-mode t))))
+(use-package
+  highlight-parentheses
+  :ensure t
+  :init
+  (setq
+   hl-paren-colors '()
+   hl-paren-background-colors (list "#4f4f4f" "#4f4f4f" "#4f4f4f" "#4f4f4f" "#4f4f4f" "#4f4f4f" "#4f4f4f"))
+  (dolist (x '(scheme-mode-hook emacs-lisp-mode-hook))
+    (add-hook x (lambda ()
+		  (highlight-parentheses-mode t)))))
 
 (use-package
   paredit
