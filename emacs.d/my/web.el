@@ -10,6 +10,10 @@
 ;; web-mode
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.twig\\'" . web-mode))
+;; no tabs
+(setq-default indent-tabs-mode nil)
+;; 2 spaces
+(setq web-mode-markup-indent-offset 2)
 (setq web-mode-ac-sources-alist
       '(("css" . (ac-source-words-in-buffer ac-source-css-property))
         ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
