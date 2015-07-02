@@ -32,6 +32,10 @@
 	       scheme-mode-hook))
     (add-hook x #'enable-paredit-mode)))
 
+(use-package
+  geiser
+  :ensure t)
+
 ;; clojure
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (defun cider-namespace-refresh ()
