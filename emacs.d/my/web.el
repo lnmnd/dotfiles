@@ -11,6 +11,12 @@
   (add-hook 'js2-mode-hook (lambda () (tern-mode t))))
 
 (use-package
+  moz
+  :ensure t
+  :config
+  (add-hook 'js2-mode-hook 'moz-minor-mode))
+
+(use-package
   web-mode
   :ensure t
   :mode ("\\.html?\\'" "\\.twig\\'")
