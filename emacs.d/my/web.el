@@ -1,7 +1,3 @@
-;; tern
-(add-to-list 'load-path "~/.emacs.d/lib/tern")
-(autoload 'tern-mode "~/.emacs.d/lib/tern/emacs/tern.el" nil t)
-
 (use-package
   js2-mode
   :ensure t
@@ -9,6 +5,10 @@
   :config
   (setq inferior-js-program-command "phantomjs")
   (add-hook 'js2-mode-hook (lambda () (tern-mode t))))
+
+(use-package
+  tern
+  :ensure t)
 
 (use-package
   moz
