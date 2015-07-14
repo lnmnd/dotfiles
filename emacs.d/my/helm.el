@@ -20,7 +20,9 @@
 
 (use-package
   helm-ag
-  :ensure t)
+  :ensure t
+  :bind
+  ("C-c C-g" . helm-do-ag-this-file))
 
 (use-package
   projectile
