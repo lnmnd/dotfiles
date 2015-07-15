@@ -20,9 +20,13 @@
 
 (use-package
   helm-ag
+  :ensure t)
+
+(use-package
+  helm-swoop
   :ensure t
   :bind
-  ("C-c C-g" . helm-do-ag-this-file))
+  ("C-c C-g" . helm-swoop))
 
 (use-package
   projectile
