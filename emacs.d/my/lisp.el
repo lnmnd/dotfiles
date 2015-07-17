@@ -21,6 +21,25 @@
 		  (highlight-parentheses-mode t)))))
 
 (use-package
+  clojure-mode
+  :ensure t
+  :config
+  (defun cider-namespace-refresh ()
+    (interactive)
+    (cider-interactive-eval
+     "(require 'clojure.tools.namespace.repl)
+    (clojure.tools.namespace.repl/refresh)")))
+
+(use-package
+  cider
+  :ensure t
+  :pin melpa-stable)
+
+(use-package
+  geiser
+  :ensure t)
+
+(use-package
   paredit
   :ensure t
   :init
@@ -29,17 +48,6 @@
 	       ielm-mode-hook
 	       lisp-mode-hook
 	       lisp-interaction-mode-hook
-	       scheme-mode-hook))
+	       scheme-mode-hook
+	       clojure-mode-hook))
     (add-hook x #'enable-paredit-mode)))
-
-(use-package
-  geiser
-  :ensure t)
-
-;; clojure
-(add-hook 'clojure-mode-hook 'paredit-mode)
-(defun cider-namespace-refresh ()
-  (interactive)
-  (cider-interactive-eval
-   "(require 'clojure.tools.namespace.repl)
-    (clojure.tools.namespace.repl/refresh)"))
