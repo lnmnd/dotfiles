@@ -65,11 +65,3 @@ The output will appear in the buffer *PHP*."
     m))
 
 (use-local-map php-mode-map)
-
-(use-package
-  flycheck
-  :ensure t
-  :config
-  (add-hook 'php-mode-hook 'flycheck-mode)
-  (setq flycheck-phpmd-rulesets '("cleancode" "codesize" "controversial" "design" "unusedcode"))
-  (setq flycheck-phpcs-standard "PSR2"))

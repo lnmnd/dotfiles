@@ -69,3 +69,36 @@
   :ensure t
   :config
   (setq magit-last-seen-setup-instructions "1.4.0"))
+
+(use-package
+  irony
+  :ensure t
+  :config
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
+  (add-hook 'objc-mode-hook 'irony-mode))
+
+(use-package
+  company-irony
+  :ensure t
+  :config
+  (eval-after-load 'company
+    '(add-to-list 'company-backends 'company-irony))
+  (add-hook 'irony-mode-hook 'company-irony-setup-begin-commands))
+
+(use-package
+  flycheck
+  :ensure t
+  :config
+  (add-hook 'php-mode-hook 'flycheck-mode)
+  (setq flycheck-phpmd-rulesets '("cleancode" "codesize" "controversial" "design" "unusedcode"))
+  (setq flycheck-phpcs-standard "PSR2")
+
+  (add-hook 'c-mode-hook 'flycheck-mode))
+
+(use-package
+  flycheck-irony
+  :ensure t
+  :config
+  (eval-after-load 'flycheck
+    '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
