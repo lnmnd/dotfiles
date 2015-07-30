@@ -36,6 +36,12 @@
   :pin melpa-stable)
 
 (use-package
+  typed-clojure-mode
+  :ensure t
+  :config
+  (add-hook 'clojure-mode-hook 'typed-clojure-mode))
+
+(use-package
   geiser
   :ensure t)
 
