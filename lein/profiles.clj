@@ -1,0 +1,10 @@
+{:user
+ {:dependencies [[leiningen #=(leiningen.core.main/leiningen-version)]
+                 [org.clojure/tools.namespace "0.2.11"]
+                 [im.chit/vinyasa "0.3.4"]
+                 [alembic "0.3.2"]]
+  :plugins [[cider/cider-nrepl "0.9.1"]]
+  :injections [(require '[vinyasa.inject :as inject])
+               (inject/in clojure.core
+                          [clojure.tools.namespace.repl :refer [refresh]]
+                          [alembic.still :refer [[distill pull] lein]])]}}
