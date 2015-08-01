@@ -112,3 +112,7 @@
   :ensure t
   :config
   (add-hook 'rust-mode-hook 'flymake-rust-load))
+
+(use-package
+  toml-mode
+  :ensure t)
