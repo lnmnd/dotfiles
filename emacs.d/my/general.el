@@ -102,3 +102,13 @@
   :config
   (eval-after-load 'flycheck
     '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
+
+(use-package
+  rust-mode
+  :ensure t)
+
+(use-package
+  flymake-rust
+  :ensure t
+  :config
+  (add-hook 'rust-mode-hook 'flymake-rust-load))
