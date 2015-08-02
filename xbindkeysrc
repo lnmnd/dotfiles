@@ -1,0 +1,5 @@
+"sleep 0.5 && movedoc down"
+Alt+Next
+
+"sleep 0.5 && movedoc up"
+Alt+Prior
