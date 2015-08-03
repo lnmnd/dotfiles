@@ -74,9 +74,10 @@
   irony
   :ensure t
   :config
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'c-mode-hook 'irony-mode)
-  (add-hook 'objc-mode-hook 'irony-mode))
+;;  (add-hook 'c++-mode-hook 'irony-mode)
+;;  (add-hook 'c-mode-hook 'irony-mode)
+;;  (add-hook 'objc-mode-hook 'irony-mode)
+  )
 
 (use-package
   company-irony
