@@ -11,6 +11,5 @@
             [codox "0.8.13"]
             [lein-marginalia "0.8.0"]]
   :injections [(require '[vinyasa.inject :as inject])
-               (inject/in clojure.core
-                          [clojure.tools.namespace.repl :refer [refresh]]
+               (inject/in [clojure.tools.namespace.repl :refer [refresh]]
                           [alembic.still :refer [[distill pull] lein]])]}}
