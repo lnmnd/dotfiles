@@ -117,3 +117,7 @@
 (use-package
   toml-mode
   :ensure t)
+
+(use-package
+  gherkin-mode
+  :ensure t)
