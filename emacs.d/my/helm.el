@@ -26,7 +26,7 @@
   helm-swoop
   :ensure t
   :bind
-  ("C-c C-g" . helm-swoop))
+  ("C-c C-s" . helm-swoop))
 
 (use-package
   projectile
