@@ -5,6 +5,7 @@ export LANG=en_US.utf8
 wmname LG3D
 xset b off
 xbindkeys
+setxkbmap es
 redshift -l 43.25:-1.59 &
 volti &
 TIME_ZONE="Europe/Madrid" SLEEP_TIME=60 /home/user/bin/dwmstatus &
