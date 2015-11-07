@@ -21,6 +21,24 @@
 		  (highlight-parentheses-mode t)))))
 
 (use-package
+  paredit
+  :ensure t
+  :init
+  (dolist (x '(emacs-lisp-mode-hook
+	       eval-expression-minibuffer-setup-hook
+	       ielm-mode-hook
+	       lisp-mode-hook
+	       lisp-interaction-mode-hook
+	       scheme-mode-hook
+	       clojure-mode-hook))
+    (add-hook x #'enable-paredit-mode)))
+
+(use-package
+  clj-refactor
+  :ensure t
+  :diminish clj-refactor-mode)
+
+(use-package
   clojure-mode
   :ensure t
   :config
@@ -33,27 +51,9 @@
 (use-package
   cider
   :ensure t
-  :pin melpa-stable)
-
-(use-package
-  typed-clojure-mode
-  :ensure t
-  :config
-  (add-hook 'clojure-mode-hook 'typed-clojure-mode))
+  :pin melpa-stable
+  :init (add-hook 'cider-mode-hook #'clj-refactor-mode))
 
 (use-package
   geiser
   :ensure t)
-
-(use-package
-  paredit
-  :ensure t
-  :init
-  (dolist (x '(emacs-lisp-mode-hook
-	       eval-expression-minibuffer-setup-hook
-	       ielm-mode-hook
-	       lisp-mode-hook
-	       lisp-interaction-mode-hook
-	       scheme-mode-hook
-	       clojure-mode-hook))
-    (add-hook x #'enable-paredit-mode)))
