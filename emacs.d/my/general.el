@@ -101,3 +101,11 @@
 (use-package
   yaml-mode
   :ensure t)
+
+(use-package
+  ghc
+  :ensure t
+  :init
+  (autoload 'ghc-init "ghc" nil t)
+  (autoload 'ghc-debug "ghc" nil t)
+  (add-hook 'haskell-mode-hook (lambda () (ghc-init))))
