@@ -23,6 +23,7 @@
 (display-time)
 
 (set-frame-font "Source Code Pro-12")
+(setq initial-scratch-message ";; scratch\n\n(set-frame-font \"Source Code Pro 12\")")
 
 (custom-set-variables
  '(ansi-color-faces-vector
