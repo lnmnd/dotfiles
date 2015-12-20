@@ -13,8 +13,8 @@
 ;; no welcome screen
 (setq inhibit-splash-screen t)
 
-;; Don't remove the top menu
-(menu-bar-mode 1)
+;; Remove the menu bar
+(menu-bar-mode -1)
 ;;; Remove the tool bar
 (tool-bar-mode -1)
 
