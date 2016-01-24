@@ -51,6 +51,12 @@
 
 (electric-pair-mode)
 
+(use-package
+  undo-tree
+  :ensure t
+  :config
+  (global-undo-tree-mode))
+
 ;; global company mode
 (use-package
   company
