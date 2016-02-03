@@ -118,6 +118,10 @@
   (add-hook 'haskell-mode-hook (lambda () (ghc-init))))
 
 (use-package
+  markdown-mode
+  :ensure t)
+
+(use-package
   json-mode
   :ensure t)
 
