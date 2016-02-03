@@ -1,0 +1,9 @@
+[user]
+	name = user
+	email = email
+
+[push]
+	default = simple
+
+[alias]
+	tree = !git log --graph --oneline --all --color --decorate
