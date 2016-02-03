@@ -116,3 +116,11 @@
   (autoload 'ghc-init "ghc" nil t)
   (autoload 'ghc-debug "ghc" nil t)
   (add-hook 'haskell-mode-hook (lambda () (ghc-init))))
+
+(use-package
+  json-mode
+  :ensure t)
+
+(use-package
+  csv-mode
+  :ensure t)
