@@ -1,3 +1,0 @@
-[submodule "emacs.d/lib/tern"]
-	path = emacs.d/lib/tern
-	url = https://github.com/marijnh/tern
