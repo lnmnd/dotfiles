@@ -4,17 +4,25 @@
   :mode "\\.js\\'")
 
 (use-package
-  moz
+  js-comint
   :ensure t
+  :bind
+  ("C-x C-e" . js-send-last-sexp)
+  ("C-c C-e" . js-send-last-sexp)
+  ("C-c C-r" . js-send-region)
+  ("C-c C-k" . js-send-buffer)
   :config
-  (add-hook 'js2-mode-hook 'moz-minor-mode))
+  (setq inferior-js-program-command "node")
+  (setq inferior-js-program-arguments '("--interactive"))
+  (setenv "NODE_NO_READLINE" "1")
+  (local-set-key (kbd "C-c C-e") 'js-send-last-sexp))
 
 (use-package
   tern
   :ensure t
   :config
   (add-hook 'js2-mode-hook 'tern-mode)
-  (define-key tern-mode-keymap (kbd "C-c C-r") 'moz-send-region))
+  (define-key tern-mode-keymap (kbd "C-c C-r") 'js-send-region))
 
 (use-package
   tern-auto-complete
