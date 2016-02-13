@@ -31,12 +31,17 @@
 (use-package
   web-mode
   :ensure t
-  :mode ("\\.html?\\'" "\\.twig\\'")
+  :mode "\\.html?\\'"
   :config
   ;; no tabs
   (setq-default indent-tabs-mode nil)
   ;; 2 spaces
   (setq web-mode-markup-indent-offset 2))
+
+(use-package
+  twig-mode
+  :ensure t
+  :mode "\\.twig\\'")
 
 (use-package
   mustache-mode
