@@ -39,7 +39,7 @@
   (setq web-mode-markup-indent-offset 2))
 
 (use-package
-  mustache
+  mustache-mode
   :ensure t
   :mode "\\.mustache\\'")
 
