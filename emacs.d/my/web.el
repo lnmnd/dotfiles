@@ -6,6 +6,7 @@
 (use-package
   js-comint
   :ensure t
+  :mode "\\.js\\'"
   :bind
   ("C-x C-e" . js-send-last-sexp)
   ("C-c C-e" . js-send-last-sexp)
