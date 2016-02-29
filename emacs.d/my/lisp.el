@@ -30,7 +30,8 @@
 	       lisp-mode-hook
 	       lisp-interaction-mode-hook
 	       scheme-mode-hook
-	       clojure-mode-hook))
+	       clojure-mode-hook
+	       hy-mode-hook))
     (add-hook x #'enable-paredit-mode)))
 
 (use-package
@@ -56,4 +57,8 @@
 
 (use-package
   geiser
+  :ensure t)
+
+(use-package
+  hy-mode
   :ensure t)
