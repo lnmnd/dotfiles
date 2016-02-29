@@ -7,16 +7,10 @@
   js-comint
   :ensure t
   :mode "\\.js\\'"
-  :bind
-  ("C-x C-e" . js-send-last-sexp)
-  ("C-c C-e" . js-send-last-sexp)
-  ("C-c C-r" . js-send-region)
-  ("C-c C-k" . js-send-buffer)
   :config
   (setq inferior-js-program-command "node")
   (setq inferior-js-program-arguments '("--interactive"))
-  (setenv "NODE_NO_READLINE" "1")
-  (local-set-key (kbd "C-c C-e") 'js-send-last-sexp))
+  (setenv "NODE_NO_READLINE" "1"))
 
 (use-package
   tern
