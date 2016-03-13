@@ -128,3 +128,7 @@
 (use-package
   csv-mode
   :ensure t)
+
+(use-package
+  foreman-mode
+  :ensure t)
