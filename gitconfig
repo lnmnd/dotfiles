@@ -7,3 +7,4 @@
     tree = !git log --graph --oneline --all --color --decorate
 [core]
 	quotepath = false
+	editor = emacs
