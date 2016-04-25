@@ -4,13 +4,11 @@
   :mode "\\.js\\'")
 
 (use-package
-  js-comint
+  skewer-mode
   :ensure t
-  :mode "\\.js\\'"
   :config
-  (setq inferior-js-program-command "node")
-  (setq inferior-js-program-arguments '("--interactive"))
-  (setenv "NODE_NO_READLINE" "1"))
+  (add-hook 'js2-mode-hook 'skewer-mode)
+  (add-hook 'css-mode-hook 'skewer-css-mode))
 
 (use-package
   tern
