@@ -78,6 +78,20 @@
   (setq magit-last-seen-setup-instructions "1.4.0"))
 
 (use-package
+  haskell-mode
+  :ensure t
+  :config
+  (setq haskell-program-name "stack ghci")
+  (define-key haskell-mode-map (kbd "C-x C-d") nil)
+  (define-key haskell-mode-map (kbd "C-c M-.") nil)
+  (define-key haskell-mode-map (kbd "C-c C-d") nil)
+  (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
+  (define-key haskell-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
+  (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
+  (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info))
+
+(use-package
   flycheck
   :ensure t
   :config
@@ -85,7 +99,9 @@
   (setq flycheck-phpmd-rulesets '("cleancode" "codesize" "controversial" "design" "unusedcode"))
   (setq flycheck-phpcs-standard "PSR2")
 
-  (add-hook 'c-mode-hook 'flycheck-mode))
+  (add-hook 'c-mode-hook 'flycheck-mode)
+  (add-hook 'haskell-mode-hook 'flycheck-mode))
+
 
 (use-package
   rust-mode
@@ -108,14 +124,6 @@
 (use-package
   yaml-mode
   :ensure t)
-
-(use-package
-  ghc
-  :ensure t
-  :init
-  (autoload 'ghc-init "ghc" nil t)
-  (autoload 'ghc-debug "ghc" nil t)
-  (add-hook 'haskell-mode-hook (lambda () (ghc-init))))
 
 (use-package
   markdown-mode
