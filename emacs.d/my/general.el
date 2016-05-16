@@ -33,6 +33,7 @@
 ;; Set the return key to globally act as a new-line-and-intent 
 (global-set-key "\C-m" 'newline-and-indent)
 
+(define-key key-translation-map (kbd "<f9> t") (kbd "~"))
 (define-key key-translation-map (kbd "<f9> l") (kbd "λ"))
 
 ;; use aspell, basque, ultra fast mode
