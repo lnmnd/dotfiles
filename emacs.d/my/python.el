@@ -9,3 +9,10 @@
  (define-key elpy-mode-map (kbd "C-x C-e") 'elpy-shell-send-current-statement))
 
 
+(defun pdb-set-trace ()
+  (interactive)
+  (move-beginning-of-line 1)
+  (insert "import pdb; pdb.set_trace();\n")
+  (forward-line -1)
+  (indent-line-to python-indent)
+  (forward-line))
