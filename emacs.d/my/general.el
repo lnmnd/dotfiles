@@ -28,7 +28,7 @@
 (custom-set-variables
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
- '(custom-enabled-themes (quote (wombat))))
+ '(custom-enabled-themes (quote (tango))))
 
 ;; Set the return key to globally act as a new-line-and-intent 
 (global-set-key "\C-m" 'newline-and-indent)
