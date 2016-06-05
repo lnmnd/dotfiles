@@ -33,7 +33,6 @@
 (load-my 'python)
 (load-my 'php)
 (load-my 'web)
-(load-my 'factor)
 
 (provide 'init)
 ;;; init.el ends here
