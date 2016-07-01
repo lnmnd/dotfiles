@@ -10,6 +10,7 @@
             [lein-marginalia "0.8.0"]]
   :injections [(require '[vinyasa.inject :as inject])
                (inject/in [clojure.tools.namespace.repl :refer [refresh]]
+                          [vinyasa.inject :refer [inject]]
                           [vinyasa.maven pull])]}
  
  :repl
