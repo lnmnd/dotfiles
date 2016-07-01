@@ -56,6 +56,10 @@
   :init (add-hook 'cider-mode-hook #'clj-refactor-mode))
 
 (use-package
+  cljr-helm
+  :ensure t)
+
+(use-package
   geiser
   :ensure t)
 
