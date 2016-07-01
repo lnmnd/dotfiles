@@ -5,9 +5,7 @@
   :plugins [[lein-cljfmt "0.3.0"] ;; formatting
             [jonase/eastwood "0.2.1"] ;; lint
             [lein-kibit "0.1.2"] ;; static code analyzer
-            [lein-typed "0.3.5"]
-            [codox "0.8.13"]
-            [lein-marginalia "0.8.0"]]
+            [codox "0.8.13"]]
   :injections [(require '[vinyasa.inject :as inject])
                (inject/in [clojure.tools.namespace.repl :refer [refresh]]
                           [vinyasa.inject :refer [inject]]
