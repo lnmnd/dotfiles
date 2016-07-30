@@ -143,3 +143,7 @@
 (use-package
   foreman-mode
   :ensure t)
+
+(use-package
+  suggest
+  :ensure t)
