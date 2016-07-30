@@ -60,9 +60,5 @@
   :ensure t)
 
 (use-package
-  geiser
-  :ensure t)
-
-(use-package
   hy-mode
   :ensure t)
