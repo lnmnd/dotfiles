@@ -22,4 +22,4 @@
  
  :repl
  {:plugins [[cider/cider-nrepl "0.12.0"]
-            [refactor-nrepl "2.0.0-SNAPSHOT"]]}}
+            [refactor-nrepl "2.3.0-SNAPSHOT"]]}}
