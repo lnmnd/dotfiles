@@ -47,7 +47,27 @@
     (interactive)
     (cider-interactive-eval
      "(require 'clojure.tools.namespace.repl)
-    (clojure.tools.namespace.repl/refresh)")))
+    (clojure.tools.namespace.repl/refresh)"))
+  (defun cider-init ()
+    (interactive)
+    (cider-interactive-eval
+     "(init)"))
+  (defun cider-stop ()
+    (interactive)
+    (cider-interactive-eval
+     "(stop)"))
+  (defun cider-start ()
+    (interactive)
+    (cider-interactive-eval
+     "(start)"))
+  (defun cider-go ()
+    (interactive)
+    (cider-interactive-eval
+     "(go)"))
+  (defun cider-reset ()
+    (interactive)
+    (cider-interactive-eval
+     "(reset)")))
 
 (use-package
   cider
