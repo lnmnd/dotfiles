@@ -51,23 +51,23 @@
   (defun cider-init ()
     (interactive)
     (cider-interactive-eval
-     "(init)"))
+     "(in-ns 'user) (init)"))
   (defun cider-stop ()
     (interactive)
     (cider-interactive-eval
-     "(stop)"))
+     "(in-ns 'user) (stop)"))
   (defun cider-start ()
     (interactive)
     (cider-interactive-eval
-     "(start)"))
+     "(in-ns 'user) (start)"))
   (defun cider-go ()
     (interactive)
     (cider-interactive-eval
-     "(go)"))
+     "(in-ns 'user) (go)"))
   (defun cider-reset ()
     (interactive)
     (cider-interactive-eval
-     "(reset)")))
+     "(in-ns 'user) (reset)")))
 
 (use-package
   cider
