@@ -1,5 +1,5 @@
-"sleep 0.5 && movedoc down"
-Alt+Next
+"amixer -q sset Master 5%+"
+XF86AudioRaiseVolume
 
-"sleep 0.5 && movedoc up"
-Alt+Prior
+"amixer -q sset Master 5%-"
+XF86AudioLowerVolume
