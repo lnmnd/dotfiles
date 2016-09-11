@@ -3,3 +3,6 @@ XF86AudioRaiseVolume
 
 "amixer -q sset Master 5%-"
 XF86AudioLowerVolume
+
+"amixer -q sset Master toggle"
+XF86AudioMute
