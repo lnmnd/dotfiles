@@ -21,8 +21,6 @@
 (eval-when-compile
   (require 'use-package))
 
-(load (expand-file-name "~/.emacs.d/lib/epresent.el"))
-
 (defun load-my (file)
     (load (expand-file-name (concat "~/.emacs.d/my/" (symbol-name file)))))
 
