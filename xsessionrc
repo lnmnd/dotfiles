@@ -1,12 +1,11 @@
 #!/bin/sh
 
-export LANG=en_US.utf8
+. $HOME/.profile
 
 wmname LG3D
 xset b off
 xbindkeys
 setxkbmap es
 redshift -l 43.25:-1.59 &
-volti &
-TIME_ZONE="Europe/Madrid" SLEEP_TIME=60 /home/user/local/bin/dwmstatus &
-exec /home/user/local/bin/dwm
+TIME_ZONE="Europe/Madrid" SLEEP_TIME=60 dwmstatus &
+exec dwm
