@@ -3,7 +3,10 @@
  :ensure t
  :config
  (elpy-enable)
+ (elpy-use-ipython)
+ (setq elpy-rpc-python-command "python3")
  (setq elpy-rpc-backend "jedi")
+ (setq python-shell-interpreter-args "-i --simple-prompt --pprint")
  (define-key elpy-mode-map (kbd "C-c C-r") 'elpy-shell-send-region-or-buffer)
  (define-key elpy-mode-map (kbd "C-c C-e") 'elpy-shell-send-current-statement)
  (define-key elpy-mode-map (kbd "C-x C-e") 'elpy-shell-send-current-statement)
@@ -28,5 +31,4 @@
   (switch-to-buffer "boot.py")
   (mark-whole-buffer)
   (elpy-shell-send-region-or-buffer)
-  (switch-to-buffer "*Python*")
-  (insert "from imp import reload"))
+  (switch-to-buffer "*Python*"))
