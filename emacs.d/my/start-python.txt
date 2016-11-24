@@ -1,0 +1,11 @@
+import logging
+
+logger = logging.getLogger()
+
+
+def enable_logging():
+    logger.setLevel(logging.DEBUG)
+
+
+def disable_logging():
+    logger.setLevel(logging.CRITICAL)
