@@ -22,6 +22,8 @@
 (setq display-time-format "%H:%M")
 (display-time)
 
+(setq vc-follow-symlinks t)
+
 (set-frame-font "Source Code Pro-12")
 (setq initial-scratch-message ";; scratch\n\n(set-frame-font \"Source Code Pro 12\")")
 
