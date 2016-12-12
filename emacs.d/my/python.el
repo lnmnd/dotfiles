@@ -10,6 +10,7 @@
  (define-key elpy-mode-map (kbd "C-c C-r") 'elpy-shell-send-region-or-buffer)
  (define-key elpy-mode-map (kbd "C-c C-e") 'elpy-shell-send-current-statement)
  (define-key elpy-mode-map (kbd "C-x C-e") 'elpy-shell-send-current-statement)
+ (define-key elpy-mode-map (kbd "<C-return>") 'isend-send)
  (setq elpy-test-django-runner-command '("./manage.py" "test" "--noinput"))
  (setq gud-pdb-command-name "python -m pdb"))
 
