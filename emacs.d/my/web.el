@@ -41,3 +41,8 @@
   :ensure t
   :mode "\\.mustache\\'")
 
+
+(use-package
+  scss-mode
+  :ensure t
+  :mode "\\.scss\\'")

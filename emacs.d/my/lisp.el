@@ -3,7 +3,6 @@
 (setq scheme-program-name "csi")
 
 (add-to-list 'auto-mode-alist '("\\.sxml\\'" . scheme-mode))
-(add-to-list 'auto-mode-alist '("\\.scss\\'" . scheme-mode))
 (add-to-list 'auto-mode-alist '("\\.spock\\'" . scheme-mode))
 
 ;; highlight matching brackets when your cursor is on one of the bracket
