@@ -7,8 +7,7 @@
   skewer-mode
   :ensure t
   :config
-  (add-hook 'js2-mode-hook 'skewer-mode)
-  (add-hook 'css-mode-hook 'skewer-css-mode))
+  (add-hook 'js2-mode-hook 'skewer-mode))
 
 (use-package
   tern
@@ -24,7 +23,7 @@
 (use-package
   web-mode
   :ensure t
-  :mode "\\.html?\\'"
+  :mode "\\.html?\\'" "\\.css\\'"
   :config
   ;; no tabs
   (setq-default indent-tabs-mode nil)
