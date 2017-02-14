@@ -23,7 +23,7 @@
 (use-package
   web-mode
   :ensure t
-  :mode "\\.html?\\'" "\\.css\\'"
+  :mode "\\.html?\\'" "\\.css\\'" "\\.djhtml\\'"
   :config
   ;; no tabs
   (setq-default indent-tabs-mode nil)
