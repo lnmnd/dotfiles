@@ -24,6 +24,7 @@
 
 (setq vc-follow-symlinks t)
 
+(setq frame-title-format "%b - emacs")
 (set-frame-font "Source Code Pro-12")
 (setq initial-scratch-message ";; scratch\n\n(set-frame-font \"Source Code Pro 12\")")
 
