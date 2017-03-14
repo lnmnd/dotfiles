@@ -59,14 +59,12 @@
 
 (use-package
   undo-tree
-  :ensure t
   :config
   (global-undo-tree-mode))
 
 ;; global company mode
 (use-package
   company
-  :ensure t
   :config
   (add-hook 'after-init-hook 'global-company-mode)
   ;; auto-completion starts from one character
@@ -79,13 +77,11 @@
 
 (use-package
   magit
-  :ensure t
   :config
   (setq magit-last-seen-setup-instructions "1.4.0"))
 
 (use-package
   haskell-mode
-  :ensure t
   :config
   (setq haskell-program-name "stack ghci")
   (define-key haskell-mode-map (kbd "C-x C-d") nil)
@@ -99,7 +95,6 @@
 
 (use-package
   flycheck
-  :ensure t
   :config
   (add-hook 'php-mode-hook 'flycheck-mode)
   (setq flycheck-phpmd-rulesets '("cleancode" "codesize" "controversial" "design" "unusedcode"))
@@ -111,7 +106,6 @@
 
 (use-package
   isend-mode
-  :ensure t
   :config
   ;; C-RET to send the current line to the interpreter
   (setq isend-forward-line nil)
@@ -120,48 +114,19 @@
   (setq isend-delete-indentation t)
   (setq isend-end-with-empty-line t))
 
-(use-package
-  rust-mode
-  :ensure t)
+(use-package rust-mode)
 
 (use-package
   flymake-rust
-  :ensure t
   :config
   (add-hook 'rust-mode-hook 'flymake-rust-load))
 
-(use-package
-  toml-mode
-  :ensure t)
-
-(use-package
-  gherkin-mode
-  :ensure t)
-
-(use-package
-  yaml-mode
-  :ensure t)
-
-(use-package
-  markdown-mode
-  :ensure t)
-
-(use-package
-  json-mode
-  :ensure t)
-
-(use-package
-  csv-mode
-  :ensure t)
-
-(use-package
-  foreman-mode
-  :ensure t)
-
-(use-package
-  suggest
-  :ensure t)
-
-(use-package
-  tdd
-  :ensure t)
+(use-package toml-mode)
+(use-package gherkin-mode)
+(use-package yaml-mode)
+(use-package markdown-mode)
+(use-package json-mode)
+(use-package csv-mode)
+(use-package foreman-mode)
+(use-package suggest)
+(use-package tdd)

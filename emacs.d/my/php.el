@@ -2,7 +2,6 @@
 
 (use-package
   php-mode
-  :ensure t
   :mode "\\.php\\'"
   :config
   ;; Use web-mode with templates
@@ -13,7 +12,6 @@
 ;; download refactor.phar
 (use-package
   php-refactor-mode
-  :ensure t
   :config
   (add-hook 'php-mode-hook 'php-refactor-mode))
 

@@ -10,7 +10,6 @@
 
 (use-package
   highlight-parentheses
-  :ensure t
   :init
   (setq
    hl-paren-colors '()
@@ -21,7 +20,6 @@
 
 (use-package
   paredit
-  :ensure t
   :init
   (dolist (x '(emacs-lisp-mode-hook
 	       eval-expression-minibuffer-setup-hook
@@ -35,12 +33,10 @@
 
 (use-package
   clj-refactor
-  :ensure t
   :diminish clj-refactor-mode)
 
 (use-package
   clojure-mode
-  :ensure t
   :config
   (defun cider-namespace-refresh ()
     (interactive)
@@ -70,14 +66,9 @@
 
 (use-package
   cider
-  :ensure t
   :pin melpa-stable
   :init (add-hook 'cider-mode-hook #'clj-refactor-mode))
 
-(use-package
-  cljr-helm
-  :ensure t)
+(use-package cljr-helm)
 
-(use-package
-  hy-mode
-  :ensure t)
+(use-package hy-mode)
