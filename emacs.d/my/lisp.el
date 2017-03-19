@@ -62,7 +62,11 @@
   (defun cider-reset ()
     (interactive)
     (cider-interactive-eval
-     "(in-ns 'user) (reset)")))
+     "(in-ns 'user) (reset)"))
+  (defun cider-halt ()
+    (interactive)
+    (cider-interactive-eval
+     "(in-ns 'user) (halt)"))  )
 
 (use-package
   cider
