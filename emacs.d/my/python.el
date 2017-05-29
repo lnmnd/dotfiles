@@ -51,7 +51,8 @@
   (insert "import pdb; pdb.set_trace();\n")
   (forward-line -1)
   (indent-line-to python-indent)
-  (forward-line))
+  (forward-line)
+  (isend-associate "*gud-pdb*"))
 
 (defun start-python ()
   (interactive)
