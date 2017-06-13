@@ -121,6 +121,11 @@
   :config
   (add-hook 'rust-mode-hook 'flymake-rust-load))
 
+(use-package
+  ace-jump-mode
+  :bind
+  ("C-c j" . ace-jump-word-mode))
+
 (use-package toml-mode)
 (use-package gherkin-mode)
 (use-package yaml-mode)
