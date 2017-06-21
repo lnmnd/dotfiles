@@ -1,6 +1,20 @@
-(defun my/byte-recompile ()
-  (interactive)
-  (byte-recompile-directory "~/.emacs.d" 0))
+;; no welcome screen
+(setq inhibit-splash-screen t)
+
+;; Remove the menu bar
+(menu-bar-mode -1)
+;;; Remove the tool bar
+(tool-bar-mode -1)
+
+(setq frame-title-format "%b - emacs")
+
+(set-frame-font "Source Code Pro-12")
+(custom-set-variables
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(custom-enabled-themes (quote (tango))))
+
+(setq initial-scratch-message ";; scratch\n\n(set-frame-font \"Source Code Pro 12\")")
 
 ;; backups
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
@@ -10,51 +24,17 @@
       kept-old-versions 2
       version-control t)
 
-;; no welcome screen
-(setq inhibit-splash-screen t)
-
-;; Remove the menu bar
-(menu-bar-mode -1)
-;;; Remove the tool bar
-(tool-bar-mode -1)
-
-;; clock
-(setq display-time-format "%H:%M")
-(display-time)
-
-(setq vc-follow-symlinks t)
-
-(setq frame-title-format "%b - emacs")
-(set-frame-font "Source Code Pro-12")
-(setq initial-scratch-message ";; scratch\n\n(set-frame-font \"Source Code Pro 12\")")
-
-(custom-set-variables
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(custom-enabled-themes (quote (tango))))
-
 ;; Set the return key to globally act as a new-line-and-intent 
 (global-set-key "\C-m" 'newline-and-indent)
 
 (define-key key-translation-map (kbd "<f9> t") (kbd "~"))
 (define-key key-translation-map (kbd "<f9> l") (kbd "λ"))
 
-;; use aspell, basque, ultra fast mode
-(setq ispell-program-name "aspell")
-(setq ispell-dictionary "euskera")
-(setq ispell-extra-args '("--sug-mode=ultra"))
-
-;; insert date
-(defun date (arg)
-  (interactive "P")
-  (insert (if arg
-	      (format-time-string "%d.%m.%Y")
-	    (format-time-string "%Y-%m-%d"))))
-
 ;; no rebase-mode
 (setq auto-mode-alist (delete '("git-rebase-todo" . rebase-mode)
 			      auto-mode-alist))
 
+(setq vc-follow-symlinks t)
 (electric-pair-mode)
 
 (use-package
@@ -81,19 +61,6 @@
   (setq magit-last-seen-setup-instructions "1.4.0"))
 
 (use-package
-  haskell-mode
-  :config
-  (setq haskell-program-name "stack ghci")
-  (define-key haskell-mode-map (kbd "C-x C-d") nil)
-  (define-key haskell-mode-map (kbd "C-c M-.") nil)
-  (define-key haskell-mode-map (kbd "C-c C-d") nil)
-  (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
-  (define-key haskell-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
-  (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
-  (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info))
-
-(use-package
   flycheck
   :config
   (add-hook 'php-mode-hook 'flycheck-mode)
@@ -114,26 +81,18 @@
   (setq isend-delete-indentation t)
   (setq isend-end-with-empty-line t))
 
-(use-package rust-mode)
-
-(use-package
-  flymake-rust
-  :config
-  (add-hook 'rust-mode-hook 'flymake-rust-load))
-
 (use-package
   ace-jump-mode
   :bind
   ("C-c j" . ace-jump-word-mode))
 
-(use-package toml-mode)
-(use-package gherkin-mode)
-(use-package yaml-mode)
 (use-package markdown-mode)
 (use-package json-mode)
+(use-package yaml-mode)
+(use-package toml-mode)
 (use-package csv-mode)
 (use-package foreman-mode)
-(use-package suggest)
 (use-package tdd)
+(use-package suggest)
 
 (provide 'general)
