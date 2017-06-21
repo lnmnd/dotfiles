@@ -3,6 +3,8 @@
 ;; My init
 
 ;;; Code:
+(setq-default gc-cons-threshold 100000000)
+
 (require 'package)
 (add-to-list 'package-archives
 	     '("marmalade" . "http://marmalade-repo.org/packages/"))
@@ -29,6 +31,8 @@
 (load-my 'python)
 (load-my 'php)
 (load-my 'web)
+
+(setq-default gc-cons-threshold 800000)
 
 (provide 'init)
 ;;; init.el ends here
