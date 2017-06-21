@@ -35,3 +35,5 @@
   (setq projectile-completion-system 'helm)
   :config
   (helm-projectile-on))
+
+(provide 'setup-helm)

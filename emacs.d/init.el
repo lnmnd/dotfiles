@@ -21,16 +21,15 @@
 (eval-when-compile (require 'use-package))
 (setq use-package-always-ensure t)
 
-(defun load-my (file)
-    (load (expand-file-name (concat "~/.emacs.d/my/" (symbol-name file)))))
+(add-to-list 'load-path "~/.emacs.d/my/")
 
-(load-my 'general)
-(load-my 'helm)
-(load-my 'org)
-(load-my 'lisp)
-(load-my 'python)
-(load-my 'php)
-(load-my 'web)
+(require 'general)
+(require 'setup-helm)
+(require 'setup-org)
+(require 'setup-lisp)
+(require 'setup-python)
+(require 'setup-php)
+(require 'setup-web)
 
 (setq-default gc-cons-threshold 800000)
 

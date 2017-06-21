@@ -10,7 +10,7 @@
 		("CANCELED" :foreground "red" :weight bold)
 		("POSTPONED" :foreground "orange" :weight bold))))
   ;; no postample (footer)
-  (setq org-html-postamble nil) 
+  (setq org-html-postamble nil)
   ;; export to HTML5
   (setq org-html-doctype "html5")
   ;; markdown export
@@ -25,3 +25,5 @@
    'org-babel-load-languages
    '(;; other Babel languages
      (plantuml . t))))
+
+(provide 'setup-org)

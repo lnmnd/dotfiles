@@ -135,3 +135,5 @@
 (use-package foreman-mode)
 (use-package suggest)
 (use-package tdd)
+
+(provide 'general)

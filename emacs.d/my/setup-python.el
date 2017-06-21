@@ -72,3 +72,5 @@
   (delete-process (get-buffer-process (current-buffer)))
   (kill-buffer)
   (start-python))
+
+(provide 'setup-python)

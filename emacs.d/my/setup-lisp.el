@@ -76,3 +76,5 @@
 (use-package cljr-helm)
 
 (use-package hy-mode)
+
+(provide 'setup-lisp)

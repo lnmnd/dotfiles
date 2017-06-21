@@ -36,3 +36,5 @@
 (use-package
   scss-mode
   :mode "\\.scss\\'")
+
+(provide 'setup-web)

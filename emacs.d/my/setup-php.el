@@ -70,3 +70,5 @@ The output will appear in the buffer *PHP*."
     m))
 
 (use-local-map php-mode-map)
+
+(provide 'setup-php)
