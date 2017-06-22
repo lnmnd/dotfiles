@@ -1,3 +1,5 @@
+;;; general.el --- General -*- lexical-binding: t -*-
+
 ;; no welcome screen
 (setq inhibit-splash-screen t)
 

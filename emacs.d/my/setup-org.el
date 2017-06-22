@@ -1,3 +1,5 @@
+;;; setup-org.el --- Setup Org-mode -*- lexical-binding: t -*-
+
 (use-package
   org
   :init

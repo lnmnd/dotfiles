@@ -1,3 +1,5 @@
+;;; setup-web.el --- Setup Web -*- lexical-binding: t -*-
+
 (use-package
   js2-mode
   :mode "\\.js\\'")

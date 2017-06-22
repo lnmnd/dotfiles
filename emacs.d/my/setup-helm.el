@@ -1,3 +1,5 @@
+;;; setup-helm.el --- Setup Helm -*- lexical-binding: t -*-
+
 ;; helm
 (use-package
   helm

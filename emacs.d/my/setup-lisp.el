@@ -1,4 +1,4 @@
-(setq lexical-binding t)
+;;; setup-lisp.el --- Setup Lisp -*- lexical-binding: t -*-
 
 (setq scheme-program-name "csi")
 

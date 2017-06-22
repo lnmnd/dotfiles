@@ -1,3 +1,5 @@
+;;; setup-php.el --- Setup PHP -*- lexical-binding: t -*-
+
 (require 'comint)
 
 (use-package

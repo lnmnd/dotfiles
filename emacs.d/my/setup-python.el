@@ -1,3 +1,5 @@
+;;; setup-python.el --- Setup Python -*- lexical-binding: t -*-
+
 (defun my-elpy-shell-send-current-statement ()
   "Works like elpy-shell-send-current-statement but doesn't switch to Python shell"
   (interactive)

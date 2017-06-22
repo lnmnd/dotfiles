@@ -1,4 +1,4 @@
-;;; init --- Init package
+;;; init.el --- Init package -*- lexical-binding: t -*-
 ;;; Commentary:
 ;; My init
 
