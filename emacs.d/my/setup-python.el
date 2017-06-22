@@ -1,23 +1,26 @@
 ;;; setup-python.el --- Setup Python -*- lexical-binding: t -*-
 
+(require 'cider)
 (require 'f)
 (require 's)
 
-(defun my-eval-python (string)
+(defun my-eval-python (string point)
   (elpy-shell-get-or-create-process)
-  (print (python-shell-send-string-no-output string)))
+  (cider--display-interactive-eval-result
+   (python-shell-send-string-no-output string)
+   point))
 
 (defun my-eval-python-statement ()
   (interactive)
   (let ((start (python-nav-beginning-of-statement))
         (end (python-nav-end-of-statement)))
-    (my-eval-python (buffer-substring start end))))
+    (my-eval-python (buffer-substring start end) end)))
 
 (defun my-eval-python-region ()
   (interactive)
   (let ((region (elpy-shell--region-without-indentation
 		 (region-beginning) (region-end))))
-    (my-eval-python region)))
+    (my-eval-python region (region-end))))
 
 (defun pdb-set-trace ()
   (interactive)
