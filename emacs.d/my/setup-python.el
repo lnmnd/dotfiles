@@ -1,5 +1,8 @@
 ;;; setup-python.el --- Setup Python -*- lexical-binding: t -*-
 
+(require 'f)
+(require 's)
+
 (defun my-eval-python (string)
   (elpy-shell-get-or-create-process)
   (print (python-shell-send-string-no-output string)))
@@ -44,11 +47,28 @@
   (kill-buffer)
   (start-python))
 
+(setq pyenv-activated nil)
+
+(defun find-python-version-dir ()
+    (f-traverse-upwards
+     (lambda (path)
+       (f-exists? (f-expand ".python-version" path)))))
+
+(defun activate-pyenv ()
+  (when (not pyenv-activated)
+    (let ((python-version-dir (find-python-version-dir)))
+      (when python-version-dir
+	(let* ((python-version-path (f-expand ".python-version" python-version-dir))
+	       (version (s-trim (f-read-text python-version-path 'utf-8))))
+	  (pyvenv-activate (concat "~/.pyenv/versions/" version))
+	  (setq pyenv-activated t))))))
+
 (use-package
  elpy
  :config
  (elpy-enable)
  (elpy-use-ipython)
+ (add-hook 'find-file-hook 'activate-pyenv)
  (setenv "WORKON_HOME" "~/.pyenv/versions")
  (setq elpy-rpc-backend "jedi")
  (setq python-shell-interpreter-args "-i --simple-prompt --pprint")
