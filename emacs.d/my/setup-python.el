@@ -30,23 +30,6 @@
       (message (concat "Removed if __main__ == '__main__' construct, "
                        "use a prefix argument to evaluate.")))))
 
-
-(use-package
- elpy
- :config
- (elpy-enable)
- (elpy-use-ipython)
- (setq elpy-rpc-python-command "python3")
- (setq elpy-rpc-backend "jedi")
- (setq python-shell-interpreter-args "-i --simple-prompt --pprint")
- (define-key elpy-mode-map (kbd "C-c C-r") 'my-elpy-shell-send-region-or-buffer)
- (define-key elpy-mode-map (kbd "C-c C-e") 'my-elpy-shell-send-current-statement)
- (define-key elpy-mode-map (kbd "C-x C-e") 'my-elpy-shell-send-current-statement)
- (define-key elpy-mode-map (kbd "<C-return>") 'isend-send)
- (setq elpy-test-django-runner-command '("./manage.py" "test" "--noinput"))
- (setq gud-pdb-command-name "python -m pdb"))
-
-
 (defun pdb-set-trace ()
   (interactive)
   (move-beginning-of-line 1)
@@ -74,5 +57,20 @@
   (delete-process (get-buffer-process (current-buffer)))
   (kill-buffer)
   (start-python))
+
+(use-package
+ elpy
+ :config
+ (elpy-enable)
+ (elpy-use-ipython)
+ (setq elpy-rpc-python-command "python3")
+ (setq elpy-rpc-backend "jedi")
+ (setq python-shell-interpreter-args "-i --simple-prompt --pprint")
+ (define-key elpy-mode-map (kbd "C-c C-r") 'my-elpy-shell-send-region-or-buffer)
+ (define-key elpy-mode-map (kbd "C-c C-e") 'my-elpy-shell-send-current-statement)
+ (define-key elpy-mode-map (kbd "C-x C-e") 'my-elpy-shell-send-current-statement)
+ (define-key elpy-mode-map (kbd "<C-return>") 'isend-send)
+ (setq elpy-test-django-runner-command '("./manage.py" "test" "--noinput"))
+ (setq gud-pdb-command-name "python -m pdb"))
 
 (provide 'setup-python)
