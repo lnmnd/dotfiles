@@ -49,6 +49,7 @@
  :config
  (elpy-enable)
  (elpy-use-ipython)
+ (setenv "WORKON_HOME" "~/.pyenv/versions")
  (setq elpy-rpc-backend "jedi")
  (setq python-shell-interpreter-args "-i --simple-prompt --pprint")
  (setq elpy-test-django-runner-command '("./manage.py" "test" "--noinput"))
