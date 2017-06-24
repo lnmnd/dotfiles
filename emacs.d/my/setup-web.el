@@ -39,4 +39,6 @@
   scss-mode
   :mode "\\.scss\\'")
 
+(use-package helm-css-scss)
+
 (provide 'setup-web)
