@@ -86,7 +86,7 @@
 (use-package
   ace-jump-mode
   :bind
-  ("C-c j" . ace-jump-word-mode))
+  ("C-c a j" . ace-jump-word-mode))
 
 (use-package markdown-mode)
 (use-package json-mode)
