@@ -5,11 +5,6 @@
   :mode "\\.js\\'")
 
 (use-package
-  skewer-mode
-  :config
-  (add-hook 'js2-mode-hook 'skewer-mode))
-
-(use-package
   tern
   :config
   (add-hook 'js2-mode-hook 'tern-mode)
