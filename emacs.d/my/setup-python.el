@@ -12,9 +12,10 @@
 
 (defun my-eval-python-statement ()
   (interactive)
-  (let ((start (python-nav-beginning-of-statement))
-        (end (python-nav-end-of-statement)))
-    (my-eval-python (buffer-substring start end) end)))
+  (save-excursion
+    (let ((start (python-nav-beginning-of-statement))
+	  (end (python-nav-end-of-statement)))
+      (my-eval-python (buffer-substring start end) end))))
 
 (defun my-eval-python-region ()
   (interactive)
