@@ -80,6 +80,7 @@
  (setq gud-pdb-command-name "python -m pdb")
  (define-key elpy-mode-map (kbd "C-c C-r") 'my-eval-python-region)
  (define-key elpy-mode-map (kbd "C-c C-e") 'my-eval-python-statement)
+ (define-key elpy-mode-map (kbd "C-c C-i") 'elpy-goto-definition)
  (define-key elpy-mode-map (kbd "<C-return>") 'isend-send))
 
 (provide 'setup-python)
