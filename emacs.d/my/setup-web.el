@@ -7,8 +7,7 @@
 (use-package
   tern
   :config
-  (add-hook 'js2-mode-hook 'tern-mode)
-  (define-key tern-mode-keymap (kbd "C-c C-r") 'js-send-region))
+  (add-hook 'js2-mode-hook 'tern-mode))
 
 (use-package tern-auto-complete)
 
