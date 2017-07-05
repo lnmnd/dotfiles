@@ -2,7 +2,9 @@
 
 (use-package
   js2-mode
-  :mode "\\.js\\'")
+  :mode "\\.js\\'"
+  :config
+  (define-key js2-mode-map (kbd "C-c C-i") 'js2-jump-to-definition))
 
 (use-package
   tern
