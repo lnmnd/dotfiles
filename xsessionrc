@@ -6,6 +6,6 @@ wmname LG3D
 xset b off
 xbindkeys
 setxkbmap es
-redshift -l 43.25:-1.59 &
+redshift &
 TIME_ZONE="Europe/Madrid" SLEEP_TIME=60 dwmstatus &
 exec dwm
