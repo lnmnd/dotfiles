@@ -5,7 +5,6 @@
 ;;; Code:
 (setq-default gc-cons-threshold 100000000)
 
-(require 'package)
 (setq package-archives
       '(("gnu" . "https://elpa.gnu.org/packages/")
         ("melpa" . "http://melpa.org/packages/")
