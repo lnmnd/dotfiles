@@ -94,7 +94,7 @@
 (use-package toml-mode)
 (use-package csv-mode)
 (use-package foreman-mode)
-(use-package tdd)
+(use-package recompile-on-save)
 (use-package suggest)
 
 (provide 'general)
