@@ -88,6 +88,11 @@
   :bind
   ("C-c a j" . ace-jump-word-mode))
 
+(use-package
+  intero
+  :config
+  (add-hook 'haskell-mode-hook 'intero-mode))
+
 (use-package markdown-mode)
 (use-package json-mode)
 (use-package yaml-mode)
