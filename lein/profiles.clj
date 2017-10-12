@@ -6,7 +6,7 @@
                  [pjstadig/humane-test-output "0.8.0"]]
   :plugins [[lein-cljfmt "0.5.3"] ;; formatting
             [jonase/eastwood "0.2.3"] ;; lint
-            [lein-kibit "0.1.2"] ;; static code analyzer
+            [lein-kibit "0.1.5"] ;; static code analyzer
             [codox "0.8.13"]
             [com.jakemccrary/lein-test-refresh "0.16.0"]]
   :injections [(require '[vinyasa.inject :as inject])
