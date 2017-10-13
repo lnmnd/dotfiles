@@ -32,10 +32,6 @@
     (add-hook x #'enable-paredit-mode)))
 
 (use-package
-  clj-refactor
-  :diminish clj-refactor-mode)
-
-(use-package
   clojure-mode
   :config
   (defun cider-namespace-refresh ()
@@ -70,8 +66,7 @@
 
 (use-package
   cider
-  :pin melpa-stable
-  :init (add-hook 'cider-mode-hook #'clj-refactor-mode))
+  :pin melpa-stable)
 
 (use-package cljr-helm)
 
