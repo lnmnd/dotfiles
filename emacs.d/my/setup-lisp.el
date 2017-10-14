@@ -19,7 +19,7 @@
 		  (highlight-parentheses-mode t)))))
 
 (use-package
-  paredit
+  parinfer
   :init
   (dolist (x '(emacs-lisp-mode-hook
 	       eval-expression-minibuffer-setup-hook
@@ -29,7 +29,7 @@
 	       scheme-mode-hook
 	       clojure-mode-hook
 	       hy-mode-hook))
-    (add-hook x #'enable-paredit-mode)))
+    (add-hook x #'parinfer-mode)))
 
 (use-package
   clojure-mode
