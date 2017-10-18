@@ -8,3 +8,5 @@
 [core]
 	quotepath = false
 	editor = emacs
+[merge]
+    tool = meld
