@@ -69,8 +69,7 @@
   (setq flycheck-phpmd-rulesets '("cleancode" "codesize" "controversial" "design" "unusedcode"))
   (setq flycheck-phpcs-standard "PSR2")
 
-  (add-hook 'c-mode-hook 'flycheck-mode)
-  (add-hook 'haskell-mode-hook 'flycheck-mode))
+  (add-hook 'c-mode-hook 'flycheck-mode))
 
 
 (use-package
@@ -87,11 +86,6 @@
   ace-jump-mode
   :bind
   ("C-c a j" . ace-jump-word-mode))
-
-(use-package
-  intero
-  :config
-  (add-hook 'haskell-mode-hook 'intero-mode))
 
 (use-package markdown-mode)
 (use-package json-mode)

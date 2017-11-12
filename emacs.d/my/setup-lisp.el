@@ -2,9 +2,6 @@
 
 (setq scheme-program-name "csi")
 
-(add-to-list 'auto-mode-alist '("\\.sxml\\'" . scheme-mode))
-(add-to-list 'auto-mode-alist '("\\.spock\\'" . scheme-mode))
-
 ;; highlight matching brackets when your cursor is on one of the bracket
 (show-paren-mode 1)
 
@@ -27,8 +24,7 @@
 	       lisp-mode-hook
 	       lisp-interaction-mode-hook
 	       scheme-mode-hook
-	       clojure-mode-hook
-	       hy-mode-hook))
+	       clojure-mode-hook))
     (add-hook x #'enable-paredit-mode)))
 
 (use-package
@@ -67,7 +63,5 @@
 (use-package
   cider
   :pin melpa-stable)
-
-(use-package cljr-helm)
 
 (provide 'setup-lisp)
