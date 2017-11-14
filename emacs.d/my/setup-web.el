@@ -7,6 +7,12 @@
   (define-key js2-mode-map (kbd "C-c C-i") 'js2-jump-to-definition))
 
 (use-package
+  js2-refactor
+  :config
+  (add-hook 'js2-mode-hook 'js2-refactor-mode)
+  (define-key js2-mode-map (kbd "C-k") 'js2r-kill))
+
+(use-package
   tern
   :config
   (add-hook 'js2-mode-hook 'tern-mode))
