@@ -21,6 +21,10 @@
 
 (add-to-list 'load-path "~/.emacs.d/my/")
 
+;; Keep custom settings in separate file
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file)
+
 (require 'general)
 (require 'setup-helm)
 (require 'setup-org)
