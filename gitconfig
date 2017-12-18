@@ -4,7 +4,7 @@
 [push]
     default = simple
 [alias]
-    tree = !git log --graph --oneline --all --color --decorate
+    tree = !git log --graph --oneline --color --decorate
 [core]
 	quotepath = false
 	editor = emacs
