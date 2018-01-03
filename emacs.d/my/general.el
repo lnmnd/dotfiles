@@ -16,8 +16,6 @@
    [default default default italic underline success warning error])
  '(custom-enabled-themes (quote (tango))))
 
-(setq initial-scratch-message ";; scratch\n\n(set-frame-font \"Source Code Pro 12\")")
-
 ;; backups
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 (setq backup-by-copying t)
