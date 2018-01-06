@@ -56,6 +56,13 @@
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
 (use-package
+  projectile
+  :init
+  (setq projectile-enable-caching t)
+  :config
+  (projectile-global-mode))
+
+(use-package
   magit
   :config
   (setq magit-last-seen-setup-instructions "1.4.0"))
@@ -68,7 +75,6 @@
   (setq flycheck-phpcs-standard "PSR2")
 
   (add-hook 'c-mode-hook 'flycheck-mode))
-
 
 (use-package
   isend-mode
