@@ -8,9 +8,6 @@
 (use-package
   highlight-parentheses
   :init
-  (setq
-   hl-paren-colors '()
-   hl-paren-background-colors (list "#4f4f4f" "#4f4f4f" "#4f4f4f" "#4f4f4f" "#4f4f4f" "#4f4f4f" "#4f4f4f"))
   (dolist (x '(scheme-mode-hook emacs-lisp-mode-hook))
     (add-hook x (lambda ()
 		  (highlight-parentheses-mode t)))))
