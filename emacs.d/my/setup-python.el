@@ -68,19 +68,19 @@
 	  (setq pyenv-activated t))))))
 
 (use-package
- elpy
- :config
- (elpy-enable)
- (elpy-use-ipython)
- (add-hook 'find-file-hook 'activate-pyenv)
- (setenv "WORKON_HOME" "~/.pyenv/versions")
- (setq elpy-rpc-backend "jedi")
- (setq python-shell-interpreter-args "-i --simple-prompt --pprint")
- (setq elpy-test-django-runner-command '("./manage.py" "test" "--noinput"))
- (setq gud-pdb-command-name "python -m pdb")
- (define-key elpy-mode-map (kbd "C-c C-r") 'my-eval-python-region)
- (define-key elpy-mode-map (kbd "C-x C-e") 'my-eval-python-statement)
- (define-key elpy-mode-map (kbd "C-c C-i") 'elpy-goto-definition)
- (define-key elpy-mode-map (kbd "<C-return>") 'isend-send))
+  elpy
+  :config
+  (elpy-enable)
+  (elpy-use-ipython)
+  (add-hook 'find-file-hook 'activate-pyenv)
+  (setenv "WORKON_HOME" "~/.pyenv/versions")
+  (setq elpy-rpc-backend "jedi")
+  (setq python-shell-interpreter-args "-i --simple-prompt --pprint")
+  (setq elpy-test-django-runner-command '("./manage.py" "test" "--noinput"))
+  (setq gud-pdb-command-name "python -m pdb")
+  (define-key elpy-mode-map (kbd "C-c C-r") 'my-eval-python-region)
+  (define-key elpy-mode-map (kbd "C-x C-e") 'my-eval-python-statement)
+  (define-key elpy-mode-map (kbd "C-c C-i") 'elpy-goto-definition)
+  (define-key elpy-mode-map (kbd "<C-return>") 'isend-send))
 
 (provide 'setup-python)
