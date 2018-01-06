@@ -90,7 +90,6 @@
 (use-package yaml-mode)
 (use-package toml-mode)
 (use-package csv-mode)
-(use-package foreman-mode)
 (use-package recompile-on-save)
 (use-package suggest)
 
