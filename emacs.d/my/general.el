@@ -88,7 +88,6 @@
 (use-package markdown-mode)
 (use-package json-mode)
 (use-package yaml-mode)
-(use-package toml-mode)
 (use-package csv-mode)
 (use-package recompile-on-save)
 (use-package suggest)
