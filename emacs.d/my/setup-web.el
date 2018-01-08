@@ -38,7 +38,9 @@
 
 (use-package
   css-mode
-  :mode "\\.css\\'")
+  :mode "\\.css\\'"
+  :config
+  (define-key css-mode-map (kbd "C-c C-o") 'helm-css-scss))
 
 (use-package
   scss-mode
