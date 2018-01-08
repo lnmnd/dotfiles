@@ -21,7 +21,7 @@
 
 (use-package
   web-mode
-  :mode "\\.html?\\'" "\\.css\\'" "\\.djhtml\\'"
+  :mode "\\.html?\\'" "\\.djhtml\\'"
   :config
   ;; no tabs
   (setq-default indent-tabs-mode nil)
@@ -36,6 +36,9 @@
   mustache-mode
   :mode "\\.mustache\\'")
 
+(use-package
+  css-mode
+  :mode "\\.css\\'")
 
 (use-package
   scss-mode
