@@ -26,7 +26,9 @@
   ;; no tabs
   (setq-default indent-tabs-mode nil)
   ;; 2 spaces
-  (setq web-mode-markup-indent-offset 2))
+  (setq web-mode-markup-indent-offset 2)
+  ;; Disable auto-pairing
+  (setq web-mode-enable-auto-pairing nil))
 
 (use-package
   twig-mode
