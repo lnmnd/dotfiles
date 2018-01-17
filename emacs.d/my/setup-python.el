@@ -1,27 +1,7 @@
 ;;; setup-python.el --- Setup Python -*- lexical-binding: t -*-
 
-(require 'cider)
-(require 'f)
-(require 's)
-
-(defun my-eval-python (string point)
-  (elpy-shell-get-or-create-process)
-  (cider--display-interactive-eval-result
-   (python-shell-send-string-no-output string)
-   point))
-
-(defun my-eval-python-statement ()
-  (interactive)
-  (save-excursion
-    (let ((start (python-nav-beginning-of-statement))
-	  (end (python-nav-end-of-statement)))
-      (my-eval-python (buffer-substring start end) end))))
-
-(defun my-eval-python-region ()
-  (interactive)
-  (let ((region (elpy-shell--region-without-indentation
-		 (region-beginning) (region-end))))
-    (my-eval-python region (region-end))))
+(use-package
+  pyvenv)
 
 (defun pdb-set-trace ()
   (interactive)
@@ -32,55 +12,58 @@
   (forward-line)
   (isend-associate "*gud-pdb*"))
 
-(defun start-python ()
+(defun my-python-generate-etags ()
   (interactive)
-  (elpy-shell-get-or-create-process)
-  (find-file (expand-file-name "~/.emacs.d/my/start-python.txt"))
-  (mark-whole-buffer)
-  (elpy-shell-send-region-or-buffer)
-  (kill-buffer)
-  (when (get-buffer "boot.py")
-    (switch-to-buffer "boot.py")
-    (mark-whole-buffer)
-    (elpy-shell-send-region-or-buffer)))
+  (let ((dir (projectile-project-root)))
+    (shell-command
+     (concat "cd " dir " && git ls-files| grep \.py$ | xargs etags -o " dir "TAGS -"))))
 
-(defun reset-python ()
+(defun my-python-switch-to-shell ()
   (interactive)
-  (switch-to-buffer "*Python*")
-  (delete-process (get-buffer-process (current-buffer)))
-  (kill-buffer)
-  (start-python))
+  (when (not (get-buffer "*Python*"))
+    (run-python)
+    (find-file (expand-file-name "~/.emacs.d/my/start-python.txt"))
+    (python-shell-send-buffer)
+    (kill-buffer)
+    (when (get-buffer "boot.py")
+      (switch-to-buffer "boot.py")
+      (python-shell-send-buffer)))
+  (python-shell-switch-to-shell))
 
-(setq pyenv-activated nil)
+(defun my-python-doc ()
+  (interactive)
+  (let* ((symbol (python-info-current-symbol t))
+	 (str (concat "help(" symbol ")")))
+    (python-shell-send-string str)))
 
-(defun find-python-version-dir ()
-    (f-traverse-upwards
-     (lambda (path)
-       (f-exists? (f-expand ".python-version" path)))))
+(defun my-python-eval-last-statement ()
+  (interactive)
+  (save-excursion
+    (let ((start (python-nav-beginning-of-statement))
+	  (end (python-nav-end-of-statement)))
+      (python-shell-send-string (buffer-substring start end)))))
 
-(defun activate-pyenv ()
-  (when (not pyenv-activated)
-    (let ((python-version-dir (find-python-version-dir)))
-      (when python-version-dir
-	(let* ((python-version-path (f-expand ".python-version" python-version-dir))
-	       (version (s-trim (f-read-text python-version-path 'utf-8))))
-	  (pyvenv-activate (concat "~/.pyenv/versions/" version))
-	  (setq pyenv-activated t))))))
-
-(use-package
-  elpy
-  :config
+(defun setup-python--hook ()
   (setq python-shell-interpreter "ipython")
-  (elpy-enable)
-  (add-hook 'find-file-hook 'activate-pyenv)
-  (setenv "WORKON_HOME" "~/.pyenv/versions")
-  (setq elpy-rpc-backend "jedi")
-  (setq python-shell-interpreter-args "-i --simple-prompt --pprint")
-  (setq elpy-test-django-runner-command '("./manage.py" "test" "--noinput"))
+  (setq python-shell-interpreter-args "-i --simple-prompt")
+  (setq python-shell-completion-native-disabled-interpreters '("ipython"))
   (setq gud-pdb-command-name "python -m pdb")
-  (define-key elpy-mode-map (kbd "C-c C-r") 'my-eval-python-region)
-  (define-key elpy-mode-map (kbd "C-x C-e") 'my-eval-python-statement)
-  (define-key elpy-mode-map (kbd "C-c C-i") 'elpy-goto-definition)
-  (define-key elpy-mode-map (kbd "<C-return>") 'isend-send))
+
+  (semantic-mode)
+  (flycheck-mode)
+
+  (add-hook 'after-save-hook #'my-python-generate-etags)
+
+  (define-key python-mode-map (kbd "<C-return>") 'isend-send)
+  (define-key python-mode-map (kbd "C-c C-b") #'python-shell-send-buffer)
+  (define-key python-mode-map (kbd "C-c C-d") #'my-python-doc)
+  (define-key python-mode-map (kbd "C-c C-e") #'my-python-eval-last-statement)
+  (define-key python-mode-map (kbd "C-c C-i") #'helm-etags-select)
+  (define-key python-mode-map (kbd "C-c C-o") #'helm-semantic-or-imenu)
+  (define-key python-mode-map (kbd "C-c C-r") #'python-shell-send-region)
+  (define-key python-mode-map (kbd "C-c C-z") #'my-python-switch-to-shell)
+  (define-key python-mode-map (kbd "C-x C-e") #'my-python-eval-last-statement))
+
+(add-hook 'python-mode-hook #'setup-python--hook)
 
 (provide 'setup-python)
