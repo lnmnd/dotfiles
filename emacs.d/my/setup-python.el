@@ -70,8 +70,8 @@
 (use-package
   elpy
   :config
+  (setq python-shell-interpreter "ipython")
   (elpy-enable)
-  (elpy-use-ipython)
   (add-hook 'find-file-hook 'activate-pyenv)
   (setenv "WORKON_HOME" "~/.pyenv/versions")
   (setq elpy-rpc-backend "jedi")
