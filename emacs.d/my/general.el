@@ -37,6 +37,8 @@
 (setq vc-follow-symlinks t)
 (electric-pair-mode)
 
+(setq tags-revert-without-query 1)
+
 (use-package
   undo-tree
   :config
