@@ -75,6 +75,8 @@
   (add-hook 'php-mode-hook 'flycheck-mode)
   (setq flycheck-phpmd-rulesets '("cleancode" "codesize" "controversial" "design" "unusedcode"))
   (setq flycheck-phpcs-standard "PSR2")
+  (set-face-attribute 'flycheck-error nil :underline "Red1")
+  (set-face-attribute 'flycheck-warning nil :underline "orange red")
 
   (add-hook 'c-mode-hook 'flycheck-mode))
 
