@@ -30,6 +30,8 @@
 (define-key key-translation-map (kbd "<f9> t") (kbd "~"))
 (define-key key-translation-map (kbd "<f9> l") (kbd "λ"))
 
+(setq-default show-trailing-whitespace t)
+
 ;; no rebase-mode
 (setq auto-mode-alist (delete '("git-rebase-todo" . rebase-mode)
 			      auto-mode-alist))
