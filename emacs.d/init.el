@@ -9,6 +9,10 @@
       '(("gnu" . "https://elpa.gnu.org/packages/")
         ("melpa" . "http://melpa.org/packages/")
         ("melpa-stable" . "http://stable.melpa.org/packages/")))
+(setq package-archive-priorities
+      '(("melpa-stable" . 2)
+        ("gnu" . 1)
+        ("melpa" . 0)))
 
 (package-initialize)
 

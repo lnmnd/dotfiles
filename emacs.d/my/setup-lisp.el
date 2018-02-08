@@ -58,7 +58,6 @@
      "(in-ns 'user) (halt)"))  )
 
 (use-package
-  cider
-  :pin melpa-stable)
+  cider)
 
 (provide 'setup-lisp)
