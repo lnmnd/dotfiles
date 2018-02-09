@@ -21,4 +21,4 @@
                  :notify-on-success false}}
  
  :repl
- {:plugins [[cider/cider-nrepl "0.14.0"]]}}
+ {:plugins [[cider/cider-nrepl "0.16.0"]]}}
