@@ -93,9 +93,11 @@
   (setq isend-end-with-empty-line t))
 
 (use-package
-  ace-jump-mode
+  avy
+  :config
+  (setq avy-keys (nconc (number-sequence ?a ?z) (number-sequence ?A ?Z)))
   :bind
-  ("C-c a j" . ace-jump-word-mode))
+  ("C-c a j" . avy-goto-word-or-subword-1))
 
 (use-package markdown-mode)
 (use-package json-mode)
