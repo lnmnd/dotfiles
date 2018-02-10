@@ -10,18 +10,18 @@
   :init
   (dolist (x '(scheme-mode-hook emacs-lisp-mode-hook))
     (add-hook x (lambda ()
-		  (highlight-parentheses-mode t)))))
+                  (highlight-parentheses-mode t)))))
 
 (use-package
   paredit
   :init
   (dolist (x '(emacs-lisp-mode-hook
-	       eval-expression-minibuffer-setup-hook
-	       ielm-mode-hook
-	       lisp-mode-hook
-	       lisp-interaction-mode-hook
-	       scheme-mode-hook
-	       clojure-mode-hook))
+               eval-expression-minibuffer-setup-hook
+               ielm-mode-hook
+               lisp-mode-hook
+               lisp-interaction-mode-hook
+               scheme-mode-hook
+               clojure-mode-hook))
     (add-hook x #'enable-paredit-mode)))
 
 (use-package

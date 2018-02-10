@@ -24,7 +24,7 @@
       kept-old-versions 2
       version-control t)
 
-;; Set the return key to globally act as a new-line-and-intent 
+;; Set the return key to globally act as a new-line-and-intent
 (global-set-key "\C-m" 'newline-and-indent)
 
 (define-key key-translation-map (kbd "<f9> t") (kbd "~"))
@@ -34,7 +34,7 @@
 
 ;; no rebase-mode
 (setq auto-mode-alist (delete '("git-rebase-todo" . rebase-mode)
-			      auto-mode-alist))
+                              auto-mode-alist))
 
 (setq vc-follow-symlinks t)
 (electric-pair-mode)
@@ -75,7 +75,11 @@
   flycheck
   :config
   (add-hook 'php-mode-hook 'flycheck-mode)
-  (setq flycheck-phpmd-rulesets '("cleancode" "codesize" "controversial" "design" "unusedcode"))
+  (setq flycheck-phpmd-rulesets '("cleancode"
+                                  "codesize"
+                                  "controversial"
+                                  "design"
+                                  "unusedcode"))
   (setq flycheck-phpcs-standard "PSR2")
   (set-face-attribute 'flycheck-error nil :underline "Red1")
   (set-face-attribute 'flycheck-warning nil :underline "orange red")

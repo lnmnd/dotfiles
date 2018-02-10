@@ -20,7 +20,7 @@
   (interactive)
   (let ((cmds (split-string inferior-php-command)))
     (setq php-buffer (apply 'make-comint "PHP" (car cmds)
-			    nil (cdr cmds))))
+                            nil (cdr cmds))))
   (pop-to-buffer php-buffer))
 
 (defun php-eval-region (start end)
@@ -40,9 +40,9 @@ The output will appear in the buffer *PHP*."
   (interactive)
   ;; Ignore '<?php' at the beginning of the buffer.
   (let* ((code (buffer-substring (point-min) (point-max)))
-	 (cleaned-code (if (string-prefix-p "<?php" code t)
-			   (substring code 5)
-			 code)))
+         (cleaned-code (if (string-prefix-p "<?php" code t)
+                           (substring code 5)
+                         code)))
     (php-send-to-buffer cleaned-code)))
 
 (defun php-display-doc ()

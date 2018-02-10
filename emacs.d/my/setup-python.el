@@ -35,17 +35,17 @@
 (defun my-python-doc ()
   (interactive)
   (let* ((symbol (python-info-current-symbol t))
-	 (str (concat "help(" symbol ")"))
-	 (output (python-shell-send-string-no-output str)))
+         (str (concat "help(" symbol ")"))
+         (output (python-shell-send-string-no-output str)))
     (popup-tip output)))
 
 (defun my-python-eval-last-statement ()
   (interactive)
   (save-excursion
     (let* ((start (python-nav-beginning-of-statement))
-	   (end (python-nav-end-of-statement))
-	   (input (buffer-substring start end))
-	   (output (python-shell-send-string-no-output input)))
+           (end (python-nav-end-of-statement))
+           (input (buffer-substring start end))
+           (output (python-shell-send-string-no-output input)))
       (popup-tip output))))
 
 (defun setup-python--hook ()
