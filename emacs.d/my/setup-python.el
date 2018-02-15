@@ -37,7 +37,7 @@
   (let* ((symbol (python-info-current-symbol t))
          (str (concat "help(" symbol ")"))
          (output (python-shell-send-string-no-output str)))
-    (popup-tip output)))
+    (popup-tip output :point (point-at-bol))))
 
 (defun my-python-eval-last-statement ()
   (interactive)
@@ -46,7 +46,7 @@
            (end (python-nav-end-of-statement))
            (input (buffer-substring start end))
            (output (python-shell-send-string-no-output input)))
-      (popup-tip output))))
+      (popup-tip output :point (point-at-bol)))))
 
 (defun setup-python--hook ()
   (setq python-shell-interpreter "ipython")
