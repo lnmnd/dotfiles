@@ -48,6 +48,16 @@
            (output (python-shell-send-string-no-output input)))
       (popup-tip output :point (point-at-bol)))))
 
+(defun my-python-eval-print-last-statement ()
+  (interactive)
+  (save-excursion
+    (let* ((start (python-nav-beginning-of-statement))
+           (end (python-nav-end-of-statement))
+           (input (buffer-substring start end))
+           (output (python-shell-send-string-no-output input)))
+      (forward-line)
+      (insert output))))
+
 (defun setup-python--hook ()
   (setq python-shell-interpreter "ipython")
   (setq python-shell-interpreter-args "-i --simple-prompt")
@@ -65,6 +75,7 @@
   (define-key python-mode-map (kbd "C-c C-e") #'my-python-eval-last-statement)
   (define-key python-mode-map (kbd "C-c C-i") #'helm-etags-select)
   (define-key python-mode-map (kbd "C-c C-o") #'helm-semantic-or-imenu)
+  (define-key python-mode-map (kbd "C-c C-p") #'my-python-eval-print-last-statement)
   (define-key python-mode-map (kbd "C-c C-r") #'python-shell-send-region)
   (define-key python-mode-map (kbd "C-c C-z") #'my-python-switch-to-shell)
   (define-key python-mode-map (kbd "C-x C-e") #'my-python-eval-last-statement))
