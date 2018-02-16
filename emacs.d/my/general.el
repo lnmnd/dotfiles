@@ -10,7 +10,7 @@
 
 (setq frame-title-format "%b - emacs")
 
-(add-to-list 'default-frame-alist '(font . "Source Code Pro-12"))
+(add-to-list 'default-frame-alist '(font . "Fira Code-12"))
 (custom-set-variables
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
