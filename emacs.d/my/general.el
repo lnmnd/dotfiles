@@ -16,6 +16,10 @@
    [default default default italic underline success warning error])
  '(custom-enabled-themes (quote (tango))))
 
+;; Mode line
+(set-face-attribute 'mode-line nil :box nil :background "#bdbdbd" :foreground "#333333")
+(set-face-attribute 'mode-line-inactive nil :box nil :background "#e0e0e0" :foreground "#333333")
+
 ;; backups
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 (setq backup-by-copying t)
