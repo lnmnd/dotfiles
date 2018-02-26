@@ -1,9 +1,28 @@
 ;;; setup-python.el --- Setup Python -*- lexical-binding: t -*-
 
+(require 'f)
+(require 's)
+
 (use-package popup)
 
 (use-package
   pyvenv)
+
+(setq pyenv-activated nil)
+
+(defun find-python-version-dir ()
+  (f-traverse-upwards
+   (lambda (path)
+     (f-exists? (f-expand ".python-version" path)))))
+
+(defun activate-pyenv ()
+  (when (not pyenv-activated)
+    (let ((python-version-dir (find-python-version-dir)))
+      (when python-version-dir
+        (let* ((python-version-path (f-expand ".python-version" python-version-dir))
+               (version (s-trim (f-read-text python-version-path 'utf-8))))
+          (pyvenv-activate (concat "~/.pyenv/versions/" version))
+          (setq pyenv-activated t))))))
 
 (defun pdb-set-trace ()
   (interactive)
@@ -71,6 +90,7 @@
   (semantic-mode)
   (flycheck-mode)
 
+  (add-hook 'find-file-hook 'activate-pyenv)
   (add-hook 'after-save-hook #'my-python-generate-etags)
 
   (define-key python-mode-map (kbd "<C-return>") 'isend-send)
