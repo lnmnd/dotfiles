@@ -7,6 +7,8 @@
 (menu-bar-mode -1)
 ;;; Remove the tool bar
 (tool-bar-mode -1)
+;; Remove the scroll bar
+(scroll-bar-mode -1)
 
 (setq frame-title-format "%b - emacs")
 
