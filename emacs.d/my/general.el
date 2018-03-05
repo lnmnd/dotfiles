@@ -30,6 +30,8 @@
       kept-old-versions 2
       version-control t)
 
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;; Set the return key to globally act as a new-line-and-intent
 (global-set-key "\C-m" 'newline-and-indent)
 
