@@ -91,7 +91,6 @@
   (flycheck-mode)
 
   (add-hook 'find-file-hook 'activate-pyenv)
-  (add-hook 'after-save-hook #'my-python-generate-etags)
 
   (define-key python-mode-map (kbd "<C-return>") 'isend-send)
   (define-key python-mode-map (kbd "C-c C-b") #'python-shell-send-buffer)
