@@ -46,7 +46,9 @@
 
 (use-package
   scss-mode
-  :mode "\\.scss\\'")
+  :mode "\\.scss\\'"
+  :config
+  (setq scss-compile-at-save nil))
 
 (use-package helm-css-scss)
 
