@@ -1,8 +1,9 @@
 ;;; setup-lisp.el --- Setup Lisp -*- lexical-binding: t -*-
 
 (defun cljfmt ()
-  (shell-command-to-string (format "cljfmt %s" buffer-file-name))
-  (revert-buffer :ignore-auto :noconfirm))
+  (when (eq major-mode 'clojure-mode)
+    (shell-command-to-string (format "cljfmt %s" buffer-file-name))
+    (revert-buffer :ignore-auto :noconfirm)))
 
 (setq scheme-program-name "csi")
 
