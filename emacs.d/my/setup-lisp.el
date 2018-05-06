@@ -1,5 +1,9 @@
 ;;; setup-lisp.el --- Setup Lisp -*- lexical-binding: t -*-
 
+(defun cljfmt ()
+  (shell-command-to-string (format "cljfmt %s" buffer-file-name))
+  (revert-buffer :ignore-auto :noconfirm))
+
 (setq scheme-program-name "csi")
 
 ;; highlight matching brackets when your cursor is on one of the bracket
@@ -27,6 +31,7 @@
 (use-package
   clojure-mode
   :config
+  (add-hook 'after-save-hook #'cljfmt)
   (defun cider-namespace-refresh ()
     (interactive)
     (cider-interactive-eval
