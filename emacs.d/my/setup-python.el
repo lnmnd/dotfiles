@@ -81,6 +81,19 @@
   (interactive)
   (python-shell-send-string "%reset -f"))
 
+(flycheck-define-checker python-mypy
+  ""
+  :command ("mypy"
+	    "--strict-optional"
+	    "--ignore-missing-imports"
+	    source-original)
+  :error-patterns
+  ((error line-start (file-name) ":" line ": error:" (message) line-end))
+  :modes python-mode)
+
+(add-to-list 'flycheck-checkers 'python-mypy t)
+(flycheck-add-next-checker 'python-flake8 'python-mypy t)
+
 (defun setup-python--hook ()
   (setq python-shell-interpreter "ipython")
   (setq python-shell-interpreter-args "-i --simple-prompt")
