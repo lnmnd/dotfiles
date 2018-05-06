@@ -49,6 +49,9 @@
 
 (setq tags-revert-without-query 1)
 
+;; highlight matching brackets when your cursor is on one of the bracket
+(show-paren-mode 1)
+
 (use-package
   undo-tree
   :config

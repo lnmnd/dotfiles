@@ -7,9 +7,6 @@
 
 (setq scheme-program-name "csi")
 
-;; highlight matching brackets when your cursor is on one of the bracket
-(show-paren-mode 1)
-
 (use-package
   highlight-parentheses
   :init
