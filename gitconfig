@@ -12,3 +12,5 @@
     tool = meld
 [rerere]
 	enabled = true
+[annex]
+	genmetadata = true
