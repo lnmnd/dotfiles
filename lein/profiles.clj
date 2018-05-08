@@ -19,6 +19,6 @@
 
   :test-refresh {:notify-command ["zenity" "--error" "--text"]
                  :notify-on-success false}}
- 
+
  :repl
- {:plugins [[cider/cider-nrepl "0.16.0"]]}}
+ {:plugins [[cider/cider-nrepl "0.17.0"]]}}
