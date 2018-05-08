@@ -89,7 +89,6 @@
 (flycheck-define-checker python-mypy
   ""
   :command ("mypy"
-	    "--strict-optional"
 	    "--ignore-missing-imports"
 	    source-original)
   :error-patterns
