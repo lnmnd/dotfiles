@@ -24,8 +24,9 @@
           (pyvenv-activate (concat "~/.pyenv/versions/" version))
           (setq pyenv-activated t))))))
 
-(defun autopep8 ()
+(defun my-python-format-code ()
   (when (eq major-mode 'python-mode)
+    (shell-command-to-string (format "isort %s" buffer-file-name))
     (shell-command-to-string (format "autopep8 --in-place %s" buffer-file-name))
     (revert-buffer :ignore-auto :noconfirm)))
 
@@ -108,7 +109,7 @@
   (flycheck-mode)
 
   (add-hook 'find-file-hook 'activate-pyenv)
-  (add-hook 'after-save-hook #'autopep8)
+  (add-hook 'after-save-hook #'my-python-format-code)
 
   (define-key python-mode-map (kbd "<C-return>") 'isend-send)
   (define-key python-mode-map (kbd "C-c C-b") #'python-shell-send-buffer)
