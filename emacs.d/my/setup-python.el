@@ -114,6 +114,7 @@
   (setq python-shell-interpreter-args "-i --simple-prompt")
   (setq python-shell-completion-native-disabled-interpreters '("ipython"))
   (setq gud-pdb-command-name "python -m pdb")
+  (setq flycheck-flake8-maximum-complexity 10)
 
   (semantic-mode)
   (flycheck-mode)
