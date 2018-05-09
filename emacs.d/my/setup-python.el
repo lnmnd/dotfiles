@@ -9,6 +9,7 @@
   pyvenv)
 
 (setq pyenv-activated nil)
+(setq my-python-format-code-activated t)
 
 (defun find-python-version-dir ()
   (f-traverse-upwards
@@ -24,8 +25,17 @@
           (pyvenv-activate (concat "~/.pyenv/versions/" version))
           (setq pyenv-activated t))))))
 
+(defun my-python-format-code-activate ()
+  (interactive)
+  (setq my-python-format-code-activated t))
+
+(defun my-python-format-code-deactivate ()
+  (interactive)
+  (setq my-python-format-code-activated nil))
+
 (defun my-python-format-code ()
-  (when (eq major-mode 'python-mode)
+  (when (and my-python-format-code-activated
+	     (eq major-mode 'python-mode))
     (shell-command-to-string (format "isort %s" buffer-file-name))
     (shell-command-to-string (format "autopep8 --in-place %s" buffer-file-name))
     (revert-buffer :ignore-auto :noconfirm)))
