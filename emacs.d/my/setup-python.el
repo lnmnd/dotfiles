@@ -130,6 +130,7 @@
   (define-key python-mode-map (kbd "C-c C-o") #'helm-semantic-or-imenu)
   (define-key python-mode-map (kbd "C-c C-p") #'my-python-eval-print-last-statement)
   (define-key python-mode-map (kbd "C-c C-r") #'python-shell-send-region)
+  (define-key python-mode-map (kbd "C-c C-t") #'recompile)
   (define-key python-mode-map (kbd "C-c C-x") #'my-python-reset)
   (define-key python-mode-map (kbd "C-c C-z") #'my-python-switch-to-shell)
   (define-key python-mode-map (kbd "C-x C-e") #'my-python-eval-last-statement))
