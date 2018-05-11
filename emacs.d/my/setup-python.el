@@ -1,4 +1,6 @@
 ;;; setup-python.el --- Setup Python -*- lexical-binding: t -*-
+;; Install: autopep8, flake8, isort and mypy
+;; Install in virtualenv: ipython
 
 (require 'f)
 (require 's)
