@@ -11,7 +11,7 @@
                 ("DONE" :foreground "green" :weight bold)
                 ("CANCELED" :foreground "red" :weight bold)
                 ("POSTPONED" :foreground "orange" :weight bold))))
-  (setq org-agenda-files '("~/agenda.org"))
+  (setq org-agenda-files '("~/org/"))
   ;; no postample (footer)
   (setq org-html-postamble nil)
   ;; export to HTML5
