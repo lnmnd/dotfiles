@@ -114,6 +114,13 @@
   :bind
   ("C-c a j" . avy-goto-word-or-subword-1))
 
+;; Set elfeed-feds in custom.el:
+;; (setq elfeed-feeds
+;;       '(("http://nullprogram.com/feed/" emacs)
+;;         ("http://planet.emacsen.org/atom.xml" emacs)))
+(use-package
+  elfeed)
+
 (use-package markdown-mode)
 (use-package json-mode)
 (use-package yaml-mode)
