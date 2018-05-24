@@ -24,7 +24,8 @@
                lisp-interaction-mode-hook
                scheme-mode-hook
                clojure-mode-hook))
-    (add-hook x #'enable-paredit-mode)))
+    (add-hook x #'enable-paredit-mode)
+    (add-hook x #'enable-show-trailing-whitespace)))
 
 (use-package
   clojure-mode

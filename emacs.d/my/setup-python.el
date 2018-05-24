@@ -138,5 +138,6 @@
   (define-key python-mode-map (kbd "C-x C-e") #'my-python-eval-last-statement))
 
 (add-hook 'python-mode-hook #'setup-python--hook)
+(add-hook 'python-mode-hook #'enable-show-trailing-whitespace)
 
 (provide 'setup-python)

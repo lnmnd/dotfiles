@@ -27,6 +27,8 @@
   (org-babel-do-load-languages
    'org-babel-load-languages
    '(;; other Babel languages
-     (plantuml . t))))
+     (plantuml . t)))
+
+  (add-hook 'org-mode-hook #'enable-show-trailing-whitespace))
 
 (provide 'setup-org)

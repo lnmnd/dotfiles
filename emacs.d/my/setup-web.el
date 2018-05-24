@@ -4,7 +4,8 @@
   js2-mode
   :mode "\\.js\\'"
   :config
-  (define-key js2-mode-map (kbd "C-c C-i") 'js2-jump-to-definition))
+  (define-key js2-mode-map (kbd "C-c C-i") 'js2-jump-to-definition)
+  (add-hook 'js2-mode-hook #'enable-show-trailing-whitespace))
 
 (use-package
   js2-refactor
@@ -28,17 +29,21 @@
   ;; 2 spaces
   (setq web-mode-markup-indent-offset 2)
   ;; Disable auto-pairing
-  (setq web-mode-enable-auto-pairing nil))
+  (setq web-mode-enable-auto-pairing nil)
+  (add-hook 'web-mode-hook #'enable-show-trailing-whitespace))
 
 (use-package
   mustache-mode
-  :mode "\\.mustache\\'")
+  :mode "\\.mustache\\'"
+  :config
+  (add-hook 'mustache-mode-hook #'enable-show-trailing-whitespace))
 
 (use-package
   css-mode
   :mode "\\.css\\'"
   :config
-  (define-key css-mode-map (kbd "C-c C-o") 'helm-css-scss))
+  (define-key css-mode-map (kbd "C-c C-o") 'helm-css-scss)
+  (add-hook 'css-mode-hook #'enable-show-trailing-whitespace))
 
 (use-package
   scss-mode

@@ -38,8 +38,6 @@
 (define-key key-translation-map (kbd "<f9> t") (kbd "~"))
 (define-key key-translation-map (kbd "<f9> l") (kbd "λ"))
 
-(setq-default show-trailing-whitespace t)
-
 ;; no rebase-mode
 (setq auto-mode-alist (delete '("git-rebase-todo" . rebase-mode)
                               auto-mode-alist))
@@ -51,6 +49,9 @@
 
 ;; highlight matching brackets when your cursor is on one of the bracket
 (show-paren-mode 1)
+
+(defun enable-show-trailing-whitespace ()
+  (setq show-trailing-whitespace t))
 
 (use-package
   undo-tree
@@ -121,10 +122,25 @@
 (use-package
   elfeed)
 
-(use-package markdown-mode)
-(use-package json-mode)
-(use-package yaml-mode)
-(use-package csv-mode)
+(use-package
+  markdown-mode
+  :config
+  (add-hook 'markdown-mode-hook #'enable-show-trailing-whitespace))
+
+(use-package
+  json-mode
+  :config
+  (add-hook 'json-mode-hook #'enable-show-trailing-whitespace))
+(use-package
+  yaml-mode
+  :config
+  (add-hook 'yaml-mode-hook #'enable-show-trailing-whitespace))
+
+(use-package
+  csv-mode
+  :config
+  (add-hook 'csv-mode-hook #'enable-show-trailing-whitespace))
+
 (use-package recompile-on-save)
 (use-package suggest)
 
