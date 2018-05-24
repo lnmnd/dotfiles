@@ -21,7 +21,7 @@
 
 (use-package
   web-mode
-  :mode "\\.html?\\'" "\\.djhtml\\'"
+  :mode "\\.html?\\'" "\\.djhtml\\'" "\\.twig\\'"
   :config
   ;; no tabs
   (setq-default indent-tabs-mode nil)
@@ -29,10 +29,6 @@
   (setq web-mode-markup-indent-offset 2)
   ;; Disable auto-pairing
   (setq web-mode-enable-auto-pairing nil))
-
-(use-package
-  twig-mode
-  :mode "\\.twig\\'")
 
 (use-package
   mustache-mode
