@@ -40,7 +40,8 @@
 	     (eq major-mode 'python-mode))
     (shell-command-to-string (format "isort %s" buffer-file-name))
     (shell-command-to-string (format "autopep8 --in-place %s" buffer-file-name))
-    (revert-buffer :ignore-auto :noconfirm)))
+    (revert-buffer :ignore-auto :noconfirm)
+    (isend-associate "*gud-pdb*")))
 
 (defun pdb-set-trace ()
   (interactive)
