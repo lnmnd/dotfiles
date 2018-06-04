@@ -50,6 +50,8 @@
 ;; highlight matching brackets when your cursor is on one of the bracket
 (show-paren-mode 1)
 
+(setq browse-url-browser-function 'eww-browse-url)
+
 (defun enable-show-trailing-whitespace ()
   (setq show-trailing-whitespace t))
 
