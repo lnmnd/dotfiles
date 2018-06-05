@@ -60,6 +60,11 @@
   :config
   (global-undo-tree-mode))
 
+(use-package
+  org-pomodoro
+  :config
+  (setq org-pomodoro-length 25))
+
 ;; global company mode
 (use-package
   company
