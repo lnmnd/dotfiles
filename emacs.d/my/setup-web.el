@@ -6,7 +6,10 @@
   :config
   (define-key js2-mode-map (kbd "C-c C-i") 'js2-jump-to-definition)
   (add-hook 'js2-mode-hook #'enable-show-trailing-whitespace)
-  (add-hook 'js2-mode-hook #'flycheck-mode))
+  (add-hook 'js2-mode-hook #'flycheck-mode)
+  (add-hook 'js2-mode-hook (lambda ()
+			     (setq indent-tabs-mode nil)
+                             (setq js2-basic-offset 2))))
 
 (use-package
   js2-refactor
