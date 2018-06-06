@@ -5,7 +5,8 @@
   :mode "\\.js\\'"
   :config
   (define-key js2-mode-map (kbd "C-c C-i") 'js2-jump-to-definition)
-  (add-hook 'js2-mode-hook #'enable-show-trailing-whitespace))
+  (add-hook 'js2-mode-hook #'enable-show-trailing-whitespace)
+  (add-hook 'js2-mode-hook #'flycheck-mode))
 
 (use-package
   js2-refactor
