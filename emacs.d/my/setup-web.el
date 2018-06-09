@@ -1,5 +1,9 @@
 ;;; setup-web.el --- Setup Web -*- lexical-binding: t -*-
 
+(defun my-js-format-code ()
+  (shell-command-to-string (format "eslint --fix %s" buffer-file-name))
+  (revert-buffer :ignore-auto :noconfirm))
+
 (use-package
   js2-mode
   :mode "\\.js\\'"
@@ -9,7 +13,8 @@
   (add-hook 'js2-mode-hook #'flycheck-mode)
   (add-hook 'js2-mode-hook (lambda ()
 			     (setq indent-tabs-mode nil)
-                             (setq js2-basic-offset 2))))
+                             (setq js2-basic-offset 2)
+			     (add-hook 'after-save-hook #'my-js-format-code nil t))))
 
 (use-package
   js2-refactor
