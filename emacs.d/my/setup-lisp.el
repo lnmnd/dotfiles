@@ -27,6 +27,12 @@
     (add-hook x #'enable-paredit-mode)
     (add-hook x #'enable-show-trailing-whitespace)))
 
+(add-hook 'emacs-lisp-mode-hook
+	  (lambda ()
+	    (define-key emacs-lisp-mode-map "\C-c\C-b" #'eval-buffer)
+	    (define-key emacs-lisp-mode-map "\C-c\C-p" #'eval-print-last-sexp)
+	    (define-key emacs-lisp-mode-map "\C-c\C-r" #'eval-region)))
+
 (use-package
   clojure-mode
   :config
