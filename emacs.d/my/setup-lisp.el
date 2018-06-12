@@ -7,8 +7,6 @@
     (shell-command-to-string (format "cljfmt %s" buffer-file-name))
     (revert-buffer :ignore-auto :noconfirm)))
 
-(setq scheme-program-name "csi")
-
 (use-package
   highlight-parentheses
   :init
