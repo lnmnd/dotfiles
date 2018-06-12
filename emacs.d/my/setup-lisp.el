@@ -1,5 +1,7 @@
 ;;; setup-lisp.el --- Setup Lisp -*- lexical-binding: t -*-
 
+(use-package popup)
+
 (defun cljfmt ()
   (when (eq major-mode 'clojure-mode)
     (shell-command-to-string (format "cljfmt %s" buffer-file-name))
@@ -27,11 +29,17 @@
     (add-hook x #'enable-paredit-mode)
     (add-hook x #'enable-show-trailing-whitespace)))
 
+(defun my-eval-last-sexp ()
+  (interactive)
+  (let ((result (pp-to-string (eval (pp-last-sexp) lexical-binding))))
+    (popup-tip result :point (point-at-bol))))
+
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
 	    (define-key emacs-lisp-mode-map "\C-c\C-b" #'eval-buffer)
 	    (define-key emacs-lisp-mode-map "\C-c\C-p" #'eval-print-last-sexp)
-	    (define-key emacs-lisp-mode-map "\C-c\C-r" #'eval-region)))
+	    (define-key emacs-lisp-mode-map "\C-c\C-r" #'eval-region)
+	    (define-key emacs-lisp-mode-map "\C-x\C-e" #'my-eval-last-sexp)))
 
 (use-package
   clojure-mode
