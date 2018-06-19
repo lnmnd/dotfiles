@@ -3,6 +3,7 @@ Description=Emacs: the extensible, self-documenting text editor
 
 [Service]
 Type=forking
+EnvironmentFile=/home/user/.config/systemd/user/emacs.env
 ExecStart=/usr/bin/emacs --daemon
 ExecStop=/usr/bin/emacsclient --eval "(kill-emacs)"
 Restart=always
