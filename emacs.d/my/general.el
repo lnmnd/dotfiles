@@ -52,6 +52,10 @@
 
 (setq browse-url-browser-function 'eww-browse-url)
 
+(defun kill-all-buffers ()
+  (interactive)
+  (mapc 'kill-buffer (buffer-list)))
+
 (defun enable-show-trailing-whitespace ()
   (setq show-trailing-whitespace t))
 
