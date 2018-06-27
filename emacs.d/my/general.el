@@ -59,8 +59,11 @@
 (defun enable-show-trailing-whitespace ()
   (setq show-trailing-whitespace t))
 
+(use-package diminish)
+
 (use-package
   undo-tree
+  :diminish undo-tree-mode
   :config
   (global-undo-tree-mode))
 
@@ -72,6 +75,7 @@
 ;; global company mode
 (use-package
   company
+  :diminish company-mode
   :config
   (add-hook 'after-init-hook 'global-company-mode)
   ;; auto-completion starts from one character
@@ -84,6 +88,7 @@
 
 (use-package
   projectile
+  :diminish projectile-mode
   :init
   (setq projectile-enable-caching t)
   :config
@@ -151,6 +156,10 @@
   csv-mode
   :config
   (add-hook 'csv-mode-hook #'enable-show-trailing-whitespace))
+
+(use-package
+  autorevert
+  :diminish auto-revert-mode)
 
 (use-package recompile-on-save)
 (use-package suggest)
