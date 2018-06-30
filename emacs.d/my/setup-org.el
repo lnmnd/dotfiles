@@ -31,4 +31,9 @@
 
   (add-hook 'org-mode-hook #'enable-show-trailing-whitespace))
 
+(use-package
+  org-pomodoro
+  :config
+  (setq org-pomodoro-length 25))
+
 (provide 'setup-org)
