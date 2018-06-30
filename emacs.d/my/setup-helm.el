@@ -3,6 +3,7 @@
 ;; helm
 (use-package
   helm
+  :diminish helm-mode
   :bind
   ("C-x C-f" . helm-find-files)
   ("M-x" . helm-M-x)
