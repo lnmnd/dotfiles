@@ -9,6 +9,7 @@
 
 (use-package
   highlight-parentheses
+  :diminish highlight-parentheses-mode
   :init
   (dolist (x '(emacs-lisp-mode-hook
 	       lisp-mode-hook
@@ -19,6 +20,7 @@
 
 (use-package
   paredit
+  :diminish paredit-mode
   :init
   (dolist (x '(emacs-lisp-mode-hook
                eval-expression-minibuffer-setup-hook
