@@ -10,7 +10,10 @@
 (use-package
   highlight-parentheses
   :init
-  (dolist (x '(scheme-mode-hook emacs-lisp-mode-hook))
+  (dolist (x '(emacs-lisp-mode-hook
+	       lisp-mode-hook
+	       scheme-mode-hook
+	       clojure-mode-hook))
     (add-hook x (lambda ()
                   (highlight-parentheses-mode t)))))
 
