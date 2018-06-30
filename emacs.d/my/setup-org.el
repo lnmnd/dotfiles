@@ -34,6 +34,10 @@
 (use-package
   org-pomodoro
   :config
-  (setq org-pomodoro-length 25))
+  (setq org-pomodoro-length 25)
+  (setq org-pomodoro-start-sound-p t)
+  (setq org-pomodoro-finished-sound-p t)
+  (setq org-pomodoro-short-break-sound-p t)
+  (setq org-pomodoro-long-break-sound-p t))
 
 (provide 'setup-org)
