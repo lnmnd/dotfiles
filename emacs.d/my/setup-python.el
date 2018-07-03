@@ -14,9 +14,7 @@
 (setq my-python-format-code-activated t)
 
 (defun find-python-version-dir ()
-  (f-traverse-upwards
-   (lambda (path)
-     (f-exists? (f-expand ".python-version" path)))))
+  (locate-dominating-file (buffer-file-name) ".python-version"))
 
 (defun activate-pyenv ()
   (when (not pyenv-activated)
