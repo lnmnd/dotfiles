@@ -11,7 +11,7 @@
   pyvenv)
 
 (setq pyenv-activated nil)
-(setq my-python-format-code-activated t)
+(setq python-format-code-activated t)
 
 (defun find-python-version-dir ()
   (locate-dominating-file (buffer-file-name) ".python-version"))
@@ -25,16 +25,16 @@
           (pyvenv-activate (concat "~/.pyenv/versions/" version))
           (setq pyenv-activated t))))))
 
-(defun my-python-format-code-activate ()
+(defun python-format-code-activate ()
   (interactive)
-  (setq my-python-format-code-activated t))
+  (setq python-format-code-activated t))
 
-(defun my-python-format-code-deactivate ()
+(defun python-format-code-deactivate ()
   (interactive)
-  (setq my-python-format-code-activated nil))
+  (setq python-format-code-activated nil))
 
-(defun my-python-format-code ()
-  (when (and my-python-format-code-activated
+(defun python-format-code ()
+  (when (and python-format-code-activated
 	     (eq major-mode 'python-mode))
     (shell-command-to-string (format "isort %s" buffer-file-name))
     (shell-command-to-string (format "autopep8 --in-place %s" buffer-file-name))
@@ -50,13 +50,13 @@
   (forward-line)
   (isend-associate "*gud-pdb*"))
 
-(defun my-python-generate-etags ()
+(defun python-generate-etags ()
   (interactive)
   (let ((dir (projectile-project-root)))
     (shell-command
      (concat "cd " dir " && git ls-files| grep \.py$ | xargs etags -o " dir "TAGS -"))))
 
-(defun my-python-switch-to-shell ()
+(defun python-switch-to-shell ()
   (interactive)
   (when (not (get-buffer "*Python*"))
     (run-python)
@@ -68,14 +68,14 @@
       (python-shell-send-buffer)))
   (python-shell-switch-to-shell))
 
-(defun my-python-doc ()
+(defun python-doc ()
   (interactive)
   (let* ((symbol (python-info-current-symbol t))
          (str (concat "help(" symbol ")"))
          (output (python-shell-send-string-no-output str)))
     (popup-tip output :point (point-at-bol))))
 
-(defun my-python-eval-last-statement ()
+(defun python-eval-last-statement ()
   (interactive)
   (save-excursion
     (let* ((start (python-nav-beginning-of-statement))
@@ -84,7 +84,7 @@
            (output (python-shell-send-string-no-output input)))
       (popup-tip output :point (point-at-bol)))))
 
-(defun my-python-eval-print-last-statement ()
+(defun python-eval-print-last-statement ()
   (interactive)
   (save-excursion
     (let* ((start (python-nav-beginning-of-statement))
@@ -94,7 +94,7 @@
       (forward-line)
       (insert output))))
 
-(defun my-python-reset ()
+(defun python-reset ()
   (interactive)
   (python-shell-send-string "%reset -f"))
 
@@ -121,20 +121,20 @@
   (flycheck-mode)
 
   (add-hook 'find-file-hook 'activate-pyenv)
-  (add-hook 'after-save-hook #'my-python-format-code)
+  (add-hook 'after-save-hook #'python-format-code)
 
   (define-key python-mode-map (kbd "<C-return>") 'isend-send)
   (define-key python-mode-map (kbd "C-c C-b") #'python-shell-send-buffer)
-  (define-key python-mode-map (kbd "C-c C-d") #'my-python-doc)
-  (define-key python-mode-map (kbd "C-c C-e") #'my-python-eval-last-statement)
+  (define-key python-mode-map (kbd "C-c C-d") #'python-doc)
+  (define-key python-mode-map (kbd "C-c C-e") #'python-eval-last-statement)
   (define-key python-mode-map (kbd "C-c C-i") #'helm-etags-select)
   (define-key python-mode-map (kbd "C-c C-o") #'helm-semantic-or-imenu)
-  (define-key python-mode-map (kbd "C-c C-p") #'my-python-eval-print-last-statement)
+  (define-key python-mode-map (kbd "C-c C-p") #'python-eval-print-last-statement)
   (define-key python-mode-map (kbd "C-c C-r") #'python-shell-send-region)
   (define-key python-mode-map (kbd "C-c C-t") #'recompile)
-  (define-key python-mode-map (kbd "C-c C-x") #'my-python-reset)
-  (define-key python-mode-map (kbd "C-c C-z") #'my-python-switch-to-shell)
-  (define-key python-mode-map (kbd "C-x C-e") #'my-python-eval-last-statement))
+  (define-key python-mode-map (kbd "C-c C-x") #'python-reset)
+  (define-key python-mode-map (kbd "C-c C-z") #'python-switch-to-shell)
+  (define-key python-mode-map (kbd "C-x C-e") #'python-eval-last-statement))
 
 (add-hook 'python-mode-hook #'setup-python--hook)
 (add-hook 'python-mode-hook #'enable-show-trailing-whitespace)
