@@ -17,6 +17,7 @@
   (locate-dominating-file (buffer-file-name) ".python-version"))
 
 (defun activate-pyenv ()
+  (interactive)
   (when (not pyenv-activated)
     (let ((python-version-dir (find-python-version-dir)))
       (when python-version-dir
