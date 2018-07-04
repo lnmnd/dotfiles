@@ -26,6 +26,11 @@
           (pyvenv-activate (concat "~/.pyenv/versions/" version))
           (setq pyenv-activated t))))))
 
+(defun deactivate-pyenv ()
+  (interactive)
+  (setq pyenv-activated nil)
+  (pyvenv-deactivate))
+
 (defun python-format-code-activate ()
   (interactive)
   (setq python-format-code-activated t))
