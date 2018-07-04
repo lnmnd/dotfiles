@@ -87,9 +87,8 @@
     (let* ((start (python-nav-beginning-of-statement))
            (end (python-nav-end-of-statement))
            (input (concat "import pprint; pprint.pprint(" (buffer-substring start end) ")"))
-           (output (python-shell-send-string-no-output input)))
-      (forward-line)
-      (insert output))))
+           (output (python-shell-send-string input)))
+      (python-shell-switch-to-shell))))
 
 (defun python-reset ()
   (interactive)
