@@ -72,6 +72,13 @@
          (output (python-shell-send-string-no-output str)))
     (popup-tip output :point (point-at-bol))))
 
+(defun python-doc-print ()
+  (interactive)
+  (let* ((symbol (python-info-current-symbol t))
+         (str (concat "help(" symbol ")"))
+         (output (python-shell-send-string str)))
+    (python-shell-switch-to-shell)))
+
 (defun python-eval-last-statement ()
   (interactive)
   (save-excursion
@@ -130,6 +137,7 @@
   (define-key python-mode-map (kbd "C-c C-t") #'recompile)
   (define-key python-mode-map (kbd "C-c C-x") #'python-reset)
   (define-key python-mode-map (kbd "C-c C-z") #'python-switch-to-shell)
+  (define-key python-mode-map (kbd "C-u C-c C-d") #'python-doc-print)
   (define-key python-mode-map (kbd "C-x C-e") #'python-eval-last-statement))
 
 (add-hook 'python-mode-hook #'setup-python--hook)
