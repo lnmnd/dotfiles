@@ -66,6 +66,7 @@
   (interactive)
   (when (not (get-buffer "*Python*"))
     (run-python)
+    (python-shell-send-string "exec('try: import pprintpp; pprintpp.monkeypatch()\\nexcept ImportError: pass')")
     (when (get-buffer "boot.py")
       (switch-to-buffer "boot.py")
       (python-shell-send-buffer)))
