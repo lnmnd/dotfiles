@@ -160,10 +160,6 @@
   :diminish yas-minor-mode
   :config (yas-global-mode))
 
-(use-package yasnippet-snippets
-  :after yasnippet
-  :config (yasnippet-snippets-initialize))
-
 (use-package recompile-on-save)
 (use-package suggest)
 (use-package writeroom-mode)
