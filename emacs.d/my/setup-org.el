@@ -40,4 +40,8 @@
   (setq org-pomodoro-short-break-sound-p t)
   (setq org-pomodoro-long-break-sound-p t))
 
+(use-package
+  helm-org-rifle
+  :after (helm org))
+
 (provide 'setup-org)
