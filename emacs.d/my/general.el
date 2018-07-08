@@ -166,5 +166,6 @@
 
 (use-package recompile-on-save)
 (use-package suggest)
+(use-package writeroom-mode)
 
 (provide 'general)
