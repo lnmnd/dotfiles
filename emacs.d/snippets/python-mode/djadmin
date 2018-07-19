@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: djadmin
+# key: djadmin
+# --
+from django.contrib import admin
+@admin.register(${1:Model})
+class ${2:AdminModel}(admin.ModelAdmin):
+    $0

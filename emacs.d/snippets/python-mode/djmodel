@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: djmodel
+# key: djmodel
+# --
+from django.db import models
+class ${1:Model}(models.Model):
+    $0
