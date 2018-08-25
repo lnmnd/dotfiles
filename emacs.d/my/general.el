@@ -153,6 +153,11 @@
   (add-hook 'csv-mode-hook #'enable-show-trailing-whitespace))
 
 (use-package
+  lua-mode
+  :config
+  (add-hook 'lua-mode-hook #'enable-show-trailing-whitespace))
+
+(use-package
   autorevert
   :diminish auto-revert-mode)
 
