@@ -66,6 +66,7 @@
   skewer-mode
   :config
   (add-hook 'js2-mode-hook 'skewer-mode)
-  (add-hook 'css-mode-hook 'skewer-css-mode))
+  (add-hook 'css-mode-hook 'skewer-css-mode)
+  (define-key skewer-mode-map (kbd "C-c C-p") #'skewer-eval-print-last-expression))
 
 (provide 'setup-web)
