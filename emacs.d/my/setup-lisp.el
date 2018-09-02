@@ -53,6 +53,10 @@
     (cider-interactive-eval
      "(require 'clojure.tools.namespace.repl)
     (clojure.tools.namespace.repl/refresh)"))
+  (defun cider-prep ()
+    (interactive)
+    (cider-interactive-eval
+     "(in-ns 'user) (prep)"))
   (defun cider-init ()
     (interactive)
     (cider-interactive-eval
