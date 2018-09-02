@@ -11,4 +11,4 @@
                           [vinyasa.maven pull])]}
 
  :repl
- {:plugins [[cider/cider-nrepl "0.17.0"]]}}
+ {:plugins [[cider/cider-nrepl "0.18.0"]]}}
