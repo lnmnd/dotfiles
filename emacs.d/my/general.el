@@ -52,6 +52,8 @@
 
 (setq browse-url-browser-function 'eww-browse-url)
 
+(global-hi-lock-mode 1)
+
 (defun kill-all-buffers ()
   (interactive)
   (mapc 'kill-buffer (buffer-list)))
