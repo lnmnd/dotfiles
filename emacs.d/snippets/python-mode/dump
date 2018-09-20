@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: dump
+# key: dump
+# --
+import pickle
+with open("$1", "wb") as f:
+    pickle.dump($1, f)
