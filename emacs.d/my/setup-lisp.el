@@ -84,6 +84,10 @@
      "(in-ns 'user) (halt)"))  )
 
 (use-package
-  cider)
+  cider
+  :config
+  (define-key cider-mode-map (kbd "C-c C-d") #'cider-doc)
+  (define-key cider-mode-map (kbd "C-c C-i") #'cider-find-var)
+  (define-key cider-mode-map (kbd "C-c C-o") #'cider-pop-back))
 
 (provide 'setup-lisp)
