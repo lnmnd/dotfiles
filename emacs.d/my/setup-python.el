@@ -56,12 +56,6 @@
   (forward-line)
   (isend-associate "*gud-pdb*"))
 
-(defun python-generate-etags ()
-  (interactive)
-  (let ((dir (projectile-project-root)))
-    (shell-command
-     (concat "cd " dir " && git ls-files| grep \.py$ | xargs etags -o " dir "TAGS -"))))
-
 (defun python-switch-to-shell ()
   (interactive)
   (when (not (get-buffer "*Python*"))
@@ -142,7 +136,7 @@
   (define-key python-mode-map (kbd "C-c C-b") #'python-shell-send-buffer)
   (define-key python-mode-map (kbd "C-c C-d") #'python-doc)
   (define-key python-mode-map (kbd "C-c C-e") #'python-eval-last-statement)
-  (define-key python-mode-map (kbd "C-c C-i") #'helm-etags-select)
+  (define-key python-mode-map (kbd "C-c C-i") #'dumb-jump-go)
   (define-key python-mode-map (kbd "C-c C-o") #'helm-semantic-or-imenu)
   (define-key python-mode-map (kbd "C-c C-p") #'python-eval-print-last-statement)
   (define-key python-mode-map (kbd "C-c C-r") #'python-shell-send-region)
