@@ -110,8 +110,12 @@
 (flycheck-define-checker python-mypy
   ""
   :command ("mypy"
-	    "--ignore-missing-imports"
-	    source-original)
+	    "--config-file"
+            (eval (let ((config-dir (locate-dominating-file (buffer-file-name) "mypy.ini")))
+                    (if config-dir
+                        (f-expand "mypy.ini" config-dir)
+		      (expand-file-name "~/.mypy.ini"))))
+            source-original)
   :error-patterns
   ((error line-start (file-name) ":" line ": error:" (message) line-end))
   :modes python-mode)
