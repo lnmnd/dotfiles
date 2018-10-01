@@ -15,12 +15,12 @@
 (add-to-list 'default-frame-alist '(font . "Source Code Pro-12"))
 (custom-set-variables
  '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(custom-enabled-themes (quote (tango))))
+   [default default default italic underline success warning error]))
 
-;; Mode line
-(set-face-attribute 'mode-line nil :box nil :background "#bdbdbd" :foreground "#333333")
-(set-face-attribute 'mode-line-inactive nil :box nil :background "#e0e0e0" :foreground "#333333")
+(use-package spacemacs-theme
+  :defer t
+  :init
+  (load-theme 'spacemacs-light t))
 
 ;; backups
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
