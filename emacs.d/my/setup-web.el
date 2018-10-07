@@ -4,6 +4,12 @@
   (shell-command-to-string (format "eslint --fix %s" buffer-file-name))
   (revert-buffer :ignore-auto :noconfirm))
 
+(defun js-load-sc ()
+  (interactive)
+  (find-file (expand-file-name "~/.emacs.d/my/js-scope-capture.txt"))
+  (skewer-load-buffer)
+  (kill-buffer))
+
 (use-package
   js2-mode
   :mode "\\.js\\'"

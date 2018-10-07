@@ -1,0 +1,14 @@
+var sc = {
+  contexts: []
+};
+
+sc.spy = (...values) => {
+  const n = sc.contexts.length;
+  sc.contexts.push(values);
+  const where = (new Error).stack.split("\n")[1];
+  console.info(`SPY ${n} ${where}`);
+};
+
+sc.get = (n) => {
+  return sc.contexts[n];
+};
