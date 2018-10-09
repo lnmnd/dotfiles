@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: shelve
+# key: shelve
+# --
+import shelve
+d = shelve.open("var/shelve")
+d[b"$1"] = $1
+$1 = d[b"$1"]
+$1
