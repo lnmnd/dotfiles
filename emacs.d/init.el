@@ -3,7 +3,7 @@
 ;; My init
 
 ;;; Code:
-(setq-default gc-cons-threshold 100000000)
+(setq-default gc-cons-threshold most-positive-fixnum)
 
 (setq package-archives
       '(("gnu" . "https://elpa.gnu.org/packages/")
