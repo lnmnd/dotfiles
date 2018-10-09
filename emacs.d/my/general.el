@@ -3,6 +3,8 @@
 ;; no welcome screen
 (setq inhibit-splash-screen t)
 
+(setq initial-scratch-message "")
+
 ;; Remove the menu bar
 (menu-bar-mode -1)
 ;;; Remove the tool bar
