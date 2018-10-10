@@ -67,7 +67,18 @@
   :config
   (setq scss-compile-at-save nil))
 
-(use-package helm-css-scss)
+(use-package
+  helm-css-scss
+  :config
+  (setq helm-css-scss-split-window-function
+	;; Accept more arguments
+	(lambda ($buf &rest _$args)
+	  (if helm-css-scss-split-with-multiple-windows
+	      (funcall helm-css-scss-split-direction)
+	    (when (one-window-p)
+	      (funcall helm-css-scss-split-direction)))
+	  (other-window 1)
+	  (switch-to-buffer $buf)))))
 
 (use-package
   skewer-mode
