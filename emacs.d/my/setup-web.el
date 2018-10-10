@@ -78,7 +78,7 @@
 	    (when (one-window-p)
 	      (funcall helm-css-scss-split-direction)))
 	  (other-window 1)
-	  (switch-to-buffer $buf)))))
+	  (switch-to-buffer $buf))))
 
 (use-package
   skewer-mode
