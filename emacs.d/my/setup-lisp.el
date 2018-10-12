@@ -91,4 +91,6 @@
   (define-key cider-mode-map (kbd "C-c C-i") #'cider-find-var)
   (define-key cider-mode-map (kbd "C-c C-o") #'cider-pop-back))
 
+(use-package spiral)
+
 (provide 'setup-lisp)
