@@ -102,6 +102,7 @@
   flycheck
   :config
   (add-hook 'php-mode-hook 'flycheck-mode)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (setq flycheck-phpmd-rulesets '("cleancode"
                                   "codesize"
                                   "controversial"
