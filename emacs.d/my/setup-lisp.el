@@ -91,6 +91,11 @@
   (define-key cider-mode-map (kbd "C-c C-i") #'cider-find-var)
   (define-key cider-mode-map (kbd "C-c C-o") #'cider-pop-back))
 
-(use-package spiral)
+(use-package spiral
+  :config
+  (define-key spiral-mode-map (kbd "C-M-x") #'spiral-eval-top-level-form)
+  (define-key spiral-mode-map (kbd "C-c C-b") #'spiral-eval-buffer)
+  (define-key spiral-mode-map (kbd "C-c C-e") #'spiral-eval-last-sexp)
+  (define-key spiral-mode-map (kbd "C-x C-e") #'spiral-eval-last-sexp))
 
 (provide 'setup-lisp)
