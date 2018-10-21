@@ -44,17 +44,7 @@
 	     (eq major-mode 'python-mode))
     (shell-command-to-string (format "isort %s" buffer-file-name))
     (shell-command-to-string (format "autopep8 --in-place %s" buffer-file-name))
-    (revert-buffer :ignore-auto :noconfirm)
-    (isend-associate "*gud-pdb*")))
-
-(defun pdb-set-trace ()
-  (interactive)
-  (move-beginning-of-line 1)
-  (insert "import pdb; pdb.set_trace();\n")
-  (forward-line -1)
-  (indent-line-to python-indent)
-  (forward-line)
-  (isend-associate "*gud-pdb*"))
+    (revert-buffer :ignore-auto :noconfirm)))
 
 (defun python-switch-to-shell ()
   (interactive)
@@ -139,7 +129,6 @@
   (add-hook 'find-file-hook 'activate-pyenv)
   (add-hook 'after-save-hook #'python-format-code)
 
-  (define-key python-mode-map (kbd "<C-return>") 'isend-send)
   (define-key python-mode-map (kbd "C-c C-b") #'python-shell-send-buffer)
   (define-key python-mode-map (kbd "C-c C-d") #'python-doc)
   (define-key python-mode-map (kbd "C-c C-e") #'python-eval-last-statement)

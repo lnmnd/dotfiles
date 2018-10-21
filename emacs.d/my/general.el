@@ -116,16 +116,6 @@
   (add-hook 'c-mode-hook 'flycheck-mode))
 
 (use-package
-  isend-mode
-  :config
-  ;; C-RET to send the current line to the interpreter
-  (setq isend-forward-line nil)
-  (setq isend-skip-empty-lines nil)
-  (setq isend-strip-empty-lines nil)
-  (setq isend-delete-indentation t)
-  (setq isend-end-with-empty-line t))
-
-(use-package
   avy
   :config
   (setq avy-keys (nconc (number-sequence ?a ?z) (number-sequence ?A ?Z)))
