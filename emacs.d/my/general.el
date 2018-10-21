@@ -167,7 +167,6 @@
   (setq dumb-jump-selector 'helm)
   (setq dumb-jump-prefer-searcher 'ag))
 
-(use-package recompile-on-save)
 (use-package suggest)
 (use-package writeroom-mode)
 
