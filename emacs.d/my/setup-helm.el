@@ -12,11 +12,6 @@
   (setq helm-buffers-fuzzy-matching t
         helm-recentf-fuzzy-match    t)
 
-  ;; From within a helm-find-files search a file/directory with C-s
-  (when (executable-find "ack-grep")
-    (setq helm-grep-default-command "ack-grep -Hn --no-group --no-color %e %p %f"
-          helm-grep-default-recurse-command "ack-grep -H --no-group --no-color %e %p %f"))
-
   (helm-mode))
 
 (use-package helm-ag)
