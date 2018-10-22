@@ -33,7 +33,7 @@
 	     (f-expand ".python-version")
 	     python--read-text
 	     s-trim
-	     (concat "~/.pyenv/versions/")
+	     (concat "~/.pyvenv/")
 	     pyvenv-activate)
 	(setq pyenv-activated t)))))
 
