@@ -28,8 +28,6 @@
   :config
   (add-hook 'js2-mode-hook 'tern-mode))
 
-(use-package tern-auto-complete)
-
 (use-package
   web-mode
   :mode "\\.html?\\'" "\\.djhtml\\'" "\\.twig\\'"
