@@ -144,11 +144,6 @@
   (add-hook 'yaml-mode-hook #'enable-show-trailing-whitespace))
 
 (use-package
-  csv-mode
-  :config
-  (add-hook 'csv-mode-hook #'enable-show-trailing-whitespace))
-
-(use-package
   lua-mode
   :config
   (add-hook 'lua-mode-hook #'enable-show-trailing-whitespace))
