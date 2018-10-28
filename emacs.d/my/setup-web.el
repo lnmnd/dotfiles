@@ -24,12 +24,6 @@
 			     (add-hook 'after-save-hook #'my-js-format-code nil t))))
 
 (use-package
-  js2-refactor
-  :config
-  (add-hook 'js2-mode-hook 'js2-refactor-mode)
-  (define-key js2-mode-map (kbd "C-k") 'js2r-kill))
-
-(use-package
   tern
   :config
   (add-hook 'js2-mode-hook 'tern-mode))
