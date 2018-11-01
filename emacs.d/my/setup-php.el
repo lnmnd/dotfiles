@@ -34,16 +34,19 @@ The output will appear in the buffer *PHP*."
   (comint-send-string php-buffer content)
   (comint-send-string php-buffer "\n"))
 
+(defun php--clean-buffer (code)
+  (if (string-prefix-p "<?php" code t)
+      (substring code 5)
+    code))
+
 (defun php-eval-buffer ()
   "Send the buffer to PHP REPL for execution.
 The output will appear in the buffer *PHP*."
   (interactive)
   ;; Ignore '<?php' at the beginning of the buffer.
-  (let* ((code (buffer-substring (point-min) (point-max)))
-         (cleaned-code (if (string-prefix-p "<?php" code t)
-                           (substring code 5)
-                         code)))
-    (php-send-to-buffer cleaned-code)))
+  (-> (buffer-substring (point-min) (point-max))
+      php--clean-buffer
+      php-send-to-buffer))
 
 (defun php-display-doc ()
   (interactive)

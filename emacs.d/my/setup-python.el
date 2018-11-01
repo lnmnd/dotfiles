@@ -21,15 +21,21 @@
 (defun find-python-version-dir ()
   (locate-dominating-file (buffer-file-name) ".python-version"))
 
+(defun python--read-text (path)
+  (f-read-text path 'utf-8))
+
 (defun activate-pyenv ()
   (interactive)
   (when (not pyenv-activated)
     (let ((python-version-dir (find-python-version-dir)))
       (when python-version-dir
-        (let* ((python-version-path (f-expand ".python-version" python-version-dir))
-               (version (s-trim (f-read-text python-version-path 'utf-8))))
-          (pyvenv-activate (concat "~/.pyenv/versions/" version))
-          (setq pyenv-activated t))))))
+	(->> python-version-dir
+	     (f-expand ".python-version")
+	     python--read-text
+	     s-trim
+	     (concat "~/.pyenv/versions/")
+	     pyvenv-activate)
+	(setq pyenv-activated t)))))
 
 (defun deactivate-pyenv ()
   (interactive)
@@ -71,34 +77,35 @@
 
 (defun python-doc ()
   (interactive)
-  (let* ((symbol (python-info-current-symbol t))
-         (str (concat "help(" symbol ")"))
-         (output (python-shell-send-string-no-output str)))
-    (popup-tip output :point (point-at-bol))))
+  (-as-> (python-info-current-symbol t) x
+	 (concat "help(" x ")")
+	 (python-shell-send-string-no-output x)
+	 (popup-tip x :point (point-at-bol))))
 
 (defun python-doc-print ()
   (interactive)
-  (let* ((symbol (python-info-current-symbol t))
-         (str (concat "help(" symbol ")"))
-         (output (python-shell-send-string str)))
-    (python-shell-switch-to-shell)))
+  (-as-> (python-info-current-symbol t) x
+	 (concat "help(" x ")")
+	 (python-shell-send-string x))
+  (python-shell-switch-to-shell))
 
 (defun python-eval-last-statement ()
   (interactive)
   (save-excursion
-    (let* ((start (python-nav-beginning-of-statement))
-           (end (python-nav-end-of-statement))
-           (input (buffer-substring start end))
-           (output (python-shell-send-string-no-output input)))
-      (popup-tip output :point (point-at-bol)))))
+    (let ((start (python-nav-beginning-of-statement))
+	  (end (python-nav-end-of-statement)))
+      (-as-> (buffer-substring start end) x
+	     (python-shell-send-string-no-output x)
+	     (popup-tip x :point (point-at-bol))))))
 
 (defun python-eval-print-last-statement ()
   (interactive)
   (save-excursion
-    (let* ((start (python-nav-beginning-of-statement))
-           (end (python-nav-end-of-statement))
-           (input (concat "import pprint; pprint.pprint(" (buffer-substring start end) ")"))
-           (output (python-shell-send-string input)))
+    (let ((start (python-nav-beginning-of-statement))
+	  (end (python-nav-end-of-statement)))
+      (-as-> (buffer-substring start end) x
+	     (concat "import pprint; pprint.pprint(" x ")")
+	     (python-shell-send-string x))
       (python-shell-switch-to-shell))))
 
 (defun python--plot-add-output (acc val)
@@ -106,11 +113,11 @@
 
 (defun python--plot (cmd)
   (save-excursion
-    (let* ((plotline-name (make-temp-file "tmp" nil ".txt"))
-	   (start (python-nav-beginning-of-statement))
-           (end (python-nav-end-of-statement))
-           (input (concat "list(" (buffer-substring start end) ")")))
-      (-as-> input x
+    (let ((plotline-name (make-temp-file "tmp" nil ".txt"))
+	  (start (python-nav-beginning-of-statement))
+	  (end (python-nav-end-of-statement)))
+      (-as-> (buffer-substring start end) x
+	     (concat "list("  x ")")
 	     (python-shell-send-string-no-output x)
 	     (s-replace "[" "(" x)
 	     (s-replace "]" ")" x)
