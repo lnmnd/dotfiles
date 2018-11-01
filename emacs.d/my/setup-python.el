@@ -1,7 +1,9 @@
 ;;; setup-python.el --- Setup Python -*- lexical-binding: t -*-
 ;; Install: autopep8, flake8, isort and mypy
 ;; Install in virtualenv: ipython
+;; Install for plots: gnuplot and ImageMagick
 
+(require 'dash)
 (require 'f)
 (require 's)
 
@@ -9,6 +11,9 @@
 
 (use-package
   pyvenv)
+
+(use-package
+  shx)
 
 (setq pyenv-activated nil)
 (setq python-format-code-activated t)
@@ -95,6 +100,34 @@
            (input (concat "import pprint; pprint.pprint(" (buffer-substring start end) ")"))
            (output (python-shell-send-string input)))
       (python-shell-switch-to-shell))))
+
+(defun python--plot-add-output (acc val)
+  (list (concat (car acc) (format "%s %s\n" (cadr acc) val)) (+ (cadr acc) 1)))
+
+(defun python--plot (cmd)
+  (save-excursion
+    (let* ((plotline-name (make-temp-file "tmp" nil ".txt"))
+	   (start (python-nav-beginning-of-statement))
+           (end (python-nav-end-of-statement))
+           (input (concat "list(" (buffer-substring start end) ")")))
+      (-as-> input x
+	     (python-shell-send-string-no-output x)
+	     (s-replace "[" "(" x)
+	     (s-replace "]" ")" x)
+	     (s-replace "," "" x)
+	     (read x)
+	     (car (seq-reduce #'python--plot-add-output x '("" 1)))
+	     (append-to-file x nil plotline-name))
+      (python-shell-switch-to-shell)
+      (funcall cmd plotline-name))))
+
+(defun python-plotline ()
+  (interactive)
+  (python--plot #'shx-cmd-plotline))
+
+(defun python-plotbar ()
+  (interactive)
+  (python--plot #'shx-cmd-plotbar))
 
 (defun python-reset ()
   (interactive)
