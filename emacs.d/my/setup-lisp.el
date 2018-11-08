@@ -46,6 +46,8 @@
 	    (define-key emacs-lisp-mode-map "\C-c\C-r" #'eval-region)
 	    (define-key emacs-lisp-mode-map "\C-x\C-e" #'my-eval-last-sexp)))
 
+(setq scheme-program-name "csi")
+
 (use-package
   clojure-mode
   :config
