@@ -14,6 +14,7 @@
   js2-mode
   :mode "\\.js\\'"
   :config
+  (define-key js2-mode-map (kbd "C-c C-h") #'helm-semantic-or-imenu)
   (define-key js2-mode-map (kbd "C-c C-i") 'js2-jump-to-definition)
   (define-key js2-mode-map (kbd "C-c C-o") 'xref-pop-marker-stack)
   (add-hook 'js2-mode-hook #'enable-show-trailing-whitespace)
