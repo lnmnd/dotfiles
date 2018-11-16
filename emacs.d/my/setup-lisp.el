@@ -89,7 +89,8 @@
   :config
   (define-key cider-mode-map (kbd "C-c C-d") #'cider-doc)
   (define-key cider-mode-map (kbd "C-c C-i") #'cider-find-var)
-  (define-key cider-mode-map (kbd "C-c C-o") #'cider-pop-back))
+  (define-key cider-mode-map (kbd "C-c C-o") #'cider-pop-back)
+  (define-key cider-mode-map (kbd "C-c C-r") #'cider-eval-region))
 
 (use-package spiral
   :config
