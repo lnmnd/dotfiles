@@ -14,7 +14,7 @@ def sc_spy(*values):
     sc._n += 1
 
 
-def sc_get_ctx(n):
+def sc_getc(n):
     return sc._contexts[n]
 
 
@@ -22,5 +22,5 @@ sc = types.ModuleType("sc")
 sc._n = 0
 sc._contexts = []
 sc.spy = sc_spy
-sc.get_ctx = sc_get_ctx
+sc.getc = sc_getc
 sys.modules["sc"] = sc

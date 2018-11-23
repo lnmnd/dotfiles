@@ -9,6 +9,6 @@ sc.spy = (...values) => {
   console.info(`SPY ${n} ${where}`);
 };
 
-sc.get = (n) => {
+sc.getc = (n) => {
   return sc.contexts[n];
 };
