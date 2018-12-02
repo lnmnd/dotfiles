@@ -52,11 +52,6 @@
   clojure-mode
   :config
   (add-hook 'after-save-hook #'cljfmt)
-  (defun cider-namespace-refresh ()
-    (interactive)
-    (cider-interactive-eval
-     "(require 'clojure.tools.namespace.repl)
-    (clojure.tools.namespace.repl/refresh)"))
   (defun cider-prep ()
     (interactive)
     (cider-interactive-eval
