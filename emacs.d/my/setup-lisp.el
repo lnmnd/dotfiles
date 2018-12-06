@@ -92,8 +92,9 @@
 (use-package spiral
   :config
   (define-key spiral-mode-map (kbd "C-M-x") #'spiral-eval-top-level-form)
-  (define-key spiral-mode-map (kbd "C-c C-b") #'spiral-eval-buffer)
+  (define-key spiral-mode-map (kbd "C-c C-k") #'spiral-eval-buffer)
   (define-key spiral-mode-map (kbd "C-c C-e") #'spiral-eval-last-sexp)
-  (define-key spiral-mode-map (kbd "C-x C-e") #'spiral-eval-last-sexp))
+  (define-key spiral-mode-map (kbd "C-x C-e") #'spiral-eval-last-sexp)
+  (define-key spiral-mode-map (kbd "C-c C-p") #'spiral-inspect-last-eval))
 
 (provide 'setup-lisp)
