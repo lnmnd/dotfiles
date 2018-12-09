@@ -42,12 +42,6 @@
   (add-hook 'web-mode-hook #'enable-show-trailing-whitespace))
 
 (use-package
-  mustache-mode
-  :mode "\\.mustache\\'"
-  :config
-  (add-hook 'mustache-mode-hook #'enable-show-trailing-whitespace))
-
-(use-package
   css-mode
   :mode "\\.css\\'"
   :config
