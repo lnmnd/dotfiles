@@ -123,20 +123,6 @@
   ("C-c a j" . avy-goto-word-or-subword-1))
 
 (use-package
-  markdown-mode
-  :config
-  (add-hook 'markdown-mode-hook #'enable-show-trailing-whitespace))
-
-(use-package
-  json-mode
-  :config
-  (add-hook 'json-mode-hook #'enable-show-trailing-whitespace))
-(use-package
-  yaml-mode
-  :config
-  (add-hook 'yaml-mode-hook #'enable-show-trailing-whitespace))
-
-(use-package
   lua-mode
   :config
   (add-hook 'lua-mode-hook #'enable-show-trailing-whitespace))
