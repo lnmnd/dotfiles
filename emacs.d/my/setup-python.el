@@ -108,8 +108,8 @@
 	     (python-shell-send-string x))
       (python-shell-switch-to-shell))))
 
-(defun python--plot-add-output (acc val)
-  (list (concat (car acc) (format "%s %s\n" (cadr acc) val)) (+ (cadr acc) 1)))
+(defun python--plot-format (point)
+  (format "%s %s\n" (car point) (cadr point)))
 
 (defun python--plot (cmd)
   (save-excursion
@@ -123,7 +123,7 @@
 	     (s-replace "]" ")" x)
 	     (s-replace "," "" x)
 	     (read x)
-	     (car (seq-reduce #'python--plot-add-output x '("" 1)))
+	     (mapconcat #'python--plot-format x "")
 	     (append-to-file x nil plotline-name))
       (python-shell-switch-to-shell)
       (funcall cmd plotline-name))))
