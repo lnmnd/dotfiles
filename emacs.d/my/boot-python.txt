@@ -2,6 +2,12 @@ import sys
 import traceback
 import types
 
+try:
+    import pprintpp
+    pprintpp.monkeypatch()
+except ImportError:
+    pass
+
 
 def sc_spy(*values):
     try:

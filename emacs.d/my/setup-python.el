@@ -61,8 +61,6 @@
   (interactive)
   (when (not (get-buffer "*Python*"))
     (run-python)
-    (python-shell-send-string "exec('try: import pprintpp; pprintpp.monkeypatch()\\nexcept ImportError: pass')")
-    (python-shell-send-string "")
     (find-file (expand-file-name "~/.emacs.d/my/boot-python.txt"))
     (python-shell-send-buffer)
     (kill-buffer)
