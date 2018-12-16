@@ -52,6 +52,14 @@
   clojure-mode
   :config
   (add-hook 'after-save-hook #'cljfmt)
+  (defun cider-add-lib ()
+    (interactive)
+    (let ((coordinates (read-string "Coordinates: ")))
+      (cider-interactive-eval
+       (concat
+	"(in-ns 'user)"
+	"(require '[clojure.tools.deps.alpha.repl :refer [add-lib]])"
+	"(add-lib " coordinates ")"))))
   (defun cider-prep ()
     (interactive)
     (cider-interactive-eval
@@ -79,7 +87,7 @@
   (defun cider-halt ()
     (interactive)
     (cider-interactive-eval
-     "(in-ns 'user) (halt)"))  )
+     "(in-ns 'user) (halt)")))
 
 (use-package
   cider
