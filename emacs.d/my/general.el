@@ -123,11 +123,6 @@
   ("C-c a j" . avy-goto-word-or-subword-1))
 
 (use-package
-  lua-mode
-  :config
-  (add-hook 'lua-mode-hook #'enable-show-trailing-whitespace))
-
-(use-package
   autorevert
   :diminish auto-revert-mode)
 
