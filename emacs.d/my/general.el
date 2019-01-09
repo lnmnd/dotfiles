@@ -120,6 +120,8 @@
   avy
   :config
   (setq avy-keys (nconc (number-sequence ?a ?z) (number-sequence ?A ?Z)))
+  (set-face-attribute 'avy-lead-face nil :foreground "red")
+  (set-face-attribute 'avy-lead-face nil :background "#fbf8ef")
   :bind
   ("C-c a j" . avy-goto-word-or-subword-1))
 
