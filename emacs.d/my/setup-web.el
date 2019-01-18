@@ -45,7 +45,7 @@
   css-mode
   :mode "\\.css\\'"
   :config
-  (define-key css-mode-map (kbd "C-c C-o") 'helm-css-scss)
+  (define-key css-mode-map (kbd "C-c C-h") 'helm-css-scss)
   (add-hook 'css-mode-hook #'enable-show-trailing-whitespace))
 
 (use-package
