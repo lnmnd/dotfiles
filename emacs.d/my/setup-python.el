@@ -165,11 +165,11 @@
   (add-hook 'find-file-hook 'activate-pyenv)
   (add-hook 'after-save-hook #'python-format-code)
 
-  (define-key python-mode-map (kbd "C-c C-b") #'python-shell-send-buffer)
   (define-key python-mode-map (kbd "C-c C-d") #'python-doc)
   (define-key python-mode-map (kbd "C-c C-e") #'python-eval-last-statement)
   (define-key python-mode-map (kbd "C-c C-h") #'helm-semantic-or-imenu)
   (define-key python-mode-map (kbd "C-c C-i") #'dumb-jump-go)
+  (define-key python-mode-map (kbd "C-c C-k") #'python-shell-send-buffer)
   (define-key python-mode-map (kbd "C-c C-o") #'dumb-jump-back)
   (define-key python-mode-map (kbd "C-c C-p") #'python-eval-print-last-statement)
   (define-key python-mode-map (kbd "C-c C-r") #'python-shell-send-region)

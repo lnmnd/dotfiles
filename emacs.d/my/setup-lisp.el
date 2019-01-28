@@ -40,7 +40,7 @@
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
 	    (define-key emacs-lisp-mode-map "\C-c\C-o" #'xref-pop-marker-stack)
-	    (define-key emacs-lisp-mode-map "\C-c\C-b" #'eval-buffer)
+	    (define-key emacs-lisp-mode-map "\C-c\C-k" #'eval-buffer)
 	    (define-key emacs-lisp-mode-map "\C-c\C-i" #'xref-find-definitions)
 	    (define-key emacs-lisp-mode-map "\C-c\C-p" #'eval-print-last-sexp)
 	    (define-key emacs-lisp-mode-map "\C-c\C-r" #'eval-region)
