@@ -30,3 +30,13 @@ sc._contexts = []
 sc.spy = sc_spy
 sc.getc = sc_getc
 sys.modules["sc"] = sc
+
+def apropos(term):
+    lterm = term.lower()
+    name_modules = sorted((name, module)
+                          for name, module in sys.modules.items()
+                          if module is not None)
+    for name, module in name_modules:
+        for attr in sorted(dir(module)):
+            if not attr.startswith("_") and lterm in attr.lower():
+                print("{}.{}".format(name, attr))
