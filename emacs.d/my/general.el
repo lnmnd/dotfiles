@@ -1,5 +1,7 @@
 ;;; general.el --- General -*- lexical-binding: t -*-
 
+(require 'dash)
+
 ;; no welcome screen
 (setq inhibit-splash-screen t)
 
@@ -62,6 +64,37 @@
 
 (defun enable-show-trailing-whitespace ()
   (setq show-trailing-whitespace t))
+
+(defun package-deps--dep+version (dep+version-numbers)
+  (let ((name (symbol-name (car dep+version-numbers)))
+	(version-numbers (cdr dep+version-numbers)))
+    (-as-> version-numbers it
+	   (car it)
+	   (mapconcat #'pp-to-string it ".")
+	   (concat name " " it))))
+
+(defun package-deps--dep+versions (reqs)
+  (mapconcat #'package-deps--dep+version reqs ", "))
+
+(defun package-deps--pkg (pkg+descs)
+  (let ((pkg (symbol-name (car pkg+descs)))
+	(descs (cdr pkg+descs)))
+    (-as-> descs it
+	   (car (mapcar #'package-desc-reqs it))
+	   (package-deps--dep+versions it)
+	   (concat pkg ": " it))))
+
+(defun package-deps ()
+  (interactive)
+  (if (not (get-buffer "*package-deps*"))
+      (generate-new-buffer "*package-deps*"))
+  (switch-to-buffer "*package-deps*")
+  (erase-buffer)
+  (-as-> package-alist it
+	 (reverse it)
+	 (mapconcat #'package-deps--pkg it "\n")
+	 (insert it))
+  (goto-line 1))
 
 (use-package diminish)
 
