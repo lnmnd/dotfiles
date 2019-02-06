@@ -7,7 +7,7 @@
     tree = !git log --graph --oneline --color --decorate
 [core]
 	quotepath = false
-	editor = ec
+	editor = emacs
 [merge]
     tool = meld
 [rerere]
