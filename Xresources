@@ -1,0 +1,4 @@
+emacs.menuBar: off
+emacs.verticalScrollBars: off
+emacs.toolBar: off
+emacs.font: Source Code Pro-12

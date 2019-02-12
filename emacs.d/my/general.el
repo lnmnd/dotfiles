@@ -7,16 +7,8 @@
 
 (setq initial-scratch-message "")
 
-;; Remove the menu bar
-(menu-bar-mode -1)
-;;; Remove the tool bar
-(tool-bar-mode -1)
-;; Remove the scroll bar
-(scroll-bar-mode -1)
-
 (setq frame-title-format "%b - emacs")
 
-(add-to-list 'default-frame-alist '(font . "Source Code Pro-12"))
 (custom-set-variables
  '(ansi-color-faces-vector
    [default default default italic underline success warning error]))
