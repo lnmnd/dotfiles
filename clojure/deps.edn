@@ -19,7 +19,7 @@
   :rebl
   {:extra-deps
    {org.clojure/core.async {:mvn/version "0.4.490"}
-    com.cognitect/rebl {:local/root "/home/user/local/opt/REBL-0.9.109/REBL-0.9.109.jar"}}
+    com.cognitect/rebl {:local/root "/home/user/local/opt/REBL-0.9.149/REBL-0.9.149.jar"}}
    :main-opts ["-m" "cognitect.rebl"]}
 
   :uberjar
