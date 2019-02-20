@@ -6,5 +6,6 @@
     --with-gif \
     --with-png \
     --with-rsvg \
+    --with-xml2 \
     --with-xft \
     --with-gnutls
