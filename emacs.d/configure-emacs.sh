@@ -8,4 +8,5 @@
     --with-rsvg \
     --with-xml2 \
     --with-xft \
+    --with-xim \
     --with-gnutls
