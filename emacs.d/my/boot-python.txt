@@ -1,3 +1,4 @@
+import shelve
 import sys
 import traceback
 import types
