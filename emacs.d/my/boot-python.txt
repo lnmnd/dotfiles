@@ -1,6 +1,7 @@
 import sys
 import traceback
 import types
+from importlib import reload
 
 try:
     import pprintpp
@@ -30,6 +31,7 @@ sc._contexts = []
 sc.spy = sc_spy
 sc.getc = sc_getc
 sys.modules["sc"] = sc
+
 
 def apropos(term):
     lterm = term.lower()

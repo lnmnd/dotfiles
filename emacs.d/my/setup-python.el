@@ -1,6 +1,5 @@
 ;;; setup-python.el --- Setup Python -*- lexical-binding: t -*-
 ;; Install: autopep8, flake8, isort and mypy
-;; Install in virtualenv: ipython
 ;; Install for plots: gnuplot and ImageMagick
 
 (require 'dash)
@@ -153,9 +152,9 @@
 (flycheck-add-next-checker 'python-flake8 'python-mypy t)
 
 (defun setup-python--hook ()
-  (setq python-shell-interpreter "ipython")
-  (setq python-shell-interpreter-args "-i --simple-prompt")
-  (setq python-shell-completion-native-disabled-interpreters '("ipython"))
+  (setq python-shell-interpreter "python")
+  (setq python-shell-interpreter-args "")
+  (setq python-shell-completion-native-disabled-interpreters '("python"))
   (setq gud-pdb-command-name "python -m pdb")
   (setq flycheck-flake8-maximum-complexity 10)
 
