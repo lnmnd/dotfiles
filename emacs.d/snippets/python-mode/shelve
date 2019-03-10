@@ -4,6 +4,6 @@
 # --
 import shelve
 d = shelve.open("var/shelve")
-d[b"$1"] = $1
-$1 = d[b"$1"]
+d["$1"] = $1
+$1 = d["$1"]
 $1
