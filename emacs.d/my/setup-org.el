@@ -33,6 +33,8 @@
 
 (use-package
   helm-org-rifle
-  :after (helm org))
+  :after (helm org)
+  :config
+  (setq helm-org-rifle-show-path t))
 
 (provide 'setup-org)
