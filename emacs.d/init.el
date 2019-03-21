@@ -35,7 +35,6 @@
   (load custom-file)
 
   (require 'general)
-  (require 'setup-helm)
   (require 'setup-org)
   (require 'setup-lisp)
   (require 'setup-python)

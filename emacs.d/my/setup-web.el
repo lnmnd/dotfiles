@@ -14,7 +14,7 @@
   js2-mode
   :mode "\\.js\\'"
   :config
-  (define-key js2-mode-map (kbd "C-c C-h") #'helm-semantic-or-imenu)
+  (define-key js2-mode-map (kbd "C-c C-h") #'counsel-semantic-or-imenu)
   (define-key js2-mode-map (kbd "C-c C-i") 'js2-jump-to-definition)
   (define-key js2-mode-map (kbd "C-c C-o") 'xref-pop-marker-stack)
   (add-hook 'js2-mode-hook #'enable-show-trailing-whitespace)
@@ -42,10 +42,15 @@
   (add-hook 'web-mode-hook #'enable-show-trailing-whitespace))
 
 (use-package
+  counsel-css
+  :after (ivy))
+
+(use-package
   css-mode
+  :after (counsel-css)
   :mode "\\.css\\'"
   :config
-  (define-key css-mode-map (kbd "C-c C-h") 'helm-css-scss)
+  (define-key css-mode-map (kbd "C-c C-h") 'counsel-css)
   (add-hook 'css-mode-hook #'enable-show-trailing-whitespace))
 
 (use-package
@@ -53,19 +58,6 @@
   :mode "\\.scss\\'"
   :config
   (setq scss-compile-at-save nil))
-
-(use-package
-  helm-css-scss
-  :config
-  (setq helm-css-scss-split-window-function
-	;; Accept more arguments
-	(lambda ($buf &rest _$args)
-	  (if helm-css-scss-split-with-multiple-windows
-	      (funcall helm-css-scss-split-direction)
-	    (when (one-window-p)
-	      (funcall helm-css-scss-split-direction)))
-	  (other-window 1)
-	  (switch-to-buffer $buf))))
 
 (use-package
   skewer-mode

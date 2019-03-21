@@ -110,14 +110,37 @@
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
+(use-package ivy
+  :diminish ivy-mode
+  :config
+  (setq ivy-height 20)
+  (ivy-mode 1))
+
+(use-package counsel
+  :after (ivy)
+  :diminish counsel-mode
+  :config
+  (counsel-mode 1))
+
+(use-package swiper
+  :bind
+  ("C-c C-g" . swiper))
+
 (use-package
   projectile
+  :after (ivy)
   :diminish projectile-mode
   :init
   (setq projectile-enable-caching t)
   :config
+  (setq projectile-completion-system 'ivy)
   (projectile-mode +1)
   (define-key projectile-mode-map (kbd "C-c p") #'projectile-command-map))
+
+(use-package counsel-projectile
+  :after (projectile ivy)
+  :config
+  (counsel-projectile-mode 1))
 
 (use-package
   magit
@@ -161,7 +184,7 @@
 (use-package dumb-jump
   :config
   (setq dump-jump-default-project "~/code")
-  (setq dumb-jump-selector 'helm)
+  (setq dumb-jump-selector 'ivy)
   (setq dumb-jump-prefer-searcher 'ag))
 
 (provide 'general)

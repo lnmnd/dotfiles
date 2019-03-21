@@ -31,10 +31,4 @@
 
   (add-hook 'org-mode-hook #'enable-show-trailing-whitespace))
 
-(use-package
-  helm-org-rifle
-  :after (helm org)
-  :config
-  (setq helm-org-rifle-show-path t))
-
 (provide 'setup-org)

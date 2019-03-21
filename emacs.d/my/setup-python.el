@@ -176,7 +176,7 @@
 
   (define-key python-mode-map (kbd "C-c C-d") #'python-doc)
   (define-key python-mode-map (kbd "C-c C-e") #'python-eval-last-statement)
-  (define-key python-mode-map (kbd "C-c C-h") #'helm-semantic-or-imenu)
+  (define-key python-mode-map (kbd "C-c C-h") #'counsel-semantic-or-imenu)
   (define-key python-mode-map (kbd "C-c C-i") #'dumb-jump-go)
   (define-key python-mode-map (kbd "C-c C-k") #'python-shell-send-buffer)
   (define-key python-mode-map (kbd "C-c C-o") #'dumb-jump-back)
