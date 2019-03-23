@@ -103,6 +103,16 @@
 	     (python-shell-send-string x))
       (python-shell-switch-to-shell))))
 
+(defun python-timeit ()
+  (interactive)
+  (save-excursion
+    (let ((start (python-nav-beginning-of-statement))
+	  (end (python-nav-end-of-statement)))
+      (-as-> (buffer-substring start end) x
+             (concat "timeit.timeit(lambda: " x ")")
+	     (python-shell-send-string x))
+      (python-shell-switch-to-shell))))
+
 (defun python--plot-format (point)
   (format "%s %s\n" (car point) (cadr point)))
 
