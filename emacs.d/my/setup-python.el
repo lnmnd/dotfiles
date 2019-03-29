@@ -4,15 +4,10 @@
 
 (require 'dash)
 (require 'f)
+(require 'popup)
+(require 'pyvenv)
 (require 's)
-
-(use-package popup)
-
-(use-package
-  pyvenv)
-
-(use-package
-  shx)
+(require 'shx)
 
 (setq pyenv-activated nil)
 (setq python-format-code-activated t)

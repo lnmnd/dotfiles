@@ -26,6 +26,7 @@
 
 (use-package
   tern
+  :load-path "lib/tern/emacs"
   :config
   (add-hook 'js2-mode-hook 'tern-mode))
 
@@ -42,10 +43,6 @@
   (add-hook 'web-mode-hook #'enable-show-trailing-whitespace))
 
 (use-package
-  counsel-css
-  :after (ivy))
-
-(use-package
   css-mode
   :after (counsel-css)
   :mode "\\.css\\'"
@@ -58,6 +55,10 @@
   :mode "\\.scss\\'"
   :config
   (setq scss-compile-at-save nil))
+
+(use-package
+  counsel-css
+  :after (ivy))
 
 (use-package
   skewer-mode

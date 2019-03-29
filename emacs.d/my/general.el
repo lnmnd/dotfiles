@@ -13,10 +13,7 @@
  '(ansi-color-faces-vector
    [default default default italic underline success warning error]))
 
-(use-package spacemacs-theme
-  :defer t
-  :init
-  (load-theme 'spacemacs-light t))
+(load-theme 'spacemacs-light t)
 
 ;; backups
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
@@ -144,8 +141,11 @@
 
 (use-package
   magit
+  :load-path "lib/magit/lisp"
   :config
-  (setq magit-last-seen-setup-instructions "1.4.0"))
+  (setq magit-last-seen-setup-instructions "1.4.0")
+  :bind
+  ("C-x g" . magit-status))
 
 (use-package
   flycheck

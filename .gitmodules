@@ -1,0 +1,120 @@
+[submodule "emacs.d/lib/diminish.el"]
+	path = emacs.d/lib/diminish
+	url = https://github.com/myrjola/diminish.el
+[submodule "emacs.d/lib/undo-tree"]
+	path = emacs.d/lib/undo-tree
+	url = http://www.dr-qubit.org/git/undo-tree.git
+[submodule "emacs.d/lib/company-mode"]
+	path = emacs.d/lib/company-mode
+	url = https://github.com/company-mode/company-mode
+[submodule "emacs.d/lib/use-package"]
+	path = emacs.d/lib/use-package
+	url = https://github.com/jwiegley/use-package/
+[submodule "emacs.d/lib/dash"]
+	path = emacs.d/lib/dash
+	url = https://github.com/magnars/dash.el
+[submodule "emacs.d/lib/pkg-info"]
+	path = emacs.d/lib/pkg-info
+	url = https://github.com/lunaryorn/pkg-info.el
+[submodule "emacs.d/lib/projectile"]
+	path = emacs.d/lib/projectile
+	url = https://github.com/bbatsov/projectile
+[submodule "emacs.d/lib/flycheck"]
+	path = emacs.d/lib/flycheck
+	url = https://github.com/flycheck/flycheck
+[submodule "emacs.d/lib/avy"]
+	path = emacs.d/lib/avy
+	url = https://github.com/abo-abo/avy/
+[submodule "emacs.d/lib/yasnippet"]
+	path = emacs.d/lib/yasnippet
+	url = https://github.com/joaotavora/yasnippet
+[submodule "emacs.d/lib/s"]
+	path = emacs.d/lib/s
+	url = https://github.com/magnars/s.el
+[submodule "emacs.d/lib/f"]
+	path = emacs.d/lib/f
+	url = https://github.com/rejeep/f.el/
+[submodule "emacs.d/lib/dumb-jump"]
+	path = emacs.d/lib/dumb-jump
+	url = https://github.com/jacktasia/dumb-jump
+[submodule "emacs.d/lib/popup-el"]
+	path = emacs.d/lib/popup
+	url = https://github.com/auto-complete/popup-el/
+[submodule "emacs.d/lib/async"]
+	path = emacs.d/lib/async
+	url = https://github.com/jwiegley/emacs-async
+[submodule "emacs.d/lib/ghub"]
+	path = emacs.d/lib/ghub
+	url = https://github.com/magit/ghub
+[submodule "emacs.d/lib/with-editor"]
+	path = emacs.d/lib/with-editor
+	url = https://github.com/magit/with-editor/
+[submodule "emacs.d/lib/magit"]
+	path = emacs.d/lib/magit
+	url = https://github.com/magit/magit
+[submodule "emacs.d/lib/magit-popup"]
+	path = emacs.d/lib/magit-popup
+	url = https://github.com/magit/magit-popup
+[submodule "emacs.d/lib/graphql"]
+	path = emacs.d/lib/graphql
+	url = https://github.com/vermiculus/graphql.el/
+[submodule "emacs.d/lib/treepy"]
+	path = emacs.d/lib/treepy
+	url = https://github.com/volrath/treepy.el/
+[submodule "emacs.d/lib/spacemacs-theme"]
+	path = emacs.d/themes/spacemacs-theme
+	url = https://github.com/nashamri/spacemacs-theme/
+[submodule "emacs.d/lib/swiper"]
+	path = emacs.d/lib/swiper
+	url = https://github.com/abo-abo/swiper
+[submodule "emacs.d/lib/counsel-projectile"]
+	path = emacs.d/lib/counsel-projectile
+	url = https://github.com/ericdanan/counsel-projectile
+[submodule "emacs.d/lib/php-mode"]
+	path = emacs.d/lib/php-mode
+	url = https://github.com/emacs-php/php-mode
+[submodule "emacs.d/lib/pyvenv"]
+	path = emacs.d/lib/pyvenv
+	url = https://github.com/jorgenschaefer/pyvenv/
+[submodule "emacs.d/lib/shx"]
+	path = emacs.d/lib/shx
+	url = https://github.com/riscy/shx-for-emacs/
+[submodule "emacs.d/lib/highlight-parentheses"]
+	path = emacs.d/lib/highlight-parentheses
+	url = https://github.com/tsdh/highlight-parentheses.el/
+[submodule "emacs.d/lib/paredit"]
+	path = emacs.d/lib/paredit
+	url = https://mumble.net/~campbell/git/paredit.git
+[submodule "emacs.d/lib/clojure-mode"]
+	path = emacs.d/lib/clojure-mode
+	url = https://github.com/clojure-emacs/clojure-mode/
+[submodule "emacs.d/lib/cider"]
+	path = emacs.d/lib/cider
+	url = https://github.com/clojure-emacs/cider/
+[submodule "emacs.d/lib/spinner"]
+	path = emacs.d/lib/spinner
+	url = https://github.com/Malabarba/spinner.el
+[submodule "emacs.d/lib/sesman"]
+	path = emacs.d/lib/sesman
+	url = https://github.com/vspinu/sesman/
+[submodule "emacs.d/lib/js2-mode"]
+	path = emacs.d/lib/js2-mode
+	url = https://github.com/mooz/js2-mode
+[submodule "emacs.d/lib/tern"]
+	path = emacs.d/lib/tern
+	url = https://github.com/ternjs/tern
+[submodule "emacs.d/lib/web-mode"]
+	path = emacs.d/lib/web-mode
+	url = https://github.com/fxbois/web-mode
+[submodule "emacs.d/lib/scss-mode"]
+	path = emacs.d/lib/scss-mode
+	url = https://github.com/antonj/scss-mode/
+[submodule "emacs.d/lib/emacs-counsel-css"]
+	path = emacs.d/lib/counsel-css
+	url = https://github.com/hlissner/emacs-counsel-css
+[submodule "emacs.d/lib/skewer-mode"]
+	path = emacs.d/lib/skewer-mode
+	url = https://github.com/skeeto/skewer-mode
+[submodule "emacs.d/lib/emacs-web-server"]
+	path = emacs.d/lib/simple-httpd
+	url = https://github.com/skeeto/emacs-web-server

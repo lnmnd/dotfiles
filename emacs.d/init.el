@@ -11,24 +11,19 @@
 ;; ("\\`/:" . file-name-non-special))
 ;; Which means on every .el and .elc file loaded during start up, it has to runs those regexps against the filename.
 (let ((file-name-handler-alist nil))
-  (setq package-archives
-	'(("gnu" . "https://elpa.gnu.org/packages/")
-	  ("melpa" . "https://melpa.org/packages/")
-	  ("melpa-stable" . "https://stable.melpa.org/packages/")))
-  (setq package-archive-priorities
-	'(("melpa-stable" . 2)
-	  ("gnu" . 1)
-	  ("melpa" . 0)))
 
-  (package-initialize)
+  ;; (package-initialize)
 
-  (unless (package-installed-p 'use-package)
-    (package-refresh-contents)
-    (package-install 'use-package))
-  (eval-when-compile (require 'use-package))
-  (setq use-package-always-ensure t)
+  (dolist (l (directory-files "~/.emacs.d/lib" nil "^[^\.]"))
+    (add-to-list 'load-path (concat "~/.emacs.d/lib/" l)))
+
+  (dolist (l (directory-files "~/.emacs.d/themes" nil "^[^\.]"))
+    (add-to-list 'load-path (concat "~/.emacs.d/themes/" l))
+    (add-to-list 'custom-theme-load-path (concat "~/.emacs.d/themes/" l)))
 
   (add-to-list 'load-path "~/.emacs.d/my/")
+
+  (eval-when-compile (require 'use-package))
 
   ;; Keep custom settings in separate file
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
