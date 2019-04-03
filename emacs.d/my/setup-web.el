@@ -67,4 +67,6 @@
   (add-hook 'css-mode-hook 'skewer-css-mode)
   (define-key skewer-mode-map (kbd "C-c C-p") #'skewer-eval-print-last-expression))
 
+(use-package skewer-css)
+
 (provide 'setup-web)
