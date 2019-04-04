@@ -54,7 +54,7 @@
   (interactive)
   (when (not (get-buffer "*Python*"))
     (run-python)
-    (switch-to-buffer "*Python*")
+    (python-shell-switch-to-shell)
     (font-lock-mode 0)
     (find-file (expand-file-name "~/.emacs.d/my/boot-python.txt"))
     (python-shell-send-buffer)
