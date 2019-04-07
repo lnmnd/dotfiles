@@ -76,9 +76,6 @@
 [submodule "emacs.d/lib/pyvenv"]
 	path = emacs.d/lib/pyvenv
 	url = https://github.com/jorgenschaefer/pyvenv/
-[submodule "emacs.d/lib/shx"]
-	path = emacs.d/lib/shx
-	url = https://github.com/riscy/shx-for-emacs/
 [submodule "emacs.d/lib/highlight-parentheses"]
 	path = emacs.d/lib/highlight-parentheses
 	url = https://github.com/tsdh/highlight-parentheses.el/

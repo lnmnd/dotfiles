@@ -7,7 +7,6 @@
 (require 'popup)
 (require 'pyvenv)
 (require 's)
-(require 'shx)
 
 (setq pyenv-activated nil)
 (setq python-format-code-activated t)
@@ -111,30 +110,61 @@
 (defun python--plot-format (point)
   (format "%s %s\n" (car point) (cadr point)))
 
-(defun python--plot (cmd)
+(defun python--save-plot-file (plot-file)
+  (let ((start (python-nav-beginning-of-statement))
+	(end (python-nav-end-of-statement)))
+    (-as-> (buffer-substring start end) x
+	   (concat "list("  x ")")
+	   (python-shell-send-string-no-output x)
+	   (s-replace "[" "(" x)
+	   (s-replace "]" ")" x)
+	   (s-replace "," "" x)
+	   (read x)
+	   (mapconcat #'python--plot-format x "")
+	   (append-to-file x nil plot-file))))
+
+(defun python--plot (gnuplot-e)
   (save-excursion
-    (let ((plotline-name (make-temp-file "tmp" nil ".txt"))
-	  (start (python-nav-beginning-of-statement))
-	  (end (python-nav-end-of-statement)))
-      (-as-> (buffer-substring start end) x
-	     (concat "list("  x ")")
-	     (python-shell-send-string-no-output x)
-	     (s-replace "[" "(" x)
-	     (s-replace "]" ")" x)
-	     (s-replace "," "" x)
-	     (read x)
-	     (mapconcat #'python--plot-format x "")
-	     (append-to-file x nil plotline-name))
-      (python-shell-switch-to-shell)
-      (funcall cmd plotline-name))))
+    (let ((plot-file (make-temp-file "tmp" nil ".txt"))
+	  (img-file (make-temp-file "tmp" nil ".png")))
+      (python--save-plot-file plot-file)
+      (let ((status (call-process
+		     "gnuplot" nil nil nil "-e"
+		     (funcall gnuplot-e plot-file img-file))))
+	(when (zerop status)
+	  (python-shell-switch-to-shell)
+	  (insert-image (create-image img-file))
+	  (run-at-time 1 nil (lambda ()
+			       (delete-file plot-file)
+			       (delete-file img-file))))))))
+
+(defun python--gnuplot-line-e (plot-file img-file)
+  (concat
+   "set term png transparent truecolor;"
+   "set out \"" img-file "\"; "
+   "plot" " \""
+   plot-file "\" "
+   "w l lw 1 notitle"))
 
 (defun python-plotline ()
   (interactive)
-  (python--plot #'shx-cmd-plotline))
+  (python--plot #'python--gnuplot-line-e))
+
+(defun python--gnuplot-bar-e (plot-file img-file)
+  (concat
+   "set term png transparent truecolor;"
+   "set out \"" img-file "\"; "
+   "set boxwidth 3;"
+   "set style data histograms;"
+   "set yrange [0:];"
+   "set style fill solid 1.0 border -1;"
+   "plot" " \""
+   plot-file "\" "
+   "u 2:xticlabels(1) notitle"))
 
 (defun python-plotbar ()
   (interactive)
-  (python--plot #'shx-cmd-plotbar))
+  (python--plot #'python--gnuplot-bar-e))
 
 (flycheck-define-checker python-mypy
   ""
