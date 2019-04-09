@@ -136,10 +136,6 @@
   (interactive)
   (python--plot #'shx-cmd-plotbar))
 
-(defun python-reset ()
-  (interactive)
-  (python-shell-send-string "%reset -f"))
-
 (flycheck-define-checker python-mypy
   ""
   :command ("mypy"
@@ -178,7 +174,6 @@
   (define-key python-mode-map (kbd "C-c C-p") #'python-eval-print-last-statement)
   (define-key python-mode-map (kbd "C-c C-r") #'python-shell-send-region)
   (define-key python-mode-map (kbd "C-c C-t") #'recompile)
-  (define-key python-mode-map (kbd "C-c C-x") #'python-reset)
   (define-key python-mode-map (kbd "C-c C-z") #'python-switch-to-shell)
   (define-key python-mode-map (kbd "C-u C-c C-d") #'python-doc-print)
   (define-key python-mode-map (kbd "C-x C-e") #'python-eval-last-statement))
