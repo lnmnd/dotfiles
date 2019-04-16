@@ -88,7 +88,11 @@
   (defun cider-halt ()
     (interactive)
     (cider-interactive-eval
-     "(in-ns 'user) (halt)")))
+     "(in-ns 'user) (halt)"))
+  (defun cider-rebl ()
+    (interactive)
+    (cider-interactive-eval
+     "(in-ns 'user) (require '[cognitect.rebl]) (cognitect.rebl/ui)")))
 
 (use-package
   cider
