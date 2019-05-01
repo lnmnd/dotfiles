@@ -19,7 +19,7 @@
   :rebl
   {:extra-deps
    {org.clojure/core.async {:mvn/version "0.4.490"}
-    com.cognitect/rebl {:local/root "/home/user/local/opt/REBL-0.9.149/REBL-0.9.149.jar"}
+    com.cognitect/rebl {:local/root "/home/user/local/opt/REBL-0.9.157/REBL-0.9.157.jar"}
     org.openjfx/javafx-fxml     {:mvn/version "11.0.1"}
     org.openjfx/javafx-controls {:mvn/version "11.0.1"}
     org.openjfx/javafx-swing    {:mvn/version "11.0.1"}
