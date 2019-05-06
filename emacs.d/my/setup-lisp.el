@@ -92,7 +92,11 @@
   (defun cider-rebl ()
     (interactive)
     (cider-interactive-eval
-     "(in-ns 'user) (require '[cognitect.rebl]) (cognitect.rebl/ui)")))
+     "(in-ns 'user) (require '[cognitect.rebl]) (cognitect.rebl/ui)"))
+  (defun cider-run-tests ()
+    (interactive)
+    (cider-interactive-eval
+     "(run-tests)")))
 
 (use-package
   cider
@@ -101,6 +105,7 @@
   (define-key cider-mode-map (kbd "C-c C-h") #'counsel-semantic-or-imenu)
   (define-key cider-mode-map (kbd "C-c C-i") #'cider-find-var)
   (define-key cider-mode-map (kbd "C-c C-o") #'cider-pop-back)
-  (define-key cider-mode-map (kbd "C-c C-r") #'cider-eval-region))
+  (define-key cider-mode-map (kbd "C-c C-r") #'cider-eval-region)
+  (define-key cider-mode-map (kbd "C-c C-t") #'cider-run-tests))
 
 (provide 'setup-lisp)
