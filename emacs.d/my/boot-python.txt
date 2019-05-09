@@ -11,6 +11,8 @@ try:
 except ImportError:
     pass
 
+import pprint
+pp = pprint.pprint
 
 def sc_spy(*values):
     try:
