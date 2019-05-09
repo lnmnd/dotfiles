@@ -49,6 +49,21 @@
 
 (setq scheme-program-name "csi")
 
+(defun chicken-doc (&optional obtain-function)
+  (interactive)
+  (let ((func (funcall (or obtain-function #'current-word))))
+    (when func
+      (process-send-string (scheme-proc)
+                           (format "(require-library chicken-doc) ,doc %S\n" func))
+      (save-selected-window
+        (select-window (display-buffer (get-buffer scheme-buffer) t))
+        (goto-char (point-max))))))
+
+(use-package
+  scheme
+  :bind
+  ("C-C C-d" . #'chicken-doc))
+
 (use-package
   clojure-mode
   :config
