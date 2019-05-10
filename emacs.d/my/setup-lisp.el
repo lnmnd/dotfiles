@@ -59,10 +59,28 @@
         (select-window (display-buffer (get-buffer scheme-buffer) t))
         (goto-char (point-max))))))
 
+(defun scheme-send-buffer ()
+  (interactive)
+  (save-excursion
+    (scheme-send-region (point-min) (point-max))))
+
+(defun scheme-send-print-last-sexp ()
+  (interactive)
+  (let* ((start (save-excursion (backward-sexp) (point)))
+	 (end (point))
+	 (string (concat "(pp " (buffer-substring-no-properties start end) ")")))
+    (comint-send-string (scheme-proc) string)
+    (comint-send-string (scheme-proc) "\n")))
+
 (use-package
   scheme
-  :bind
-  ("C-C C-d" . #'chicken-doc))
+  :config
+  (define-key scheme-mode-map (kbd "C-C C-d") #'chicken-doc)
+  (define-key scheme-mode-map (kbd "C-M-x") #'scheme-send-definition)
+  (define-key scheme-mode-map (kbd "C-c C-k") #'scheme-send-buffer)
+  (define-key scheme-mode-map (kbd "C-c C-p") #'scheme-send-print-last-sexp)
+  (define-key scheme-mode-map (kbd "C-c C-r")#'scheme-send-region)
+  (define-key scheme-mode-map (kbd "C-x e") #'scheme-send-last-sexp))
 
 (use-package
   clojure-mode
