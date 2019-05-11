@@ -73,7 +73,7 @@
     (comint-send-string (scheme-proc) "\n")))
 
 (use-package
-  scheme
+  cmuscheme
   :config
   (define-key scheme-mode-map (kbd "C-C C-d") #'chicken-doc)
   (define-key scheme-mode-map (kbd "C-M-x") #'scheme-send-definition)
