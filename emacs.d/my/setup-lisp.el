@@ -54,7 +54,7 @@
   (let ((func (funcall (or obtain-function #'current-word))))
     (when func
       (process-send-string (scheme-proc)
-                           (format "(require-library chicken-doc) ,doc %S\n" func))
+                           (format "(require-library chicken-doc) ,doc %S\n\n" func))
       (save-selected-window
         (select-window (display-buffer (get-buffer scheme-buffer) t))
         (goto-char (point-max))))))
