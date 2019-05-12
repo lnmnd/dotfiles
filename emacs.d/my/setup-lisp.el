@@ -80,6 +80,7 @@
   :config
   (define-key scheme-mode-map (kbd "C-C C-d") #'chicken-doc)
   (define-key scheme-mode-map (kbd "C-M-x") #'scheme-send-definition)
+  (define-key scheme-mode-map (kbd "C-c C-h") #'counsel-semantic-or-imenu)
   (define-key scheme-mode-map (kbd "C-c C-k") #'scheme-send-buffer)
   (define-key scheme-mode-map (kbd "C-c C-p") #'scheme-send-print-last-sexp)
   (define-key scheme-mode-map (kbd "C-c C-r")#'scheme-send-region)
