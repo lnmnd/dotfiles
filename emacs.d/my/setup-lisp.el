@@ -68,7 +68,10 @@
   (interactive)
   (let* ((start (save-excursion (backward-sexp) (point)))
 	 (end (point))
-	 (string (concat "(pp " (buffer-substring-no-properties start end) ")")))
+	 (string (concat
+                  "(begin "
+                  "(import (only (chicken pretty-print) pp))"
+                  "(pp " (buffer-substring-no-properties start end) "))")))
     (comint-send-string (scheme-proc) string)
     (comint-send-string (scheme-proc) "\n")))
 
