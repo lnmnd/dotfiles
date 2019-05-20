@@ -187,4 +187,7 @@
   (setq dumb-jump-selector 'ivy)
   (setq dumb-jump-prefer-searcher 'ag))
 
+(use-package markdown-mode
+  :mode "\\.md\\'")
+
 (provide 'general)

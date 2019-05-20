@@ -115,3 +115,6 @@
 [submodule "emacs.d/lib/emacs-web-server"]
 	path = emacs.d/lib/simple-httpd
 	url = https://github.com/skeeto/emacs-web-server
+[submodule "emacs.d/lib/markdown-mode"]
+	path = emacs.d/lib/markdown-mode
+	url = https://github.com/jrblevin/markdown-mode
