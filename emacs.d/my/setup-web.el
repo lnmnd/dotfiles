@@ -10,6 +10,22 @@
   (skewer-load-buffer)
   (kill-buffer))
 
+(defun js-start ()
+  (interactive)
+  (skewer-eval "start(c);"))
+
+(defun js-stop ()
+  (interactive)
+  (skewer-eval "stop(c);"))
+
+(defun js-restart ()
+  (interactive)
+  (skewer-eval "stop(c); start(c);"))
+
+(defun js-eval ()
+  (interactive)
+  (skewer-eval (read-string "Eval:")))
+
 (use-package
   js2-mode
   :mode "\\.js\\'"
