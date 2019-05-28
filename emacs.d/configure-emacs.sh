@@ -1,7 +1,10 @@
 ./configure \
     --prefix $HOME/local \
+    --disable-build-details \
     --without-all \
+    --without-pop \
     --with-x-toolkit=lucid \
+    --with-threads \
     --with-jpeg \
     --with-gif \
     --with-png \
