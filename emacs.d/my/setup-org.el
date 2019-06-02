@@ -23,6 +23,9 @@
   (setq org-confirm-babel-evaluate nil)
   (setq org-plantuml-jar-path
         (expand-file-name "~/local/opt/plantuml.jar"))
+  (setq org-capture-templates
+	'(("t" "Todo" entry (file "~/org/tasks.org")
+	   "* TODO %?\n%a" :empty-lines 1)))
   :config
   (org-babel-do-load-languages
    'org-babel-load-languages
