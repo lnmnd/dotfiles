@@ -12,19 +12,19 @@
 
 (defun js-start ()
   (interactive)
-  (skewer-eval "start(c);"))
+  (skewer-eval "start(c);" (lambda (_) (message "Started"))))
 
 (defun js-stop ()
   (interactive)
-  (skewer-eval "stop(c);"))
+  (skewer-eval "stop(c);" (lambda (_) (message "Stopped"))))
 
 (defun js-restart ()
   (interactive)
-  (skewer-eval "stop(c); start(c);"))
+  (skewer-eval "stop(c); start(c);" (lambda (_) (message "Restarted"))))
 
 (defun js-eval ()
   (interactive)
-  (skewer-eval (read-string "Eval:")))
+  (skewer-eval (read-string "Eval:") #'skewer-post-minibuffer))
 
 (use-package
   js2-mode
