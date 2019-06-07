@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: prom
+# key: prom
+# --
+$1
+.then(${2:console.log})
+.catch(${3:console.error});
