@@ -1,10 +1,11 @@
 {:aliases
  {:deps
+  ;; tools.deps, add-lib branch
   ;; (require '[clojure.tools.deps.alpha.repl :refer [add-lib]])
   ;; (add-lib 'some/library {:mvn/version "RELEASE"})
   {:extra-deps {org.clojure/tools.deps.alpha
                 {:git/url "https://github.com/clojure/tools.deps.alpha"
-                 :sha "5140fe0b510f6aeda517711bc6433bef978d6cf6"}}}
+                 :sha "e160f184f051f120014244679831a9bccb37c9de"}}}
 
   :scope-capture
   {:extra-deps {vvvvalvalval/scope-capture {:mvn/version "0.3.2"}}}
