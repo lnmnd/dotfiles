@@ -5,12 +5,6 @@
   :init
   (setq org-todo-keywords
         '((sequence "TODO" "STARTED" "|" "DONE" "CANCELED" "POSTPONED")))
-  (setq org-todo-keyword-faces
-        (quote (("TODO" :foreground "yellow" :weight bold)
-                ("STARTED" :foreground "blue" :weight bold)
-                ("DONE" :foreground "green" :weight bold)
-                ("CANCELED" :foreground "red" :weight bold)
-                ("POSTPONED" :foreground "orange" :weight bold))))
   (setq org-agenda-files '("~/org/"))
   ;; no postample (footer)
   (setq org-html-postamble nil)

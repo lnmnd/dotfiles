@@ -9,11 +9,7 @@
 
 (setq frame-title-format "%b - emacs")
 
-(custom-set-variables
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error]))
-
-(load-theme 'spacemacs-light t)
+(load-theme 'bare t)
 
 ;; backups
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))

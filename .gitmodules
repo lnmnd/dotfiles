@@ -61,9 +61,6 @@
 [submodule "emacs.d/lib/treepy"]
 	path = emacs.d/lib/treepy
 	url = https://github.com/volrath/treepy.el/
-[submodule "emacs.d/lib/spacemacs-theme"]
-	path = emacs.d/themes/spacemacs-theme
-	url = https://github.com/nashamri/spacemacs-theme/
 [submodule "emacs.d/lib/swiper"]
 	path = emacs.d/lib/swiper
 	url = https://github.com/abo-abo/swiper
