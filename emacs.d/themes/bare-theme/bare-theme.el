@@ -66,7 +66,7 @@
  `(ivy-minibuffer-match-highlight ((t (:background ,bare-accent :foreground ,bare-foreground))))
 
  `(js2-error ((t (:background ,bare-red))))
- `(js2-external-variable ((t (:background ,bare-yellow))))
+ `(js2-external-variable ((t (:background ,bare-background :foreground ,bare-foreground))))
  `(js2-function-param ((t (:background ,bare-background :foreground ,bare-foreground))))
 
  `(magit-branch-current ((t (:background ,bare-accent))))
