@@ -48,6 +48,30 @@
 	    (define-key emacs-lisp-mode-map "\C-x\C-e" #'my-eval-last-sexp)))
 
 (setq scheme-program-name "csi")
+(setq chickenv-activated nil)
+
+(defun setup-lisp--find-chicken-version-dir ()
+  (locate-dominating-file (buffer-file-name) ".chicken-version"))
+
+(defun setup-lisp--read-text (path)
+  (f-read-text path 'utf-8))
+
+(defun setup-lisp--set-chickenv (path)
+  (setenv "CHICKEN_INSTALL_REPOSITORY" path)
+  (setenv "CHICKEN_REPOSITORY_PATH" path))
+
+(defun activate-chickenv ()
+  (interactive)
+  (when (not chickenv-activated)
+    (let ((chicken-version-dir (setup-lisp--find-chicken-version-dir)))
+      (when chicken-version-dir
+	(->> chicken-version-dir
+	     (f-expand ".chicken-version")
+	     setup-lisp--read-text
+	     s-trim
+	     (concat "/home/user/.chickenv/")
+	     setup-lisp--set-chickenv)
+	(setq chickenv-activated t)))))
 
 (defun chicken-doc (&optional obtain-function)
   (interactive)
@@ -74,6 +98,8 @@
                   "(pp " (buffer-substring-no-properties start end) "))")))
     (comint-send-string (scheme-proc) string)
     (comint-send-string (scheme-proc) "\n")))
+
+(add-hook 'scheme-mode-hook #'activate-chickenv)
 
 (use-package
   cmuscheme
