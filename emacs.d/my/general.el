@@ -41,6 +41,8 @@
 
 (setq browse-url-browser-function 'eww-browse-url)
 
+(setq compilation-ask-about-save nil)
+
 (global-hi-lock-mode 1)
 
 (defun kill-all-buffers ()
