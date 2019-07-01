@@ -43,6 +43,8 @@
 
 (setq compilation-ask-about-save nil)
 
+(setq dired-listing-switches "-alh")
+
 (global-hi-lock-mode 1)
 
 (defun kill-all-buffers ()
