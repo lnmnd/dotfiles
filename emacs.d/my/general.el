@@ -47,6 +47,16 @@
 
 (global-hi-lock-mode 1)
 
+(setq display-buffer-alist
+      `((,(rx bos (or "*ielm*"
+		      "*scheme*"
+		      (and "*cider-repl" (*? anything) "*")
+		      "*Python*"))
+         (display-buffer-reuse-window display-buffer-in-side-window)
+	 (reusable-frames . visible)
+         (side . right)
+         (window-width . 0.5))))
+
 (defun kill-all-buffers ()
   (interactive)
   (mapc 'kill-buffer (buffer-list)))
