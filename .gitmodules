@@ -124,3 +124,6 @@
 [submodule "emacs.d/lib/magit-todos"]
 	path = emacs.d/lib/magit-todos
 	url = https://github.com/alphapapa/magit-todos
+[submodule "emacs.d/lib/emacs-htmlize"]
+	path = emacs.d/lib/htmlize
+	url = https://github.com/hniksic/emacs-htmlize
