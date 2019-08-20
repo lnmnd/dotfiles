@@ -94,9 +94,6 @@
 [submodule "emacs.d/lib/js2-mode"]
 	path = emacs.d/lib/js2-mode
 	url = https://github.com/mooz/js2-mode
-[submodule "emacs.d/lib/tern"]
-	path = emacs.d/lib/tern
-	url = https://github.com/ternjs/tern
 [submodule "emacs.d/lib/web-mode"]
 	path = emacs.d/lib/web-mode
 	url = https://github.com/fxbois/web-mode

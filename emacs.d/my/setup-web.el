@@ -41,12 +41,6 @@
 			     (add-hook 'after-save-hook #'my-js-format-code nil t))))
 
 (use-package
-  tern
-  :load-path "lib/tern/emacs"
-  :config
-  (add-hook 'js2-mode-hook 'tern-mode))
-
-(use-package
   web-mode
   :mode "\\.html?\\'" "\\.djhtml\\'" "\\.twig\\'"
   :config
