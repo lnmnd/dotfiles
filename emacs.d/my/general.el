@@ -44,6 +44,7 @@
 (setq compilation-ask-about-save nil)
 
 (setq dired-listing-switches "-alh")
+(setq dired-dwim-target t)
 
 (global-hi-lock-mode 1)
 
