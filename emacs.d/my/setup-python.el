@@ -134,6 +134,7 @@
 	(when (zerop status)
 	  (python-shell-switch-to-shell)
 	  (insert-image (create-image img-file))
+	  (newline)
 	  (run-at-time 1 nil (lambda ()
 			       (delete-file plot-file)
 			       (delete-file img-file))))))))
@@ -144,7 +145,7 @@
    "set out \"" img-file "\"; "
    "plot" " \""
    plot-file "\" "
-   "w l lw 1 notitle"))
+   "with lines linewidth 1 linecolor '#000000' notitle"))
 
 (defun python-plotline ()
   (interactive)
@@ -200,6 +201,7 @@
   (define-key python-mode-map (kbd "C-c C-h") #'counsel-semantic-or-imenu)
   (define-key python-mode-map (kbd "C-c C-i") #'dumb-jump-go)
   (define-key python-mode-map (kbd "C-c C-k") #'python-shell-send-buffer)
+  (define-key python-mode-map (kbd "C-c C-l") #'python-plotline)
   (define-key python-mode-map (kbd "C-c C-o") #'dumb-jump-back)
   (define-key python-mode-map (kbd "C-c C-p") #'python-eval-print-last-statement)
   (define-key python-mode-map (kbd "C-c C-r") #'python-shell-send-region)
