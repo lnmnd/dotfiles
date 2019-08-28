@@ -117,51 +117,7 @@
 (use-package
   clojure-mode
   :config
-  (add-hook 'after-save-hook #'cljfmt)
-  (defun cider-add-lib ()
-    (interactive)
-    (let ((coordinates (read-string "Coordinates: ")))
-      (cider-interactive-eval
-       (concat
-	"(in-ns 'user)"
-	"(require '[clojure.tools.deps.alpha.repl :refer [add-lib]])"
-	"(add-lib " coordinates ")"))))
-  (defun cider-prep ()
-    (interactive)
-    (cider-interactive-eval
-     "(in-ns 'user) (prep)"))
-  (defun cider-init ()
-    (interactive)
-    (cider-interactive-eval
-     "(in-ns 'user) (init)"))
-  (defun cider-stop ()
-    (interactive)
-    (cider-interactive-eval
-     "(in-ns 'user) (stop)"))
-  (defun cider-start ()
-    (interactive)
-    (cider-interactive-eval
-     "(in-ns 'user) (start)"))
-  (defun cider-go ()
-    (interactive)
-    (cider-interactive-eval
-     "(in-ns 'user) (go)"))
-  (defun cider-reset ()
-    (interactive)
-    (cider-interactive-eval
-     "(in-ns 'user) (reset)"))
-  (defun cider-halt ()
-    (interactive)
-    (cider-interactive-eval
-     "(in-ns 'user) (halt)"))
-  (defun cider-rebl ()
-    (interactive)
-    (cider-interactive-eval
-     "(in-ns 'user) (require '[cognitect.rebl]) (cognitect.rebl/ui)"))
-  (defun cider-run-tests ()
-    (interactive)
-    (cider-interactive-eval
-     "(run-tests)")))
+  (add-hook 'after-save-hook #'cljfmt))
 
 (use-package
   cider
@@ -171,6 +127,31 @@
   (define-key cider-mode-map (kbd "C-c C-i") #'cider-find-var)
   (define-key cider-mode-map (kbd "C-c C-o") #'cider-pop-back)
   (define-key cider-mode-map (kbd "C-c C-r") #'cider-eval-region)
-  (define-key cider-mode-map (kbd "C-c C-t") #'cider-run-tests))
+  (define-key cider-mode-map (kbd "C-c C-t") #'cider-run-tests)
+
+  (defun cider-add-lib ()
+    (interactive)
+    (let ((coordinates (read-string "Coordinates: ")))
+      (cider-interactive-eval
+       (concat
+	"(in-ns 'user)"
+	"(require '[clojure.tools.deps.alpha.repl :refer [add-lib]])"
+	"(add-lib " coordinates ")"))))
+  (defun cider-rebl ()
+    (interactive)
+    (cider-interactive-eval
+     "(in-ns 'user) (require '[cognitect.rebl]) (cognitect.rebl/ui)"))
+  (defun cider-start ()
+    (interactive)
+    (cider-interactive-eval
+     "(in-ns 'user) (start)"))
+  (defun cider-stop ()
+    (interactive)
+    (cider-interactive-eval
+     "(in-ns 'user) (stop)"))
+  (defun cider-reset ()
+    (interactive)
+    (cider-interactive-eval
+     "(in-ns 'user) (stop) (start)")))
 
 (provide 'setup-lisp)
