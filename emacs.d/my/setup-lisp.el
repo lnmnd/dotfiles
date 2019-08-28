@@ -78,8 +78,9 @@
 
 (defun chicken-doc ()
   (interactive)
-  (process-send-string (scheme-proc)
-		       (format "(require-library chicken-doc) ,doc %S\n\n" (current-word)))
+  (->> (current-word)
+       (format "(require-library chicken-doc) ,doc %S\n\n")
+       (process-send-string (scheme-proc)))
   (save-selected-window
     (select-window (display-buffer (get-buffer scheme-buffer) t))
     (goto-char (point-max))))
