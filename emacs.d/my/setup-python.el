@@ -103,7 +103,7 @@
     (let ((start (python-nav-beginning-of-statement))
 	  (end (python-nav-end-of-statement)))
       (-as-> (buffer-substring start end) x
-             (concat "timeit.timeit(lambda: " x ")")
+             (concat "import timeit; timeit.timeit(lambda: " x ")")
 	     (python-shell-send-string x))
       (python-shell-switch-to-shell))))
 
