@@ -76,15 +76,13 @@
 	     setup-lisp--set-chickenv)
 	(setq chickenv-activated t)))))
 
-(defun chicken-doc (&optional obtain-function)
+(defun chicken-doc ()
   (interactive)
-  (let ((func (funcall (or obtain-function #'current-word))))
-    (when func
-      (process-send-string (scheme-proc)
-                           (format "(require-library chicken-doc) ,doc %S\n\n" func))
-      (save-selected-window
-        (select-window (display-buffer (get-buffer scheme-buffer) t))
-        (goto-char (point-max))))))
+  (process-send-string (scheme-proc)
+		       (format "(require-library chicken-doc) ,doc %S\n\n" (current-word)))
+  (save-selected-window
+    (select-window (display-buffer (get-buffer scheme-buffer) t))
+    (goto-char (point-max))))
 
 (defun scheme-send-buffer ()
   (interactive)
