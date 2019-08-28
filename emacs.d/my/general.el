@@ -123,19 +123,10 @@
 (use-package
   flycheck
   :config
-  (add-hook 'php-mode-hook 'flycheck-mode)
   (setq flycheck-idle-change-delay 1)
   (setq flycheck-check-syntax-automatically '(save idle-change mode-enabled))
-  (setq flycheck-phpmd-rulesets '("cleancode"
-                                  "codesize"
-                                  "controversial"
-                                  "design"
-                                  "unusedcode"))
-  (setq flycheck-phpcs-standard "PSR2")
   (set-face-attribute 'flycheck-error nil :underline "Red1")
-  (set-face-attribute 'flycheck-warning nil :underline "orange red")
-
-  (add-hook 'c-mode-hook 'flycheck-mode))
+  (set-face-attribute 'flycheck-warning nil :underline "orange red"))
 
 (use-package
   avy
@@ -162,5 +153,10 @@
 
 (use-package markdown-mode
   :mode "\\.md\\'")
+
+(use-package
+  cc-mode
+  :config
+  (add-hook 'c-mode-hook #'flycheck-mode))
 
 (provide 'general)

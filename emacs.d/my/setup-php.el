@@ -8,8 +8,15 @@
   :config
   ;; Use web-mode with templates
   (setq php-template-compatibility nil)
+  (setq flycheck-phpmd-rulesets '("cleancode"
+                                  "codesize"
+                                  "controversial"
+                                  "design"
+                                  "unusedcode"))
+  (setq flycheck-phpcs-standard "PSR2")
   ;; Enable Symfony coding style
-  (add-hook 'php-mode-hook 'php-enable-symfony2-coding-style))
+  (add-hook 'php-mode-hook 'php-enable-symfony2-coding-style)
+  (add-hook 'php-mode-hook #'flycheck-mode))
 
 ;; Use psysh as REPL
 
