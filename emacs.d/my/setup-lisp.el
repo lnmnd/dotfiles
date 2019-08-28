@@ -1,6 +1,9 @@
 ;;; setup-lisp.el --- Setup Lisp -*- lexical-binding: t -*-
 
+(require 'dash)
+(require 'f)
 (require 'popup)
+(require 's)
 
 (defun cljfmt ()
   (when (eq major-mode 'clojure-mode)
