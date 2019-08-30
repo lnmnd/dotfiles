@@ -117,15 +117,15 @@
 (use-package
   clojure-mode
   :config
-  (add-hook 'after-save-hook #'cljfmt))
+  (add-hook 'after-save-hook #'cljfmt)
+  (define-key clojure-mode-map (kbd "C-c C-h") #'counsel-semantic-or-imenu)
+  (define-key clojure-mode-map (kbd "C-c C-i") #'dumb-jump-go)
+  (define-key clojure-mode-map (kbd "C-c C-o") #'dumb-jump-back))
 
 (use-package
   cider
   :config
   (define-key cider-mode-map (kbd "C-c C-d") #'cider-doc)
-  (define-key cider-mode-map (kbd "C-c C-h") #'counsel-semantic-or-imenu)
-  (define-key cider-mode-map (kbd "C-c C-i") #'cider-find-var)
-  (define-key cider-mode-map (kbd "C-c C-o") #'cider-pop-back)
   (define-key cider-mode-map (kbd "C-c C-r") #'cider-eval-region)
   (define-key cider-mode-map (kbd "C-c C-t") #'cider-run-tests)
 
