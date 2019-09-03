@@ -94,8 +94,7 @@
 	  (end (python-nav-end-of-statement)))
       (-as-> (buffer-substring start end) x
 	     (concat "import pprint; pprint.pprint(" x ")")
-	     (python-shell-send-string x))
-      (python-shell-switch-to-shell))))
+	     (python-shell-send-string x)))))
 
 (defun python-timeit ()
   (interactive)
