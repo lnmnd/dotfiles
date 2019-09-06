@@ -7,4 +7,4 @@
   :injections [(require 'sc.api)]}
 
  :repl
- {:plugins [[cider/cider-nrepl "0.21.0"]]}}
+ {:plugins [[cider/cider-nrepl "0.22.1"]]}}

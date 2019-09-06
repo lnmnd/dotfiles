@@ -124,3 +124,12 @@
 [submodule "emacs.d/lib/emacs-htmlize"]
 	path = emacs.d/lib/htmlize
 	url = https://github.com/hniksic/emacs-htmlize
+[submodule "emacs.d/lib/parseedn"]
+	path = emacs.d/lib/parseedn
+	url = https://github.com/clojure-emacs/parseedn
+[submodule "emacs.d/lib/a"]
+	path = emacs.d/lib/a
+	url = https://github.com/plexus/a.el
+[submodule "emacs.d/lib/parseclj"]
+	path = emacs.d/lib/parseclj
+	url = https://github.com/clojure-emacs/parseclj
