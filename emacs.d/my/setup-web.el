@@ -33,6 +33,7 @@
   (define-key js2-mode-map (kbd "C-c C-h") #'counsel-semantic-or-imenu)
   (define-key js2-mode-map (kbd "C-c C-i") 'js2-jump-to-definition)
   (define-key js2-mode-map (kbd "C-c C-o") 'xref-pop-marker-stack)
+  (define-key js2-mode-map (kbd "C-c C-t") #'recompile)
   (add-hook 'js2-mode-hook #'enable-show-trailing-whitespace)
   (add-hook 'js2-mode-hook #'flycheck-mode)
   (add-hook 'js2-mode-hook (lambda ()
