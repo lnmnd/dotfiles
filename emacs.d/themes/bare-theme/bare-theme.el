@@ -12,6 +12,7 @@
  'bare
 
  `(comint-highlight-prompt ((t (:foreground ,bare-foreground))))
+ `(compilation-error ((t (:background ,bare-red :foreground ,bare-foreground))))
  `(default ((t (:background ,bare-background :foreground ,bare-foreground))))
  `(font-lock-builtin-face ((t (:background ,bare-background :foreground ,bare-foreground))))
  `(font-lock-comment-delimiter-face ((t (:background ,bare-background :foreground ,bare-foreground))))
