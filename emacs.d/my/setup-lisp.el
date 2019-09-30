@@ -154,7 +154,7 @@
     (interactive)
     (cider-interactive-eval
      "(in-ns 'user) (stop)"))
-  (defun cider-reset ()
+  (defun cider-restart ()
     (interactive)
     (cider-interactive-eval
      "(in-ns 'user) (stop) (start)")))
