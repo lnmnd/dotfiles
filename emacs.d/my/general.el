@@ -159,4 +159,8 @@
   :config
   (add-hook 'c-mode-hook #'flycheck-mode))
 
+(use-package
+  nov
+  :mode ("\\.epub\\'" . nov-mode))
+
 (provide 'general)

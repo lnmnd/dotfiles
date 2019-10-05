@@ -133,3 +133,9 @@
 [submodule "emacs.d/lib/parseclj"]
 	path = emacs.d/lib/parseclj
 	url = https://github.com/clojure-emacs/parseclj
+[submodule "emacs.d/lib/nov.el"]
+	path = emacs.d/lib/nov.el
+	url = https://github.com/wasamasa/nov.el
+[submodule "emacs.d/lib/esxml"]
+	path = emacs.d/lib/esxml
+	url = https://github.com/tali713/esxml
