@@ -163,4 +163,23 @@
   nov
   :mode ("\\.epub\\'" . nov-mode))
 
+(use-package
+  pdf-tools
+  :load-path "lib/pdf-tools/lisp"
+  :mode "\\.pdf\\'"
+  :config
+  (require 'pdf-annot)
+  (require 'pdf-history)
+  (require 'pdf-occur)
+  (require 'pdf-outline)
+  (require 'pdf-sync)
+  (require 'pdf-util)
+  (require 'pdf-virtual)
+  (pdf-tools-install))
+
+(use-package
+  org-pdftools
+  :config
+  (add-hook 'org-mode-hook (lambda () (require 'org-pdftools))))
+
 (provide 'general)

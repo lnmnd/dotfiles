@@ -139,3 +139,12 @@
 [submodule "emacs.d/lib/esxml"]
 	path = emacs.d/lib/esxml
 	url = https://github.com/tali713/esxml
+[submodule "emacs.d/lib/pdf-tools"]
+	path = emacs.d/lib/pdf-tools
+	url = https://github.com/politza/pdf-tools
+[submodule "emacs.d/lib/tablist"]
+	path = emacs.d/lib/tablist
+	url = https://github.com/politza/tablist
+[submodule "emacs.d/lib/org-pdftools"]
+	path = emacs.d/lib/org-pdftools
+	url = https://github.com/fuxialexander/org-pdftools
