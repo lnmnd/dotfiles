@@ -151,3 +151,6 @@
 [submodule "emacs.d/lib/org-recoll"]
 	path = emacs.d/lib/org-recoll
 	url = https://github.com/alraban/org-recoll
+[submodule "emacs.d/lib/inf-clojure"]
+	path = emacs.d/lib/inf-clojure
+	url = https://github.com/clojure-emacs/inf-clojure
