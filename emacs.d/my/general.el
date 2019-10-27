@@ -182,4 +182,9 @@
   :config
   (add-hook 'org-mode-hook (lambda () (require 'org-pdftools))))
 
+(use-package
+  org-recoll
+  :config
+  (setq org-recoll-file-search-automatically nil))
+
 (provide 'general)

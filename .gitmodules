@@ -148,3 +148,6 @@
 [submodule "emacs.d/lib/org-pdftools"]
 	path = emacs.d/lib/org-pdftools
 	url = https://github.com/fuxialexander/org-pdftools
+[submodule "emacs.d/lib/org-recoll"]
+	path = emacs.d/lib/org-recoll
+	url = https://github.com/alraban/org-recoll
