@@ -96,6 +96,12 @@
 	     (concat "import pprint; pprint.pprint(" x ")")
 	     (python-shell-send-string x)))))
 
+(defun python-undef ()
+  (interactive)
+  (-as-> (python-info-current-symbol t) x
+	 (concat x " = None")
+	 (python-shell-send-string-no-output x)))
+
 (defun python-timeit ()
   (interactive)
   (save-excursion
@@ -205,6 +211,7 @@
   (define-key python-mode-map (kbd "C-c C-p") #'python-eval-print-last-statement)
   (define-key python-mode-map (kbd "C-c C-r") #'python-shell-send-region)
   (define-key python-mode-map (kbd "C-c C-t") #'recompile)
+  (define-key python-mode-map (kbd "C-c C-u") #'python-undef)
   (define-key python-mode-map (kbd "C-c C-z") #'python-switch-to-shell)
   (define-key python-mode-map (kbd "C-u C-c C-d") #'python-doc-print)
   (define-key python-mode-map (kbd "C-x C-e") #'python-eval-last-statement))
