@@ -33,7 +33,6 @@
   (require 'setup-org)
   (require 'setup-lisp)
   (require 'setup-python)
-  (require 'setup-php)
   (require 'setup-web))
 
 (setq-default gc-cons-threshold 800000)
