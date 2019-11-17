@@ -187,4 +187,10 @@
   :config
   (setq org-recoll-file-search-automatically nil))
 
+;; Set elfeed-feeds in custom.el:
+;; (setq elfeed-feeds
+;;       '(("http://nullprogram.com/feed/" emacs)))
+(use-package
+  elfeed)
+
 (provide 'general)

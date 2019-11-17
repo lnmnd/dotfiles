@@ -154,3 +154,6 @@
 [submodule "emacs.d/lib/inf-clojure"]
 	path = emacs.d/lib/inf-clojure
 	url = https://github.com/clojure-emacs/inf-clojure
+[submodule "emacs.d/lib/elfeed"]
+	path = emacs.d/lib/elfeed
+	url = https://github.com/skeeto/elfeed
