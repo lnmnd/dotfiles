@@ -178,16 +178,6 @@
 (use-package
   inf-clojure
   :config
-  ;; Patch
-  ;; inf-clojure changes comint-input-sender from comint-simple-send to inf-clojure--send-string.
-  ;; inf-clojure--send-string sets repl type and calls comint-simple-send
-  ;; If inf-clojure-buffer does not exist (nil) inf-clojure--set-repl-type throws an error:
-  ;; "Wrong type argument: stringp, nil"
-  (defun inf-clojure--send-string (proc string)
-    "Patched. Sets repl type only when inf-clojure buffer exists"
-    (when inf-clojure-buffer
-      (inf-clojure--set-repl-type proc))
-    (comint-simple-send proc string))
   (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
   (define-key inf-clojure-minor-mode-map (kbd "C-c M-c") #'clj-connect)
   (define-key inf-clojure-minor-mode-map (kbd "C-c C-k") #'inf-clojure-eval-buffer)
