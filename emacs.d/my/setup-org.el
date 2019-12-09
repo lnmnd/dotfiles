@@ -26,6 +26,7 @@
    '(;; other Babel languages
      (plantuml . t)))
 
-  (add-hook 'org-mode-hook #'enable-show-trailing-whitespace))
+  (add-hook 'org-mode-hook #'enable-show-trailing-whitespace)
+  (add-hook 'org-mode-hook #'auto-fill-mode))
 
 (provide 'setup-org)

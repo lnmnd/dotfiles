@@ -44,6 +44,8 @@
 (setq dired-listing-switches "-alh")
 (setq dired-dwim-target t)
 
+(setq-default fill-column 80)
+
 (global-hi-lock-mode 1)
 
 (defun kill-all-buffers ()
@@ -152,7 +154,9 @@
   (setq dumb-jump-prefer-searcher 'ag))
 
 (use-package markdown-mode
-  :mode "\\.md\\'")
+  :mode "\\.md\\'"
+  :config
+  (add-hook 'markdown-mode-hook #'auto-fill-mode))
 
 (use-package
   cc-mode
