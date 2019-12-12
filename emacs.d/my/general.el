@@ -116,13 +116,6 @@
   ("C-x g" . magit-status))
 
 (use-package
-  magit-todos
-  :after (magit)
-  :config
-  (setq magit-todos-exclude-globs '("emacs.d/lib/*" "*/vendor/*"))
-  (add-hook 'magit-mode-hook (lambda () (magit-todos-mode 1))))
-
-(use-package
   flycheck
   :config
   (setq flycheck-idle-change-delay 1)

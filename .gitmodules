@@ -112,15 +112,6 @@
 [submodule "emacs.d/lib/markdown-mode"]
 	path = emacs.d/lib/markdown-mode
 	url = https://github.com/jrblevin/markdown-mode
-[submodule "emacs.d/lib/hl-todo"]
-	path = emacs.d/lib/hl-todo
-	url = https://github.com/tarsius/hl-todo
-[submodule "emacs.d/lib/pcre2el"]
-	path = emacs.d/lib/pcre2el
-	url = https://github.com/joddie/pcre2el
-[submodule "emacs.d/lib/magit-todos"]
-	path = emacs.d/lib/magit-todos
-	url = https://github.com/alphapapa/magit-todos
 [submodule "emacs.d/lib/emacs-htmlize"]
 	path = emacs.d/lib/htmlize
 	url = https://github.com/hniksic/emacs-htmlize
