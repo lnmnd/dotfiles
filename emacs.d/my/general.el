@@ -55,6 +55,14 @@
 (defun enable-show-trailing-whitespace ()
   (setq show-trailing-whitespace t))
 
+(setq mode-line-format2 nil)
+
+(defun toggle-mode-line ()
+  (interactive)
+  (let ((tmp mode-line-format))
+    (setq-local mode-line-format mode-line-format2)
+    (setq-local mode-line-format2 tmp)))
+
 (use-package diminish)
 
 (use-package
