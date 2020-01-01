@@ -148,3 +148,9 @@
 [submodule "emacs.d/lib/elfeed"]
 	path = emacs.d/lib/elfeed
 	url = https://github.com/skeeto/elfeed
+[submodule "emacs.d/lib/restclient"]
+	path = emacs.d/lib/restclient
+	url = https://github.com/pashky/restclient.el
+[submodule "emacs.d/lib/ob-restclient.el"]
+	path = emacs.d/lib/ob-restclient
+	url = https://github.com/alf/ob-restclient.el

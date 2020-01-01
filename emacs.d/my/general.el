@@ -198,4 +198,10 @@
 (use-package
   elfeed)
 
+(use-package
+  restclient
+  :mode "\\.http\\'"
+  :bind
+  ("C-M-x" . restclient-http-send-current-stay-in-window))
+
 (provide 'general)
