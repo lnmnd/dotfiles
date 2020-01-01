@@ -46,6 +46,8 @@
 
 (setq-default fill-column 80)
 
+(setq url-privacy-level 'paranoid)
+
 (global-hi-lock-mode 1)
 
 (defun kill-all-buffers ()
