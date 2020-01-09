@@ -30,7 +30,7 @@
   (load custom-file)
 
   (require 'general)
-  (require 'setup-org)
+  (eval-after-load 'org '(require 'setup-org))
   (require 'setup-lisp)
   (eval-after-load 'python '(require 'setup-python))
   (require 'setup-web))
