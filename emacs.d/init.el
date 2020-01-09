@@ -32,7 +32,7 @@
   (require 'general)
   (require 'setup-org)
   (require 'setup-lisp)
-  (require 'setup-python)
+  (eval-after-load 'python '(require 'setup-python))
   (require 'setup-web))
 
 (setq-default gc-cons-threshold 800000)
