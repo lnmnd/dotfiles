@@ -3,10 +3,13 @@
 ;; Install for plots: gnuplot and ImageMagick
 
 (require 'dash)
+(require 'dumb-jump)
 (require 'f)
+(require 'flycheck)
 (require 'popup)
 (require 'pyvenv)
 (require 's)
+(require 'yasnippet)
 
 (setq pyenv-activated nil)
 (setq python-format-code-activated t)
@@ -188,7 +191,7 @@
 (add-to-list 'flycheck-checkers 'python-mypy t)
 (flycheck-add-next-checker 'python-flake8 'python-mypy t)
 
-(defun setup-python--hook ()
+(defun setup-python-hook ()
   (setq python-shell-interpreter "python")
   (setq python-shell-interpreter-args "")
   (setq python-shell-completion-native-disabled-interpreters '("python"))
@@ -197,6 +200,9 @@
 
   (semantic-mode)
   (flycheck-mode)
+  (yas-reload-all)
+  (yas-minor-mode)
+  (enable-show-trailing-whitespace)
 
   (add-hook 'find-file-hook 'activate-pyenv)
   (add-hook 'after-save-hook #'python-format-code)
@@ -216,7 +222,6 @@
   (define-key python-mode-map (kbd "C-u C-c C-d") #'python-doc-print)
   (define-key python-mode-map (kbd "C-x C-e") #'python-eval-last-statement))
 
-(add-hook 'python-mode-hook #'setup-python--hook)
-(add-hook 'python-mode-hook #'enable-show-trailing-whitespace)
+(add-hook 'python-mode-hook #'setup-python-hook)
 
 (provide 'setup-python)

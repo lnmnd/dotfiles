@@ -3,6 +3,8 @@
 ;; markdown export
 (require 'ox-md)
 
+(require 'org-pdftools)
+
 (setq org-todo-keywords '((sequence "TODO" "STARTED" "|" "DONE" "CANCELED" "POSTPONED")))
 (setq org-agenda-files '("~/org/"))
 ;; no postample (footer)
@@ -22,7 +24,9 @@
    (plantuml . t)
    (restclient . t)))
 
-(add-hook 'org-mode-hook #'enable-show-trailing-whitespace)
-(add-hook 'org-mode-hook #'auto-fill-mode)
+(defun setup-org-mode-hook ()
+  (enable-show-trailing-whitespace)
+  (auto-fill-mode))
+(add-hook 'org-mode-hook #'setup-org-mode-hook)
 
 (provide 'setup-org)

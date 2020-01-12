@@ -7,9 +7,6 @@
 [submodule "emacs.d/lib/company-mode"]
 	path = emacs.d/lib/company-mode
 	url = https://github.com/company-mode/company-mode
-[submodule "emacs.d/lib/use-package"]
-	path = emacs.d/lib/use-package
-	url = https://github.com/jwiegley/use-package/
 [submodule "emacs.d/lib/dash"]
 	path = emacs.d/lib/dash
 	url = https://github.com/magnars/dash.el

@@ -12,8 +12,6 @@
 ;; Which means on every .el and .elc file loaded during start up, it has to runs those regexps against the filename.
 (let ((file-name-handler-alist nil))
 
-  ;; (package-initialize)
-
   (dolist (l (directory-files "~/.emacs.d/lib" nil "^[^\.]"))
     (add-to-list 'load-path (concat "~/.emacs.d/lib/" l)))
 
@@ -23,17 +21,11 @@
 
   (add-to-list 'load-path "~/.emacs.d/my/")
 
-  (eval-when-compile (require 'use-package))
-
   ;; Keep custom settings in separate file
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
   (load custom-file)
 
-  (require 'general)
-  (eval-after-load 'org '(require 'setup-org))
-  (require 'setup-lisp)
-  (eval-after-load 'python '(require 'setup-python))
-  (require 'setup-web))
+  (load "main"))
 
 (setq-default gc-cons-threshold 800000)
 
