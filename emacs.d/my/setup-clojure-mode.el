@@ -61,6 +61,15 @@
 	   (string (concat "(require '[clojure.pprint :refer [pprint]]) (pprint " sexp ")")))
       (comint-simple-send "*inf-clojure*" string))))
 
+(defun clj-datawalk ()
+  (interactive)
+  (when (get-buffer "*inf-clojure*")
+    (let* ((start (save-excursion (backward-sexp) (point)))
+	   (end (point))
+	   (sexp (buffer-substring-no-properties start end))
+	   (string (concat "(require '[datawalk.core :refer [look-at w]]) (look-at " sexp ")")))
+      (comint-simple-send "*inf-clojure*" string))))
+
 (require 'inf-clojure)
 (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
 (setup-company)

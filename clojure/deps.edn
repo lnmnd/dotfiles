@@ -31,6 +31,10 @@
     org.openjfx/javafx-web      {:mvn/version "11.0.1"}}
    :main-opts ["-m" "cognitect.rebl"]}
 
+  :datawalk
+  {:extra-deps
+   {datawalk {:mvn/version "0.1.12"}}}
+
   :uberjar
   {:extra-deps
    {luchiniatwork/cambada {:mvn/version "1.0.0"}}
