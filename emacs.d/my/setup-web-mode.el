@@ -8,8 +8,8 @@
 (setq web-mode-markup-indent-offset 2)
 ;; Disable auto-pairing
 (setq web-mode-enable-auto-pairing nil)
-(add-hook 'web-mode-hook #'enable-show-trailing-whitespace)
 (defun setup-web-mode-hook ()
+  (enable-show-trailing-whitespace)
   (yas-reload-all)
   (yas-minor-mode))
 (add-hook 'web-mode-hook #'setup-web-mode-hook)
