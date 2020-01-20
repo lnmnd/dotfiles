@@ -3,7 +3,13 @@
 ;; My init
 
 ;;; Code:
-(setq-default gc-cons-threshold most-positive-fixnum)
+(setq gc-cons-threshold most-positive-fixnum)
+(setq gc-cons-percentage 0.6)
+
+(add-hook 'emacs-startup-hook
+	  (lambda ()
+	    (setq gc-cons-threshold 16777216)
+	    (setq gc-cons-percentage 0.1)))
 
 ;; Normally file-name-handler-alist is set to
 ;; (("\\`/[^/]*\\'" . tramp-completion-file-name-handler)
@@ -26,8 +32,6 @@
   (load custom-file)
 
   (load "main"))
-
-(setq-default gc-cons-threshold 800000)
 
 (provide 'init)
 ;;; init.el ends here
