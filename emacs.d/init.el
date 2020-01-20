@@ -6,32 +6,34 @@
 (setq gc-cons-threshold most-positive-fixnum)
 (setq gc-cons-percentage 0.6)
 
-(add-hook 'emacs-startup-hook
-	  (lambda ()
-	    (setq gc-cons-threshold 16777216)
-	    (setq gc-cons-percentage 0.1)))
-
 ;; Normally file-name-handler-alist is set to
 ;; (("\\`/[^/]*\\'" . tramp-completion-file-name-handler)
 ;; ("\\`/[^/|:][^/|]*:" . tramp-file-name-handler)
 ;; ("\\`/:" . file-name-non-special))
 ;; Which means on every .el and .elc file loaded during start up, it has to runs those regexps against the filename.
-(let ((file-name-handler-alist nil))
+(setq file-name-handler-alist-orig file-name-handler-alist)
+(setq file-name-handler-alist nil)
 
-  (dolist (l (directory-files "~/.emacs.d/lib" nil "^[^\.]"))
-    (add-to-list 'load-path (concat "~/.emacs.d/lib/" l)))
+(add-hook 'emacs-startup-hook
+	  (lambda ()
+	    (setq gc-cons-threshold 16777216)
+	    (setq gc-cons-percentage 0.1)
+	    (setq file-name-handler-alist file-name-handler-alist-orig)))
 
-  (dolist (l (directory-files "~/.emacs.d/themes" nil "^[^\.]"))
-    (add-to-list 'load-path (concat "~/.emacs.d/themes/" l))
-    (add-to-list 'custom-theme-load-path (concat "~/.emacs.d/themes/" l)))
+(dolist (l (directory-files "~/.emacs.d/lib" nil "^[^\.]"))
+  (add-to-list 'load-path (concat "~/.emacs.d/lib/" l)))
 
-  (add-to-list 'load-path "~/.emacs.d/my/")
+(dolist (l (directory-files "~/.emacs.d/themes" nil "^[^\.]"))
+  (add-to-list 'load-path (concat "~/.emacs.d/themes/" l))
+  (add-to-list 'custom-theme-load-path (concat "~/.emacs.d/themes/" l)))
 
-  ;; Keep custom settings in separate file
-  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-  (load custom-file)
+(add-to-list 'load-path "~/.emacs.d/my/")
 
-  (load "main"))
+;; Keep custom settings in separate file
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file)
+
+(load "main")
 
 (provide 'init)
 ;;; init.el ends here
