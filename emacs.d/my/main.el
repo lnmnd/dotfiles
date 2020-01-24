@@ -123,6 +123,7 @@
 
 (setq dumb-jump-selector 'ivy)
 (setq dumb-jump-prefer-searcher 'ag)
+(setq dumb-jump-confirm-jump-to-modified-file nil)
 
 (autoload 'markdown-mode "markdown-mode")
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
