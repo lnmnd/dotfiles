@@ -18,11 +18,8 @@
 (setq org-confirm-babel-evaluate nil)
 (setq org-plantuml-jar-path
       (expand-file-name "~/local/opt/plantuml.jar"))
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '(;; other Babel languages
-   (plantuml . t)
-   (restclient . t)))
+(autoload 'org-babel-execute:plantuml "ob-plantuml")
+(autoload 'org-babel-execute:restclient "ob-restclient")
 
 (defun setup-org-mode-hook ()
   (enable-show-trailing-whitespace)
