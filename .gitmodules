@@ -151,3 +151,6 @@
 [submodule "emacs.d/lib/ob-restclient.el"]
 	path = emacs.d/lib/ob-restclient
 	url = https://github.com/alf/ob-restclient.el
+[submodule "emacs.d/lib/esup"]
+	path = emacs.d/lib/esup
+	url = https://github.com/jschaf/esup

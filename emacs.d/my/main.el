@@ -61,6 +61,8 @@
     (setq-local mode-line-format mode-line-format2)
     (setq-local mode-line-format2 tmp)))
 
+(autoload 'esup "esup" "" t)
+
 (require 'diminish)
 
 (require 'undo-tree)
