@@ -43,6 +43,7 @@
   (skewer-mode)
   (yas-reload-all)
   (yas-minor-mode)
+  (company-mode-on)
   (add-hook 'after-save-hook #'my-js-format-code nil t))
 (add-hook 'js2-mode-hook #'setup-js2-mode-hook)
 

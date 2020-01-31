@@ -199,6 +199,7 @@
   (setq flycheck-flake8-maximum-complexity 10)
 
   (semantic-mode)
+  (company-mode-on)
   (flycheck-mode)
   (yas-reload-all)
   (yas-minor-mode)

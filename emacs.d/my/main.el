@@ -71,7 +71,6 @@
 
 (require 'company)
 (diminish 'company-mode)
-(global-company-mode)
 ;; auto-completion starts from one character
 (setq company-minimum-prefix-length 1)
 ;; keys
@@ -189,6 +188,7 @@
     (popup-tip result :point (point-at-bol))))
 
 (defun setup-emacs-lisp-mode-hook ()
+  (company-mode-on)
   (define-key emacs-lisp-mode-map "\C-c\C-h" #'counsel-semantic-or-imenu)
   (define-key emacs-lisp-mode-map "\C-c\C-i" #'xref-find-definitions)
   (define-key emacs-lisp-mode-map "\C-c\C-k" #'eval-buffer)

@@ -6,6 +6,7 @@
 (define-key css-mode-map (kbd "C-c C-h") 'counsel-css)
 (defun setup-css-mode-hook ()
   (enable-show-trailing-whitespace)
+  (company-mode-on)
   (skewer-css-mode))
 (add-hook 'css-mode-hook #'setup-css-mode-hook)
 

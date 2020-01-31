@@ -63,6 +63,7 @@
 
 (require 'inf-clojure)
 (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
+(company-mode-on)
 (define-key inf-clojure-minor-mode-map (kbd "C-c M-c") #'clj-connect)
 (define-key inf-clojure-minor-mode-map (kbd "C-c C-k") #'inf-clojure-eval-buffer)
 (define-key inf-clojure-minor-mode-map (kbd "C-c C-d") #'inf-clojure-show-var-documentation)
