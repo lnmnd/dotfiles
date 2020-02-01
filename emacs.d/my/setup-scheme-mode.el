@@ -66,6 +66,7 @@
 (define-key scheme-mode-map (kbd "C-c C-k") #'scheme-send-buffer)
 (define-key scheme-mode-map (kbd "C-c C-p") #'scheme-send-print-last-sexp)
 (define-key scheme-mode-map (kbd "C-c C-r")#'scheme-send-region)
+(define-key scheme-mode-map (kbd "C-c C-t") #'recompile)
 (define-key scheme-mode-map (kbd "C-c C-z") #'run-chicken)
 (define-key scheme-mode-map (kbd "C-x e") #'scheme-send-last-sexp)
 
