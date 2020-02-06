@@ -71,6 +71,6 @@
 (define-key scheme-mode-map (kbd "C-x e") #'scheme-send-last-sexp)
 
 (activate-chickenv)
-(company-mode-on)
+(setup-company)
 
 (provide 'setup-scheme-mode)

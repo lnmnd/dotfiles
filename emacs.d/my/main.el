@@ -71,15 +71,17 @@
 (diminish 'undo-tree-mode)
 (global-undo-tree-mode)
 
-(require 'company)
-(diminish 'company-mode)
-;; auto-completion starts from one character
-(setq company-minimum-prefix-length 1)
-;; keys
-(define-key company-active-map (kbd "M-n") nil)
-(define-key company-active-map (kbd "M-p") nil)
-(define-key company-active-map (kbd "C-n") #'company-select-next)
-(define-key company-active-map (kbd "C-p") #'company-select-previous)
+(defun setup-company ()
+  (require 'company)
+  (diminish 'company-mode)
+  ;; auto-completion starts from one character
+  (setq company-minimum-prefix-length 1)
+  ;; keys
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous)
+  (company-mode-on))
 
 (require 'ivy)
 (diminish 'ivy-mode)
@@ -190,7 +192,7 @@
     (popup-tip result :point (point-at-bol))))
 
 (defun setup-emacs-lisp-mode-hook ()
-  (company-mode-on)
+  (setup-company)
   (define-key emacs-lisp-mode-map "\C-c\C-h" #'counsel-semantic-or-imenu)
   (define-key emacs-lisp-mode-map "\C-c\C-i" #'xref-find-definitions)
   (define-key emacs-lisp-mode-map "\C-c\C-k" #'eval-buffer)
