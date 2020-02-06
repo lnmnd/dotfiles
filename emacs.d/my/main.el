@@ -74,8 +74,6 @@
 (defun setup-company ()
   (require 'company)
   (diminish 'company-mode)
-  ;; auto-completion starts from one character
-  (setq company-minimum-prefix-length 1)
   ;; keys
   (define-key company-active-map (kbd "M-n") nil)
   (define-key company-active-map (kbd "M-p") nil)
