@@ -61,6 +61,8 @@
     (setq-local mode-line-format mode-line-format2)
     (setq-local mode-line-format2 tmp)))
 
+(setq initial-major-mode #'fundamental-mode)
+
 (autoload 'esup "esup" "" t)
 
 (require 'diminish)
