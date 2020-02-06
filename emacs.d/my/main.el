@@ -162,17 +162,15 @@
   (define-key restclient-mode-map (kbd "C-M-x") #'restclient-http-send-current-stay-in-window)  )
 (add-hook 'restclient-mode-hook #'setup-restclient-mode-hook)
 
-(require 'highlight-parentheses)
-(diminish 'highlight-parentheses-mode)
 (dolist (x '(emacs-lisp-mode-hook
 	     lisp-mode-hook
 	     scheme-mode-hook
 	     clojure-mode-hook))
   (add-hook x (lambda ()
+		(require 'highlight-parentheses)
+		(diminish 'highlight-parentheses-mode)
 		(highlight-parentheses-mode t))))
 
-(require 'paredit)
-(diminish 'paredit-mode)
 (dolist (x '(emacs-lisp-mode-hook
 	     eval-expression-minibuffer-setup-hook
 	     ielm-mode-hook
@@ -180,8 +178,12 @@
 	     lisp-interaction-mode-hook
 	     scheme-mode-hook
 	     clojure-mode-hook))
-  (add-hook x #'enable-paredit-mode)
-  (add-hook x #'enable-show-trailing-whitespace))
+  (add-hook x
+	    (lambda ()
+	      (require 'paredit)
+	      (diminish 'paredit-mode)
+	      (enable-paredit-mode)
+	      (enable-show-trailing-whitespace))))
 
 (defun my-eval-last-sexp ()
   (interactive)
