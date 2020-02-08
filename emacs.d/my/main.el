@@ -91,22 +91,8 @@
 (counsel-mode 1)
 
 (define-key global-map (kbd "C-c C-g") #'swiper)
-
-(defun setup-projectile ()
-  (require 'projectile)
-  (diminish 'projectile-mode)
-  (setq projectile-enable-caching t)
-  (setq projectile-completion-system 'ivy)
-  (projectile-mode +1)
-  (define-key projectile-mode-map (kbd "C-c p") #'projectile-command-map)
-
-  (require 'counsel-projectile)
-  (counsel-projectile-mode 1))
-(eval-after-load 'projectile #'setup-projectile)
-(autoload 'projectile-switch-project "projectile")
-(define-key global-map (kbd "C-c p p") #'projectile-switch-project)
-(autoload 'projectile-find-file "projectile")
-(define-key global-map (kbd "C-c p f") #'projectile-find-file)
+(define-key global-map (kbd "C-c p f") #'counsel-git)
+(define-key global-map (kbd "C-c p s s") #'counsel-git-grep)
 
 (add-to-list 'load-path "~/.emacs.d/lib/magit/lisp")
 (autoload 'magit-status "magit")

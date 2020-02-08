@@ -13,9 +13,6 @@
 [submodule "emacs.d/lib/pkg-info"]
 	path = emacs.d/lib/pkg-info
 	url = https://github.com/lunaryorn/pkg-info.el
-[submodule "emacs.d/lib/projectile"]
-	path = emacs.d/lib/projectile
-	url = https://github.com/bbatsov/projectile
 [submodule "emacs.d/lib/flycheck"]
 	path = emacs.d/lib/flycheck
 	url = https://github.com/flycheck/flycheck
@@ -61,9 +58,6 @@
 [submodule "emacs.d/lib/swiper"]
 	path = emacs.d/lib/swiper
 	url = https://github.com/abo-abo/swiper
-[submodule "emacs.d/lib/counsel-projectile"]
-	path = emacs.d/lib/counsel-projectile
-	url = https://github.com/ericdanan/counsel-projectile
 [submodule "emacs.d/lib/php-mode"]
 	path = emacs.d/lib/php-mode
 	url = https://github.com/emacs-php/php-mode
